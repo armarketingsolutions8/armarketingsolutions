@@ -3,394 +3,534 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Marketing Solutions - Digital Menu</title>
+    <title>AR Marketing Solutions | Digital Marketing Agency</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
         
-        /* Smooth Scrolling */
-        html { scroll-behavior: smooth; }
-
-        .package-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid transparent; }
-        .package-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
-        .selected-package { border-color: #2563eb; background-color: #eff6ff; }
-        
-        .design-card { transition: all 0.3s ease; border: 2px solid transparent; }
-        .design-card:hover { transform: translateY(-5px); }
-        .selected-design { border-color: #ec4899; background-color: #fdf2f8; }
-        
-        /* Floating Animation */
-        .float-btn {
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #ffffff;
         }
 
-        .brand-logo-initial {
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #2dd4bf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #f1f5f9;
+            background: #ffffff;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
+            border-color: #3b82f6;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #f43f5e;
             color: white;
-            font-weight: 900;
-            font-size: 1.25rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
-            letter-spacing: -1px;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 99px;
+            font-weight: 800;
         }
+
+        .wa-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            border: 1px solid #dcfce7;
+        }
+
+        .design-card {
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+
+        /* Mockup Specific Styles */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .phone-float { animation: float 6s ease-in-out infinite; }
+
+        .booking-step { display: none; }
+        .booking-step.active { display: block; animation: slideIn 0.3s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
     </style>
 </head>
-<body class="pb-24">
+<body class="text-slate-800">
 
-    <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/60169012445?text=Hello%20AR%20Marketing!%20I%20would%20like%20to%20get%20a%20Free%20Consultation%20regarding%20my%20business." 
-       target="_blank"
-       class="fixed bottom-6 right-6 z-[100] bg-green-500 text-white p-4 rounded-full shadow-2xl float-btn flex items-center justify-center">
-        <i class="fab fa-whatsapp text-3xl"></i>
-    </a>
-
-    <!-- STICKY HEADER -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white/90 backdrop-blur-xl z-50 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <!-- INITIAL AR LOGO -->
-                <div class="brand-logo-initial">AR</div>
-                <div class="flex flex-col">
-                    <span class="text-base font-black text-gray-900 leading-none">MARKETING</span>
-                    <span class="text-[9px] font-bold text-blue-600 tracking-[0.2em] uppercase mt-0.5">Solutions</span>
-                </div>
+                <div class="w-11 h-11 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-200">AR</div>
+                <span class="font-extrabold text-xl tracking-tight uppercase text-slate-900">AR Marketing</span>
             </div>
-            <div class="hidden md:flex gap-6 text-xs font-bold uppercase tracking-widest text-gray-500">
-                <a href="#advertising-section" class="hover:text-blue-600 transition">Ads</a>
-                <a href="#design-section" class="hover:text-pink-600 transition">Design</a>
-                <a href="#process-section" class="hover:text-blue-600 transition">Process</a>
+            <div class="hidden lg:flex gap-6 text-[10px] font-extrabold uppercase tracking-[0.2em] text-slate-500">
+                <a href="#ads" class="hover:text-blue-600 transition-colors">Ads</a>
+                <a href="#tiktok" class="hover:text-blue-600 transition-colors">TikTok</a>
+                <a href="#web" class="hover:text-blue-600 transition-colors">Web</a>
+                <a href="#wa" class="hover:text-blue-600 transition-colors">WhatsApp</a>
+                <a href="#design" class="hover:text-blue-600 transition-colors">Design</a>
+            </div>
+            <div class="relative">
+                <button onclick="toggleCart()" class="bg-slate-100 text-slate-800 p-3 rounded-2xl hover:bg-blue-600 hover:text-white transition-all">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cart-count" class="cart-badge">0</span>
+                </button>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <main class="max-w-4xl mx-auto px-4 py-8">
-        
-        <!-- HERO SECTION -->
-        <div class="text-center mb-16 pt-8">
-            <div class="inline-block px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-[10px] font-bold uppercase tracking-widest mb-6">
-                Official Digital Catalog
-            </div>
-            <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 uppercase leading-tight tracking-tight">
-                Scale Your Business Sales <br class="hidden md:block"> With Expert Strategy
-            </h2>
-            <p class="text-gray-600 mb-10 max-w-2xl mx-auto text-lg leading-relaxed">
-                Digital advertising specialists helping you skyrocket leads and sales through data-driven marketing frameworks.
+    <!-- Hero Section -->
+    <section class="py-20 px-4 text-center bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">No.1 Digital Agency for Entrepreneurs</div>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-8 leading-tight tracking-tighter text-slate-900">
+                Turn Traffic Into <span class="gradient-text">Skyrocketing Sales</span>
+            </h1>
+            <p class="text-slate-500 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+                Data-driven marketing strategies specifically designed to help local businesses dominate the digital market.
             </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#advertising-section" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-2xl font-bold shadow-lg shadow-blue-200 transition-all hover:-translate-y-1">
-                    Explore Ad Packages
-                </a>
-                <button onclick="freeConsultation()" class="w-full sm:w-auto bg-white border-2 border-green-500 text-green-600 hover:bg-green-50 px-10 py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all hover:-translate-y-1">
-                    <i class="fab fa-whatsapp text-xl"></i>
-                    Free Consultation
-                </button>
+            <div class="flex flex-wrap justify-center gap-5">
+                <a href="#ads" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-bold uppercase tracking-widest text-sm shadow-xl shadow-blue-200 hover:bg-blue-700 hover:-translate-y-1 transition-all">View Packages</a>
+                <a href="https://wa.me/60169012445" class="bg-white border border-slate-200 px-10 py-5 rounded-2xl font-bold uppercase tracking-widest text-sm text-slate-700 hover:bg-slate-50 transition-all">WhatsApp Us</a>
             </div>
         </div>
+    </section>
 
-        <!-- SECTION 1: ADVERTISING PACKAGES -->
-        <div id="advertising-section" class="scroll-mt-24 text-center mb-12">
-            <h2 class="text-3xl font-extrabold text-gray-900 mb-3 uppercase tracking-tighter">Digital Advertising Packages</h2>
-            <div class="w-24 h-1.5 bg-blue-600 mx-auto rounded-full mb-2"></div>
-            <p class="text-gray-500 text-sm">Powerful solutions to grow your business presence</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
-            
-            <!-- BASIC PACKAGE -->
-            <div id="pkg-basic" onclick="selectPackage('Ad', 'Basic', 300)" class="package-card bg-white rounded-3xl shadow-xl p-8 cursor-pointer relative overflow-hidden flex flex-col h-full border border-gray-100">
-                <div class="bg-blue-600 text-white text-[10px] font-bold px-3 py-1 absolute top-4 right-[-35px] rotate-45 w-36 text-center shadow-sm">BEST STARTER</div>
-                <div class="mb-6 text-blue-600 bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center shadow-inner">
-                    <i class="fas fa-rocket text-2xl"></i>
+    <!-- ADS SECTION -->
+    <section id="ads" class="py-24 border-t border-slate-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-blue-600 font-black uppercase tracking-[0.4em] text-xs mb-4 block">Paid Marketing</span>
+                <h2 class="text-4xl font-black mb-6 tracking-tighter text-slate-900 uppercase">Advertising Packages (ADS)</h2>
+                <div class="max-w-2xl mx-auto p-4 bg-amber-50 border-l-4 border-amber-400 rounded-r-xl inline-block text-left">
+                    <p class="text-amber-800 text-xs font-medium">
+                        <i class="fas fa-info-circle mr-2"></i> Note: Prices below are for Management Fees only.
+                    </p>
                 </div>
-                <h3 class="text-2xl font-bold mb-1 text-gray-800">BASIC</h3>
-                <p class="text-[10px] text-gray-400 mb-6 font-bold uppercase tracking-widest">Starter Testing Phase</p>
-                <div class="mb-8">
-                    <span class="text-sm text-gray-400 line-through">RM600</span>
-                    <div class="flex items-baseline gap-1">
-                        <span class="text-4xl font-black text-blue-600">RM300</span>
-                        <span class="text-xs text-gray-400 font-medium">/promo</span>
-                    </div>
-                </div>
-                <ul class="text-sm space-y-3 text-gray-600 mb-10 flex-grow">
-                    <li><i class="fas fa-check-circle text-blue-500 mr-2"></i>Campaign setup</li>
-                    <li><i class="fas fa-check-circle text-blue-500 mr-2"></i>Audience targeting</li>
-                    <li><i class="fas fa-check-circle text-blue-500 mr-2"></i>Ad copywriting</li>
-                    <li><i class="fas fa-check-circle text-blue-500 mr-2"></i>Creative guidance</li>
-                    <li><i class="fas fa-check-circle text-blue-500 mr-2"></i>WhatsApp lead setup</li>
-                    <li><i class="fas fa-check-circle text-blue-500 mr-2"></i>7-10 days optimization</li>
-                </ul>
-                <div class="select-indicator text-center py-3 rounded-xl bg-gray-100 text-gray-500 font-bold text-sm tracking-wide transition-all uppercase">Select Package</div>
             </div>
-
-            <!-- STANDARD PACKAGE -->
-            <div id="pkg-standard" onclick="selectPackage('Ad', 'Standard', 800)" class="package-card bg-white rounded-3xl shadow-xl p-8 cursor-pointer relative overflow-hidden flex flex-col h-full border-2 border-green-100 shadow-green-100/50">
-                <div class="bg-green-600 text-white text-[10px] font-bold px-3 py-1 absolute top-4 right-[-35px] rotate-45 w-36 text-center shadow-sm">MOST POPULAR</div>
-                <div class="mb-6 text-green-600 bg-green-50 w-14 h-14 rounded-2xl flex items-center justify-center shadow-inner">
-                    <i class="fas fa-chart-line text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-1 text-gray-800">STANDARD</h3>
-                <p class="text-[10px] text-gray-400 mb-6 font-bold uppercase tracking-widest">Growth Focus</p>
-                <div class="mb-8">
-                    <span class="text-sm text-gray-400 line-through">RM1,000</span>
-                    <div class="flex items-baseline gap-1">
-                        <span class="text-4xl font-black text-green-600">RM800</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Basic Ads -->
+                <div class="service-card p-10 rounded-[3rem] flex flex-col">
+                    <h3 class="text-lg font-black text-slate-900 mb-4 uppercase">A. BASIC Package</h3>
+                    <div class="flex items-baseline gap-2 mb-6">
+                        <span class="text-4xl font-black text-slate-900 tracking-tighter">RM300</span>
+                        <span class="text-slate-400 text-[10px] font-bold uppercase">/Month</span>
                     </div>
+                    <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-500 font-medium">
+                        <li><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> FB/IG Campaign Setup</li>
+                        <li><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> Target Audience Research</li>
+                        <li><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> Ad Copywriting</li>
+                    </ul>
+                    <button onclick="addToCart('Ads BASIC', 300)" class="w-full py-4 border-2 border-slate-900 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-slate-900 hover:text-white transition-all">Select Package</button>
                 </div>
-                <ul class="text-sm space-y-3 text-gray-600 mb-10 flex-grow">
-                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>All Basic features</li>
-                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>30 days optimization</li>
-                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>A/B testing ads</li>
-                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Conversion tracking</li>
-                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Awareness to lead funnel</li>
-                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Message optimization</li>
-                </ul>
-                <div class="select-indicator text-center py-3 rounded-xl bg-green-600 text-white font-bold text-sm tracking-wide transition-all uppercase">Get Started</div>
-            </div>
-
-            <!-- PREMIUM PACKAGE -->
-            <div id="pkg-premium" onclick="selectPackage('Ad', 'Premium', 1600)" class="package-card bg-white rounded-3xl shadow-xl p-8 cursor-pointer relative overflow-hidden flex flex-col h-full border border-gray-100">
-                <div class="mb-6 text-orange-500 bg-orange-50 w-14 h-14 rounded-2xl flex items-center justify-center shadow-inner">
-                    <i class="fas fa-crown text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-1 text-gray-800">PREMIUM</h3>
-                <p class="text-[10px] text-gray-400 mb-6 font-bold uppercase tracking-widest">Scale Strategy</p>
-                <div class="mb-8">
-                    <span class="text-sm text-gray-400 opacity-0">-</span>
-                    <div class="flex items-baseline gap-1">
-                        <span class="text-4xl font-black text-orange-500">RM1,600</span>
+                <!-- Standard Ads -->
+                <div class="service-card p-10 rounded-[3rem] border-blue-600 relative bg-white shadow-xl">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 text-[8px] font-black uppercase rounded-full">Most Popular</div>
+                    <h3 class="text-lg font-black text-slate-900 mb-4 uppercase">B. STANDARD Package</h3>
+                    <div class="flex items-baseline gap-2 mb-6">
+                        <span class="text-4xl font-black text-blue-600 tracking-tighter">RM800</span>
+                        <span class="text-slate-400 text-[10px] font-bold uppercase">/Month</span>
                     </div>
+                    <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-600 font-semibold">
+                        <li><i class="fas fa-plus text-blue-600 mr-2 text-xs"></i> All Basic Features</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> 30-Day Management</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> WhatsApp Lead Automation</li>
+                    </ul>
+                    <button onclick="addToCart('Ads STANDARD', 800)" class="w-full py-4 bg-blue-600 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-blue-700 transition-all shadow-lg">Select Package</button>
                 </div>
-                <ul class="text-sm space-y-3 text-gray-600 mb-10 flex-grow">
-                    <li><i class="fas fa-check-circle text-orange-500 mr-2"></i>All Standard features</li>
-                    <li><i class="fas fa-check-circle text-orange-500 mr-2"></i>Full funnel management</li>
-                    <li><i class="fas fa-check-circle text-orange-500 mr-2"></i>Scale-up strategy</li>
-                    <li><i class="fas fa-check-circle text-orange-500 mr-2"></i>Weekly performance reports</li>
-                    <li><i class="fas fa-check-circle text-orange-500 mr-2"></i>Retargeting strategy</li>
-                </ul>
-                <div class="select-indicator text-center py-3 rounded-xl bg-gray-100 text-gray-500 font-bold text-sm tracking-wide transition-all uppercase">Go Premium</div>
-            </div>
-        </div>
-
-        <!-- SECTION 2: ARTWORK DESIGN -->
-        <div id="design-section" class="scroll-mt-24 text-center mb-12">
-            <div class="inline-block px-4 py-1 bg-pink-100 text-pink-600 rounded-full text-[10px] font-bold uppercase tracking-widest mb-3">Creative Studio</div>
-            <h2 class="text-3xl font-extrabold text-gray-900 mb-2 uppercase tracking-tighter">Artwork Design</h2>
-            <div class="w-20 h-1.5 bg-pink-500 mx-auto rounded-full"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-            <!-- DESIGN PACKAGE 1 -->
-            <div id="design-single" onclick="selectPackage('Design', 'Single Artwork', 80)" class="design-card bg-white rounded-3xl shadow-lg p-8 cursor-pointer border-2 border-dashed border-gray-200 hover:border-pink-300">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="text-pink-600 bg-pink-50 w-14 h-14 rounded-2xl flex items-center justify-center shadow-inner">
-                        <i class="fas fa-paint-brush text-2xl"></i>
+                <!-- Premium Ads -->
+                <div class="service-card p-10 rounded-[3rem] bg-slate-900 text-white border-none">
+                    <h3 class="text-lg font-black mb-4 uppercase">C. PREMIUM Package</h3>
+                    <div class="flex items-baseline gap-2 mb-6">
+                        <span class="text-4xl font-black tracking-tighter">RM1,600</span>
+                        <span class="text-slate-500 text-[10px] font-bold uppercase">/Month</span>
                     </div>
-                    <div class="text-3xl font-black text-gray-800">RM80</div>
-                </div>
-                <h3 class="text-xl font-bold mb-3 uppercase tracking-tight">Single Artwork</h3>
-                <ul class="text-sm space-y-3 text-gray-600 mb-8">
-                    <li><i class="fas fa-check text-pink-500 mr-2"></i>1 Custom High-End Design</li>
-                    <li><i class="fas fa-check text-pink-500 mr-2"></i>Print & Digital Ready (HD)</li>
-                    <li><i class="fas fa-check text-pink-500 mr-2"></i>2 Revisions included</li>
-                </ul>
-                <div class="select-indicator-design text-center py-3 rounded-xl bg-gray-100 text-gray-400 font-bold text-sm tracking-wide uppercase">Select This Design</div>
-            </div>
-
-            <!-- DESIGN PACKAGE 2 -->
-            <div id="design-combo" onclick="selectPackage('Design', 'Combo 5 Artworks', 350)" class="design-card bg-white rounded-3xl shadow-lg p-8 cursor-pointer border-2 border-dashed border-gray-200 hover:border-pink-300">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="text-pink-600 bg-pink-50 w-14 h-14 rounded-2xl flex items-center justify-center shadow-inner">
-                        <i class="fas fa-layer-group text-2xl"></i>
-                    </div>
-                    <div>
-                        <span class="text-xs text-gray-400 line-through block text-right">RM400</span>
-                        <div class="text-3xl font-black text-gray-800">RM350</div>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold mb-3 uppercase tracking-tight">Combo 5 Artworks</h3>
-                <ul class="text-sm space-y-3 text-gray-600 mb-8">
-                    <li><i class="fas fa-check text-pink-500 mr-2"></i>5 Custom Professional Designs</li>
-                    <li><i class="fas fa-check text-pink-500 mr-2"></i>Source Files (Canva/PSD)</li>
-                    <li><i class="fas fa-check text-pink-500 mr-2"></i>Unlimited revisions until happy</li>
-                </ul>
-                <div class="select-indicator-design text-center py-3 rounded-xl bg-gray-100 text-gray-400 font-bold text-sm tracking-wide uppercase">Select This Combo</div>
-            </div>
-        </div>
-
-        <!-- PROCESS SECTION -->
-        <div id="process-section" class="scroll-mt-24 mb-24 py-12 bg-gray-50 rounded-[3rem] px-8 border border-gray-100">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl font-black text-gray-900 uppercase">Our Working Process</h2>
-                <p class="text-gray-500 text-sm mt-2">How we help you achieve success</p>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="w-12 h-12 bg-white shadow-md rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 font-bold">01</div>
-                    <h4 class="font-bold text-gray-800 mb-1">ANALYSIS</h4>
-                    <p class="text-[10px] text-gray-500 px-4">We identify your business goals</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-12 h-12 bg-white shadow-md rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 font-bold">02</div>
-                    <h4 class="font-bold text-gray-800 mb-1">STRATEGY</h4>
-                    <p class="text-[10px] text-gray-500 px-4">Custom marketing plan for you</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-12 h-12 bg-white shadow-md rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 font-bold">03</div>
-                    <h4 class="font-bold text-gray-800 mb-1">EXECUTION</h4>
-                    <p class="text-[10px] text-gray-500 px-4">Ads live & performance tracking</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-12 h-12 bg-white shadow-md rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 font-bold">04</div>
-                    <h4 class="font-bold text-gray-800 mb-1">REPORT</h4>
-                    <p class="text-[10px] text-gray-500 px-4">Detailed reports on your ROI</p>
+                    <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-400">
+                        <li><i class="fas fa-star text-amber-400 mr-2 text-xs"></i> All Standard Features</li>
+                        <li><i class="fas fa-check text-blue-400 mr-2 text-xs"></i> Retargeting Strategy</li>
+                        <li><i class="fas fa-check text-blue-400 mr-2 text-xs"></i> Detailed Competitor Analysis</li>
+                    </ul>
+                    <button onclick="addToCart('Ads PREMIUM', 1600)" class="w-full py-4 bg-white text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-blue-50 transition-all">Select Package</button>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- ORDER FORM -->
-        <div id="form-container" class="bg-white rounded-[2.5rem] shadow-2xl p-10 max-w-lg mx-auto border border-gray-50 hidden scroll-mt-24 mb-20 relative">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white p-4 rounded-2xl shadow-xl">
-                <i class="fas fa-shopping-cart text-2xl"></i>
+    <!-- TIKTOK SECTION -->
+    <section id="tiktok" class="py-24 bg-slate-950 text-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <span class="text-blue-500 font-black uppercase tracking-[0.4em] text-xs mb-4 block">Viral Marketing</span>
+            <h2 class="text-4xl font-black mb-12 tracking-tighter uppercase">TikTok Content Creation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <!-- TikTok Basic -->
+                <div class="p-10 rounded-[3rem] bg-slate-900 border border-slate-800">
+                    <h3 class="font-black mb-4 text-slate-400 uppercase tracking-widest text-xs">Basic Content</h3>
+                    <div class="text-3xl font-black mb-8">RM1,200 <span class="text-[10px] text-slate-500">/Month</span></div>
+                    <ul class="space-y-4 mb-10 text-sm text-slate-400">
+                        <li><i class="fas fa-video mr-2 text-blue-500"></i> 8 Videos Monthly</li>
+                        <li><i class="fas fa-check mr-2 text-blue-500"></i> Trending Scripts & Songs</li>
+                    </ul>
+                    <button onclick="addToCart('TikTok BASIC', 1200)" class="w-full py-4 border border-slate-700 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-white hover:text-slate-900 transition-all">Select Package</button>
+                </div>
+                <!-- TikTok Pro -->
+                <div class="p-10 rounded-[3rem] bg-blue-600 border-none relative shadow-2xl">
+                    <div class="absolute -top-3 right-8 bg-slate-900 text-[8px] font-black uppercase px-3 py-1 rounded-full">Best Value</div>
+                    <h3 class="font-black mb-4 text-blue-100 uppercase tracking-widest text-xs">Pro Growth</h3>
+                    <div class="text-4xl font-black mb-8">RM2,200 <span class="text-[10px] text-blue-200">/Month</span></div>
+                    <ul class="space-y-4 mb-10 text-sm text-blue-50 font-medium">
+                        <li><i class="fas fa-video mr-2 text-white"></i> 15 Videos Monthly</li>
+                        <li><i class="fas fa-microphone mr-2 text-white"></i> Voiceovers & Transitions</li>
+                    </ul>
+                    <button onclick="addToCart('TikTok PRO', 2200)" class="w-full py-4 bg-white text-blue-600 font-black uppercase tracking-widest text-[10px] rounded-2xl shadow-xl">Select Package</button>
+                </div>
+                <!-- TikTok Viral -->
+                <div class="p-10 rounded-[3rem] bg-slate-900 border border-slate-800">
+                    <h3 class="font-black mb-4 text-slate-400 uppercase tracking-widest text-xs">Viral Domination</h3>
+                    <div class="text-3xl font-black mb-8">RM4,000 <span class="text-[10px] text-slate-500">/Month</span></div>
+                    <ul class="space-y-4 mb-10 text-sm text-slate-400">
+                        <li><i class="fas fa-video mr-2 text-blue-500"></i> 30 Videos (Daily Posting)</li>
+                        <li><i class="fas fa-users-cog mr-2 text-blue-500"></i> Full Account Management</li>
+                    </ul>
+                    <button onclick="addToCart('TikTok VIRAL', 4000)" class="w-full py-4 border border-slate-700 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-white hover:text-slate-900 transition-all">Select Package</button>
+                </div>
             </div>
-            <h3 class="text-2xl font-black text-center mb-2 mt-4 text-gray-800">Secure Your Spot</h3>
-            <p class="text-center text-xs text-gray-400 mb-10 uppercase tracking-[0.2em]">Fill in your details below</p>
-            
-            <div class="space-y-6">
-                <div>
-                    <label class="block text-[10px] font-black text-gray-400 mb-2 uppercase tracking-widest">Full Name</label>
-                    <input type="text" id="custName" class="w-full px-5 py-4 rounded-2xl border border-gray-100 bg-gray-50 focus:bg-white focus:ring-4 focus:ring-blue-100 focus:border-blue-400 focus:outline-none transition-all" placeholder="Enter your name">
-                </div>
-                <div>
-                    <label class="block text-[10px] font-black text-gray-400 mb-2 uppercase tracking-widest">Business / Brand Name</label>
-                    <input type="text" id="bizName" class="w-full px-5 py-4 rounded-2xl border border-gray-100 bg-gray-50 focus:bg-white focus:ring-4 focus:ring-blue-100 focus:border-blue-400 focus:outline-none transition-all" placeholder="Enter business name">
-                </div>
+        </div>
+    </section>
+
+    <!-- WEB & BOOKING WITH MOCKUP -->
+    <section id="web" class="py-24 bg-slate-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
                 
-                <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-6 rounded-3xl text-white shadow-lg shadow-blue-100">
-                    <p class="text-[10px] text-blue-200 uppercase font-black tracking-[0.2em] mb-2">Order Summary</p>
-                    <div class="flex justify-between items-center">
-                        <p id="display-pkg" class="text-xl font-black tracking-tight">-</p>
-                        <p id="display-price" class="text-2xl font-black">RM 0</p>
+                <!-- Left: Product Info -->
+                <div class="flex-1 w-full text-left">
+                    <span class="text-blue-600 font-black uppercase tracking-[0.4em] text-xs mb-4 block text-left">Web Solutions</span>
+                    <h2 class="text-4xl font-black mb-8 tracking-tighter uppercase text-slate-900 text-left">Web Booking System</h2>
+                    
+                    <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-100 mb-8">
+                        <div class="flex items-center justify-between mb-8">
+                            <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">One-Time Payment</p>
+                            <div class="text-4xl font-black text-slate-900">RM1,199</div>
+                        </div>
+                        <ul class="space-y-4 mb-10 text-sm text-slate-500 font-medium">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Schedule & Staff System (One-Screen)</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Automated WhatsApp Notifications</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Modern & Responsive Design</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Database Integration</li>
+                        </ul>
+                        <button onclick="addToCart('Web Booking System', 1199)" class="w-full py-5 bg-blue-600 text-white font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-blue-700 shadow-xl shadow-blue-100 transition-all">Get It Now</button>
+                    </div>
+                    <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest"><i class="fas fa-info-circle mr-2"></i> Perfect for Barbershops, Clinics, & Service Appointments.</p>
+                </div>
+
+                <!-- Right: Interactive Phone Mockup -->
+                <div class="flex-1 relative flex justify-center items-center">
+                    <!-- Glow effect behind phone -->
+                    <div class="absolute w-64 h-64 bg-blue-400/20 blur-[100px] rounded-full"></div>
+                    
+                    <div class="phone-float relative z-10">
+                        <!-- Phone Frame -->
+                        <div class="w-[280px] h-[580px] bg-slate-900 rounded-[3rem] p-3 shadow-2xl border-[8px] border-slate-800 relative flex flex-col">
+                            
+                            <!-- Phone Notch -->
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-slate-800 rounded-b-2xl z-20"></div>
+
+                            <!-- Screen Content -->
+                            <div class="bg-white flex-1 rounded-[2.2rem] overflow-hidden flex flex-col relative">
+                                <!-- App UI Header -->
+                                <div class="bg-white pt-12 pb-4 px-6 border-b border-slate-50 text-center">
+                                    <h4 class="font-black text-slate-900 text-[10px] uppercase tracking-tighter leading-none">The Classic Barber</h4>
+                                    <p id="mock-step-text" class="text-[7px] text-blue-500 font-bold uppercase mt-1 tracking-widest">Step 1: Select Service</p>
+                                </div>
+
+                                <!-- App UI Body -->
+                                <div class="flex-1 overflow-y-auto no-scrollbar p-5">
+                                    <!-- Step 1 View -->
+                                    <div id="mock-step-1" class="booking-step active space-y-3">
+                                        <div class="p-3 border-2 border-blue-600 bg-blue-50 rounded-xl">
+                                            <div class="flex justify-between font-black text-[9px]"><span>Signature Cut</span><span class="text-blue-600">RM35</span></div>
+                                            <p class="text-[7px] text-slate-400 mt-1">Haircut + Wash + Styling</p>
+                                        </div>
+                                        <div class="p-3 border border-slate-100 rounded-xl opacity-50">
+                                            <div class="flex justify-between font-black text-[9px]"><span>Beard Trim</span><span class="text-slate-400">RM15</span></div>
+                                        </div>
+                                        <div class="pt-2">
+                                            <p class="text-[7px] font-bold text-slate-400 uppercase mb-2">Pick a Date</p>
+                                            <div class="flex gap-2 overflow-x-hidden">
+                                                <div class="flex-1 p-2 bg-blue-600 text-white rounded-lg text-center"><p class="text-[8px] font-black leading-none">13</p><p class="text-[5px] uppercase">Tue</p></div>
+                                                <div class="flex-1 p-2 bg-slate-50 rounded-lg text-center"><p class="text-[8px] font-black leading-none text-slate-400">14</p><p class="text-[5px] uppercase text-slate-400">Wed</p></div>
+                                                <div class="flex-1 p-2 bg-slate-50 rounded-lg text-center"><p class="text-[8px] font-black leading-none text-slate-400">15</p><p class="text-[5px] uppercase text-slate-400">Thu</p></div>
+                                            </div>
+                                        </div>
+                                        <button onclick="nextMockStep(2)" class="w-full py-3.5 bg-slate-900 text-white font-black text-[8px] uppercase tracking-widest rounded-xl mt-4 active:scale-95 transition-transform">Confirm Slot</button>
+                                    </div>
+
+                                    <!-- Step 2 View (Success) -->
+                                    <div id="mock-step-2" class="booking-step text-center py-12">
+                                        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <h5 class="font-black text-slate-900 text-[11px] uppercase mb-1">Booking Successful!</h5>
+                                        <p class="text-[8px] text-slate-500 leading-tight px-4">A WhatsApp notification has been sent to the customer.</p>
+                                        <button onclick="nextMockStep(1)" class="mt-8 text-blue-600 font-black text-[8px] uppercase border-b border-blue-600 pb-1">Back to Start</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Decorative Elements -->
+                    <div class="absolute -right-6 top-1/4 bg-white p-4 rounded-2xl shadow-xl border border-slate-50 z-20 hidden md:flex items-center gap-3">
+                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <p class="text-[9px] font-black text-slate-900 uppercase">Auto Notification</p>
+                            <p class="text-[7px] text-slate-400">Sent to Customer</p>
+                        </div>
                     </div>
                 </div>
-                
-                <button onclick="sendToWhatsApp()" class="w-full bg-green-500 hover:bg-green-600 text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-xl shadow-green-100 mt-6 uppercase tracking-wider active:scale-95">
-                    <i class="fab fa-whatsapp text-2xl"></i>
-                    Confirm Order via WhatsApp
-                </button>
-                <p class="text-[9px] text-center text-gray-400 italic">No credit card required. Chat with us to finalize.</p>
+
             </div>
         </div>
+    </section>
 
-    </main>
-
-    <footer class="bg-gray-900 text-white py-16 text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="flex flex-col items-center mb-8">
-                <!-- INITIAL AR LOGO FOOTER -->
-                <div class="brand-logo-initial mb-3 scale-110">AR</div>
-                <div class="text-lg font-black tracking-tighter">AR MARKETING SOLUTIONS</div>
+    <!-- WHATSAPP BLAST SYSTEM -->
+    <section id="wa" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-green-600 font-black uppercase tracking-[0.4em] text-xs mb-4 block">Communication Tools</span>
+                <h2 class="text-4xl font-black mb-6 tracking-tighter text-slate-900 uppercase">WhatsApp Blast System</h2>
+                <p class="text-slate-500 font-bold text-sm">Note: Monthly Subscription basis.</p>
             </div>
             
-            <div class="flex justify-center gap-8 mb-8 text-xl text-gray-400">
-                <a href="#" class="hover:text-blue-400 transition"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="hover:text-pink-400 transition"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="hover:text-blue-300 transition"><i class="fab fa-linkedin"></i></a>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- WA Starter -->
+                <div class="wa-card p-10 rounded-[3rem] flex flex-col">
+                    <h3 class="text-lg font-black text-slate-900 mb-2">STARTER</h3>
+                    <div class="text-3xl font-black text-green-600 mb-6">RM49 <span class="text-[10px] text-slate-400">/Month</span></div>
+                    <ul class="space-y-4 mb-10 flex-grow text-sm text-slate-600">
+                        <li><i class="fas fa-paper-plane mr-2 text-green-500"></i> 2,000 Messages</li>
+                        <li><i class="fas fa-image mr-2 text-green-500"></i> Media Support (Image/Video)</li>
+                    </ul>
+                    <button onclick="addToCart('WA Blast Starter', 49)" class="w-full py-4 border-2 border-green-600 text-green-600 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-green-600 hover:text-white transition-all">Subscribe Starter</button>
+                </div>
+                <!-- WA Pro -->
+                <div class="wa-card p-10 rounded-[3rem] flex flex-col border-green-500 shadow-2xl relative bg-green-50/30">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-600 text-white px-4 py-1 text-[8px] font-black uppercase rounded-full">Recommended</div>
+                    <h3 class="text-lg font-black text-slate-900 mb-2">PRO</h3>
+                    <div class="text-4xl font-black text-green-600 mb-6">RM99 <span class="text-[10px] text-slate-400">/Month</span></div>
+                    <ul class="space-y-4 mb-10 flex-grow text-sm text-slate-700 font-semibold">
+                        <li><i class="fas fa-paper-plane mr-2 text-green-600"></i> 5,000 Messages</li>
+                        <li><i class="fas fa-shield-alt mr-2 text-green-600"></i> Anti-Ban System</li>
+                        <li><i class="fas fa-user-tag mr-2 text-green-600"></i> Personalized Messaging</li>
+                    </ul>
+                    <button onclick="addToCart('WA Blast PRO', 99)" class="w-full py-5 bg-green-600 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl shadow-xl shadow-green-100">Subscribe Pro</button>
+                </div>
+                <!-- WA Ultimate -->
+                <div class="wa-card p-10 rounded-[3rem] flex flex-col">
+                    <h3 class="text-lg font-black text-slate-900 mb-2">ULTIMATE</h3>
+                    <div class="text-3xl font-black text-green-600 mb-6">RM179 <span class="text-[10px] text-slate-400">/Month</span></div>
+                    <ul class="space-y-4 mb-10 flex-grow text-sm text-slate-600">
+                        <li><i class="fas fa-paper-plane mr-2 text-green-500"></i> 10,000 Messages</li>
+                        <li><i class="fas fa-database mr-2 text-green-500"></i> Database Support</li>
+                        <li><i class="fas fa-server mr-2 text-green-500"></i> Priority Server Access</li>
+                    </ul>
+                    <button onclick="addToCart('WA Blast Ultimate', 179)" class="w-full py-4 border-2 border-green-600 text-green-600 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-green-600 hover:text-white transition-all">Subscribe Ultimate</button>
+                </div>
             </div>
-            <p class="text-xs text-gray-500 uppercase tracking-widest">&copy; 2024 AR Marketing Solutions. Empowering Local Businesses.</p>
+
+            <!-- CHATBOT COMING SOON -->
+            <div class="mt-20 max-w-4xl mx-auto p-12 bg-slate-900 rounded-[4rem] text-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/20 blur-3xl"></div>
+                <span class="inline-block px-4 py-1 bg-blue-600 text-[8px] font-black uppercase tracking-widest text-white rounded-full mb-6">Coming Soon</span>
+                <h3 class="text-3xl font-black text-white mb-4 uppercase">WhatsApp AI Chatbot</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">Status: <span class="text-blue-400 font-bold">Automation Excellence</span></p>
+                <p class="text-slate-500 max-w-lg mx-auto text-sm italic">Intelligent AI response system to handle customer inquiries 24/7 with natural conversational flow.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESIGN SECTION -->
+    <section id="design" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-rose-600 font-black uppercase tracking-[0.4em] text-xs mb-4 block">Visual Identity</span>
+                <h2 class="text-4xl font-black mb-6 tracking-tighter text-slate-900 uppercase">Artwork & Design Solutions</h2>
+                <p class="text-slate-500 font-bold text-sm uppercase tracking-widest">Promo Bundle Packs (Savings)</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                <!-- Starter Promo -->
+                <div class="design-card p-10 rounded-[3rem] flex flex-col bg-white">
+                    <h3 class="font-black text-slate-900 mb-2 uppercase">Starter Promo</h3>
+                    <div class="text-3xl font-black text-rose-600 mb-6">RM199</div>
+                    <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-500">
+                        <li><i class="fas fa-image mr-2 text-rose-500"></i> 3 High-Quality Posts</li>
+                        <li><i class="fas fa-sync mr-2 text-rose-500"></i> 1 Revision Cycle</li>
+                    </ul>
+                    <button onclick="addToCart('Design Starter Promo', 199)" class="w-full py-4 border-2 border-slate-900 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-slate-900 hover:text-white transition-all">Select Bundle</button>
+                </div>
+                <!-- Growth Marketing -->
+                <div class="design-card p-10 rounded-[3rem] flex flex-col bg-white border-rose-200 shadow-xl shadow-rose-100 relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-rose-600 text-white px-4 py-1 text-[8px] font-black uppercase rounded-full tracking-tighter">Value Deal</div>
+                    <h3 class="font-black text-slate-900 mb-2 uppercase">Growth Marketing</h3>
+                    <div class="text-4xl font-black text-rose-600 mb-6">RM349</div>
+                    <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-700 font-semibold">
+                        <li><i class="fas fa-images mr-2 text-rose-600"></i> 5 Ads Creative Images</li>
+                        <li><i class="fas fa-check mr-2 text-rose-600"></i> High-Conversion Copywriting</li>
+                    </ul>
+                    <button onclick="addToCart('Design Growth Bundle', 349)" class="w-full py-5 bg-rose-600 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl shadow-lg">Select Bundle</button>
+                </div>
+                <!-- Ultimate Campaign -->
+                <div class="design-card p-10 rounded-[3rem] flex flex-col bg-white">
+                    <h3 class="font-black text-slate-900 mb-2 uppercase">Ultimate Campaign</h3>
+                    <div class="text-3xl font-black text-rose-600 mb-6">RM599</div>
+                    <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-500">
+                        <li><i class="fas fa-th mr-2 text-rose-500"></i> 10 Social Media Posts</li>
+                        <li><i class="fas fa-user-circle mr-2 text-rose-500"></i> 1 Profile Photo/Banner</li>
+                        <li><i class="fas fa-infinity mr-2 text-rose-500"></i> Unlimited Revisions</li>
+                    </ul>
+                    <button onclick="addToCart('Design Ultimate Bundle', 599)" class="w-full py-4 border-2 border-slate-900 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-slate-900 hover:text-white transition-all">Select Bundle</button>
+                </div>
+            </div>
+
+            <!-- ALA CARTE & ADD ONS -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- Ala Carte -->
+                <div class="bg-white p-12 rounded-[3.5rem] border border-slate-100 shadow-sm">
+                    <h3 class="text-xl font-black text-slate-900 mb-8 uppercase tracking-tighter border-b border-slate-50 pb-4">Ala Carte Services</h3>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center group cursor-pointer" onclick="addToCart('Logo Design', 150)">
+                            <div>
+                                <p class="text-sm font-black text-slate-800">Professional Logo Design</p>
+                                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Branding</p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="font-black text-slate-900">RM150</span>
+                                <i class="fas fa-plus-circle text-slate-200 group-hover:text-blue-600"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center group cursor-pointer" onclick="addToCart('Banner/Bunting Design', 80)">
+                            <p class="text-sm font-black text-slate-800">Banner / Bunting Design</p>
+                            <div class="flex items-center gap-4">
+                                <span class="font-black text-slate-900">RM80</span>
+                                <i class="fas fa-plus-circle text-slate-200 group-hover:text-blue-600"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center group cursor-pointer" onclick="addToCart('Business Card Design', 50)">
+                            <p class="text-sm font-black text-slate-800">Business Card Design</p>
+                            <div class="flex items-center gap-4">
+                                <span class="font-black text-slate-900">RM50</span>
+                                <i class="fas fa-plus-circle text-slate-200 group-hover:text-blue-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Ons -->
+                <div class="bg-white p-12 rounded-[3.5rem] border border-slate-100 shadow-sm">
+                    <h3 class="text-xl font-black text-slate-900 mb-8 uppercase tracking-tighter border-b border-slate-50 pb-4">Add-On Services</h3>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center group cursor-pointer" onclick="addToCart('Express 24 Hours', 50)">
+                            <p class="text-sm font-black text-slate-800">Express 24 Hours Delivery</p>
+                            <div class="flex items-center gap-4">
+                                <span class="font-black text-slate-900">RM50</span>
+                                <i class="fas fa-plus-circle text-slate-200 group-hover:text-blue-600"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center group cursor-pointer" onclick="addToCart('Extra Revision', 30)">
+                            <p class="text-sm font-black text-slate-800">Extra Revision Cycle</p>
+                            <div class="flex items-center gap-4">
+                                <span class="font-black text-slate-900">RM30</span>
+                                <i class="fas fa-plus-circle text-slate-200 group-hover:text-blue-600"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center group cursor-pointer" onclick="addToCart('Source File', 100)">
+                            <p class="text-sm font-black text-slate-800">Source Files (.AI / .PSD)</p>
+                            <div class="flex items-center gap-4">
+                                <span class="font-black text-slate-900">RM100</span>
+                                <i class="fas fa-plus-circle text-slate-200 group-hover:text-blue-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12 text-center text-sm border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <h4 class="text-xl font-black text-white uppercase tracking-widest mb-4">AR Marketing Solutions</h4>
+            <p class="text-slate-500 font-medium mb-6">Take Your Business to the Next Level.</p>
+            <p class="text-slate-600 text-[10px] uppercase tracking-widest">&copy; 2026 All Rights Reserved. AR Marketing Solutions.</p>
         </div>
     </footer>
 
+    <!-- Logic / JavaScript -->
     <script>
-        let selectedData = {
-            category: '',
-            name: '',
-            price: 0
-        };
+        let cartItemsCount = 0;
+        let cartTotalPrice = 0;
 
-        function freeConsultation() {
-            const phoneNumber = "60169012445"; 
-            const message = "Hello AR Marketing Solutions! I am interested in a *Free Consultation* regarding digital marketing for my business. Can you help?";
-            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        function addToCart(itemName, price) {
+            cartItemsCount++;
+            cartTotalPrice += price;
+            document.getElementById('cart-count').innerText = cartItemsCount;
+            showNotification(`✅ Added: ${itemName} (RM${price})`);
         }
 
-        function selectPackage(category, name, price) {
-            selectedData.category = category;
-            selectedData.name = name;
-            selectedData.price = price;
-
-            document.querySelectorAll('.package-card, .design-card').forEach(card => {
-                card.classList.remove('selected-package', 'selected-design');
-            });
-            
-            document.querySelectorAll('.select-indicator, .select-indicator-design').forEach(ind => {
-                ind.innerText = ind.classList.contains('select-indicator') ? "SELECT PACKAGE" : "SELECT DESIGN";
-                ind.className = ind.className.replace(/bg-[\w-]+ text-white/, "bg-gray-100 text-gray-400");
-            });
-
-            if (category === 'Ad') {
-                const card = document.getElementById('pkg-' + name.toLowerCase());
-                card.classList.add('selected-package');
-                const ind = card.querySelector('.select-indicator');
-                ind.innerText = "SELECTED";
-                ind.classList.remove('bg-gray-100', 'text-gray-400');
-                const color = name === 'Basic' ? 'bg-blue-600' : (name === 'Standard' ? 'bg-green-600' : 'bg-orange-500');
-                ind.classList.add(color, 'text-white');
+        function toggleCart() {
+            if(cartItemsCount === 0) {
+                showNotification("🛒 Your cart is currently empty.");
             } else {
-                const id = name.includes('Single') ? 'design-single' : 'design-combo';
-                const card = document.getElementById(id);
-                card.classList.add('selected-design');
-                const ind = card.querySelector('.select-indicator-design');
-                ind.innerText = "SELECTED";
-                ind.classList.remove('bg-gray-100', 'text-gray-400');
-                ind.classList.add('bg-pink-600', 'text-white');
+                showNotification(`🛒 You have ${cartItemsCount} items.\nTotal: RM${cartTotalPrice}`);
             }
-
-            const form = document.getElementById('form-container');
-            form.classList.remove('hidden');
-            document.getElementById('display-pkg').innerText = name.toUpperCase();
-            document.getElementById('display-price').innerText = 'RM ' + price;
-            
-            setTimeout(() => {
-                form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 100);
         }
 
-        function sendToWhatsApp() {
-            const custName = document.getElementById('custName').value.trim();
-            const bizName = document.getElementById('bizName').value.trim();
+        function showNotification(message) {
+            const notif = document.createElement('div');
+            notif.className = 'fixed bottom-5 right-5 bg-slate-900 text-white px-6 py-4 rounded-2xl shadow-2xl z-[100] transform transition-all translate-y-10 opacity-0 font-bold text-sm border border-slate-700 max-w-sm whitespace-pre-line';
+            notif.innerText = message;
+            document.body.appendChild(notif);
+
+            // Animate In
+            setTimeout(() => {
+                notif.classList.remove('translate-y-10', 'opacity-0');
+            }, 50);
+
+            // Animate Out
+            setTimeout(() => {
+                notif.classList.add('translate-y-10', 'opacity-0');
+                setTimeout(() => notif.remove(), 300);
+            }, 3000);
+        }
+
+        function nextMockStep(step) {
+            document.querySelectorAll('.booking-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('mock-step-' + step).classList.add('active');
             
-            if (!custName || !bizName) {
-                const shakeBtn = document.querySelector('#form-container button');
-                shakeBtn.classList.add('bg-red-500');
-                setTimeout(() => shakeBtn.classList.remove('bg-red-500'), 1000);
-                return;
+            if(step === 1) {
+                document.getElementById('mock-step-text').innerText = 'Step 1: Select Service';
+            } else if (step === 2) {
+                document.getElementById('mock-step-text').innerText = 'Step 2: Completed';
             }
-
-            const phoneNumber = "60169012445"; 
-            const text = `Hello AR Marketing Solutions!%0A%0AI would like to subscribe to a package:%0A%0A` +
-                         `*CUSTOMER DETAILS*%0A` +
-                         `👤 Name: ${custName}%0A` +
-                         `🏢 Business: ${bizName}%0A%0A` +
-                         `*PACKAGE SELECTION*%0A` +
-                         `📂 Category: ${selectedData.category}%0A` +
-                         `📦 Package: ${selectedData.name}%0A` +
-                         `💰 Price: RM ${selectedData.price}%0A%0A` +
-                         `Please assist me with the next steps. Thank you!`;
-
-            window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
         }
     </script>
 </body>
