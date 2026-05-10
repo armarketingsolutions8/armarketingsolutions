@@ -513,96 +513,143 @@
         </div>
     </footer>
 
-     <!-- Side Cart -->
-    <div id="cart-panel" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-[-20px_0_60px_rgba(0,0,0,0.1)] z-[60] transform translate-x-full transition-transform duration-500">
-        <div class="p-8 h-full flex flex-col">
-            <div class="flex items-center justify-between mb-10">
-                <h2 class="text-2xl font-black uppercase tracking-tighter">Troli Tempahan</h2>
-                <button onclick="toggleCart()" class="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-900 transition-all"><i class="fas fa-times"></i></button>
+<!-- Side Cart -->
+<div id="cart-panel" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-[-20px_0_60px_rgba(0,0,0,0.1)] z-[60] transform translate-x-full transition-transform duration-500">
+    <div class="p-8 h-full flex flex-col">
+        <div class="flex items-center justify-between mb-10">
+            <h2 class="text-2xl font-black uppercase tracking-tighter">Booking Cart</h2>
+            <button onclick="toggleCart()" class="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-900 transition-all">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Cart Items List -->
+        <div id="cart-items" class="flex-grow overflow-y-auto space-y-4 mb-8 pr-2"></div>
+        
+        <div class="border-t border-slate-100 pt-8 space-y-5">
+            <div class="flex justify-between font-bold text-slate-400 text-sm">
+                <span>Total:</span>
+                <span id="cart-total" class="text-slate-900 font-black">RM 0</span>
             </div>
-            <div id="cart-items" class="flex-grow overflow-y-auto space-y-4 mb-8 pr-2"></div>
-            <div class="border-t border-slate-100 pt-8 space-y-5">
-                <div class="flex justify-between font-bold text-slate-400 text-sm"><span>Jumlah:</span><span id="cart-total" class="text-slate-900 font-black">RM 0</span></div>
-                <div class="flex justify-between text-blue-600 font-black text-xl tracking-tighter"><span>Deposit (50%):</span><span id="cart-deposit">RM 0</span></div>
-                <div class="space-y-3 pt-4">
-                    <input type="text" id="order-name" placeholder="Nama Anda / Nama Bisnes" class="w-full bg-slate-50 border-2 border-transparent focus:border-blue-500 focus:bg-white outline-none rounded-2xl p-5 text-sm font-bold transition-all">
-                    <button onclick="checkout()" class="w-full bg-blue-600 text-white py-6 rounded-[2rem] font-black uppercase tracking-widest text-xs shadow-xl hover:bg-blue-700 transition-all active:scale-95">WhatsApp Tempahan Sekarang</button>
-                </div>
+            <div class="flex justify-between text-blue-600 font-black text-xl tracking-tighter">
+                <span>Deposit (50%):</span>
+                <span id="cart-deposit">RM 0</span>
+            </div>
+            
+            <div class="space-y-3 pt-4">
+                <input type="text" id="order-name" placeholder="Your Name / Business Name" class="w-full bg-slate-50 border-2 border-transparent focus:border-blue-500 focus:bg-white outline-none rounded-2xl p-5 text-sm font-bold transition-all">
+                <button onclick="checkout()" class="w-full bg-blue-600 text-white py-6 rounded-[2rem] font-black uppercase tracking-widest text-xs shadow-xl hover:bg-blue-700 transition-all active:scale-95">
+                    WhatsApp Order Now
+                </button>
             </div>
         </div>
     </div>
+</div>
 
-    <div id="overlay" onclick="toggleCart()" class="fixed inset-0 bg-slate-900/10 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity"></div>
+<div id="overlay" onclick="toggleCart()" class="fixed inset-0 bg-slate-900/10 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity"></div>
 
-    <script>
-        let cart = [];
-        function addToCart(name, price) {
-            cart.push({ name, price });
-            updateCart();
-            if (document.getElementById('cart-panel').classList.contains('translate-x-full')) { toggleCart(); }
+<script>
+    let cart = [];
+
+    function addToCart(name, price) {
+        cart.push({ name, price });
+        updateCart();
+        if (document.getElementById('cart-panel').classList.contains('translate-x-full')) { 
+            toggleCart(); 
         }
-        function removeFromCart(index) { cart.splice(index, 1); updateCart(); }
-        function updateCart() {
-            const list = document.getElementById('cart-items');
-            const totalDisplay = document.getElementById('cart-total');
-            const depositDisplay = document.getElementById('cart-deposit');
-            const countDisplay = document.getElementById('cart-count');
-            list.innerHTML = '';
-            let total = 0;
-            if (cart.length === 0) {
-                list.innerHTML = `<div class="text-center py-20 text-slate-300"><i class="fas fa-shopping-bag text-5xl mb-4 opacity-20"></i><p class="font-bold">Troli kosong</p></div>`;
-            }
-            cart.forEach((item, index) => {
-                total += item.price;
-                const div = document.createElement('div');
-                div.className = "flex justify-between items-center bg-slate-50 p-6 rounded-3xl border border-slate-100";
-                div.innerHTML = `<div><p class="font-black text-slate-800 text-[10px] uppercase tracking-tight">${item.name}</p><p class="text-blue-600 font-black text-sm">RM ${item.price}</p></div><button onclick="removeFromCart(${index})" class="text-slate-300 hover:text-rose-500"><i class="fas fa-times"></i></button>`;
-                list.appendChild(div);
-            });
-            totalDisplay.innerText = `RM ${total.toLocaleString()}`;
-            depositDisplay.innerText = `RM ${(total * 0.5).toLocaleString()}`;
-            countDisplay.innerText = cart.length;
-        }
-        function toggleCart() {
-            const panel = document.getElementById('cart-panel');
-            const overlay = document.getElementById('overlay');
-            if (panel.classList.contains('translate-x-full')) {
-                panel.classList.remove('translate-x-full');
-                overlay.classList.remove('hidden');
-                setTimeout(() => overlay.classList.add('opacity-100'), 10);
-            } else {
-                panel.classList.add('translate-x-full');
-                overlay.classList.remove('opacity-100');
-                setTimeout(() => overlay.classList.add('hidden'), 500);
-            }
-        }
-        function checkout() {
-            const name = document.getElementById('order-name').value;
-            if (!name || cart.length === 0) {
-                const input = document.getElementById('order-name');
-                input.classList.add('border-rose-500');
-                setTimeout(() => input.classList.remove('border-rose-500'), 2000);
-                return;
-            }
-            let message = `Hi AR Marketing! Saya *${name}* berminat untuk menempah servis berikut:%0A%0A`;
-            cart.forEach((item, index) => { message += `${index+1}. *${item.name}* (RM${item.price})%0A`; });
-            let total = cart.reduce((acc, obj) => acc + obj.price, 0);
-            message += `%0A*Jumlah Keseluruhan:* RM${total}%0A*Deposit (50%):* RM${total*0.5}%0A%0ASila bantu saya untuk langkah seterusnya.`;
-            window.open(`https://wa.me/60169012445?text=${message}`, '_blank');
+    }
+
+    function removeFromCart(index) { 
+        cart.splice(index, 1); 
+        updateCart(); 
+    }
+
+    function updateCart() {
+        const list = document.getElementById('cart-items');
+        const totalDisplay = document.getElementById('cart-total');
+        const depositDisplay = document.getElementById('cart-deposit');
+        const countDisplay = document.getElementById('cart-count'); // Ensure this ID exists in your main HTML
+        
+        list.innerHTML = '';
+        let total = 0;
+
+        if (cart.length === 0) {
+            list.innerHTML = `
+                <div class="text-center py-20 text-slate-300">
+                    <i class="fas fa-shopping-bag text-5xl mb-4 opacity-20"></i>
+                    <p class="font-bold">Your cart is empty</p>
+                </div>`;
         }
 
-        // Mockup Interaction Logic
-        function nextMockStep(step) {
-            document.querySelectorAll('.booking-step').forEach(s => s.classList.remove('active'));
-            document.getElementById(`mock-step-${step}`).classList.add('active');
-            
-            const stepText = document.getElementById('mock-step-text');
+        cart.forEach((item, index) => {
+            total += item.price;
+            const div = document.createElement('div');
+            div.className = "flex justify-between items-center bg-slate-50 p-6 rounded-3xl border border-slate-100";
+            div.innerHTML = `
+                <div>
+                    <p class="font-black text-slate-800 text-[10px] uppercase tracking-tight">${item.name}</p>
+                    <p class="text-blue-600 font-black text-sm">RM ${item.price}</p>
+                </div>
+                <button onclick="removeFromCart(${index})" class="text-slate-300 hover:text-rose-500">
+                    <i class="fas fa-times"></i>
+                </button>`;
+            list.appendChild(div);
+        });
+
+        totalDisplay.innerText = `RM ${total.toLocaleString()}`;
+        depositDisplay.innerText = `RM ${(total * 0.5).toLocaleString()}`;
+        if (countDisplay) countDisplay.innerText = cart.length;
+    }
+
+    function toggleCart() {
+        const panel = document.getElementById('cart-panel');
+        const overlay = document.getElementById('overlay');
+        if (panel.classList.contains('translate-x-full')) {
+            panel.classList.remove('translate-x-full');
+            overlay.classList.remove('hidden');
+            setTimeout(() => overlay.classList.add('opacity-100'), 10);
+        } else {
+            panel.classList.add('translate-x-full');
+            overlay.classList.remove('opacity-100');
+            setTimeout(() => overlay.classList.add('hidden'), 500);
+        }
+    }
+
+    function checkout() {
+        const name = document.getElementById('order-name').value;
+        if (!name || cart.length === 0) {
+            const input = document.getElementById('order-name');
+            input.classList.add('border-rose-500');
+            setTimeout(() => input.classList.remove('border-rose-500'), 2000);
+            return;
+        }
+
+        let message = `Hi AR Marketing! I am *${name}* and I am interested in booking the following services:%0A%0A`;
+        cart.forEach((item, index) => { 
+            message += `${index+1}. *${item.name}* (RM${item.price})%0A`; 
+        });
+
+        let total = cart.reduce((acc, obj) => acc + obj.price, 0);
+        message += `%0A*Total Amount:* RM${total}%0A*Deposit (50%):* RM${total*0.5}%0A%0APlease assist me with the next steps.`;
+        
+        window.open(`https://wa.me/60169012445?text=${message}`, '_blank');
+    }
+
+    // Mockup Interaction Logic
+    function nextMockStep(step) {
+        document.querySelectorAll('.booking-step').forEach(s => s.classList.remove('active'));
+        const targetStep = document.getElementById(`mock-step-${step}`);
+        if(targetStep) targetStep.classList.add('active');
+        
+        const stepText = document.getElementById('mock-step-text');
+        if(stepText) {
             if(step === 1) {
-                stepText.innerText = "Langkah 1: Pilih Servis";
+                stepText.innerText = "Step 1: Select Service";
             } else {
-                stepText.innerText = "Selesai";
+                stepText.innerText = "Complete";
             }
         }
-    </script>
+    }
+</script>
 </body>
 </html>
