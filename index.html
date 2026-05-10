@@ -112,74 +112,89 @@
         </div>
     </section>
 
-    <!-- ADS SECTION -->
-    <section id="ads" class="py-24 border-t border-slate-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="text-blue-600 font-black uppercase tracking-[0.4em] text-xs mb-4 block">Paid Marketing</span>
-                <h2 class="text-4xl font-black mb-6 tracking-tighter text-slate-900 uppercase">Advertising Packages (ADS)</h2>
-                <div class="max-w-2xl mx-auto p-4 bg-amber-50 border-l-4 border-amber-400 rounded-r-xl inline-block text-left">
-                    <p class="text-amber-800 text-xs font-medium">
-                        <i class="fas fa-info-circle mr-2"></i> Note: Prices below are for Management Fees only.
-                    </p>
+<!-- ADS SECTION -->
+<section id="ads" class="py-24 border-t border-slate-50 bg-[#f8fafc]">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16">
+            <span class="text-blue-600 font-black uppercase tracking-[0.4em] text-xs mb-4 block">Paid Marketing</span>
+            <h2 class="text-4xl font-black mb-6 tracking-tighter text-slate-900 uppercase">Advertising Packages (ADS)</h2>
+            <div class="max-w-2xl mx-auto p-4 bg-amber-50 border-l-4 border-amber-400 rounded-r-xl inline-block text-left">
+                <p class="text-amber-800 text-xs font-medium">
+                    <i class="fas fa-info-circle mr-2"></i> Note: Prices below are for Management Fees only.
+                </p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            <!-- Basic Ads -->
+            <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-100 flex flex-col h-full">
+                <h3 class="text-lg font-black text-slate-900 mb-4 uppercase">BASIC Package</h3>
+                <div class="flex items-baseline gap-2 mb-6">
+                    <span class="text-4xl font-black text-slate-900 tracking-tighter">RM300</span>
+                    <span class="text-slate-400 text-[10px] font-bold uppercase">/Month</span>
+                </div>
+                <ul class="space-y-3 text-sm text-slate-500 font-medium">
+                    <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> Campaign Setup</li>
+                    <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> Audience Targeting Setup</li>
+                    <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> Ad Copywriting</li>
+                    <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> Creative Guidance</li>
+                    <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> WhatsApp Lead Setup</li>
+                    <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> 7-10 Days Optimization</li>
+                </ul>
+                <!-- mt-auto akan menolak butang ke bawah -->
+                <div class="mt-auto pt-10">
+                    <button onclick="addToCart('Ads BASIC', 300)" class="w-full py-4 border-2 border-slate-900 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-slate-900 hover:text-white transition-all">
+                        Select Package
+                    </button>
                 </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Basic Ads -->
-                <div class="service-card p-10 rounded-[3rem] flex flex-col">
-                    <h3 class="text-lg font-black text-slate-900 mb-4 uppercase">BASIC Package</h3>
-                    <div class="flex items-baseline gap-2 mb-6">
-                        <span class="text-4xl font-black text-slate-900 tracking-tighter">RM300</span>
-                        <span class="text-slate-400 text-[10px] font-bold uppercase">/Month</span>
-                    </div>
-                    <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-500 font-medium">
-                        <li><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> Campaign Setup</li>
-                        <li><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> Audience Targeting Setup</li>
-                        <li><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> Ad Copywriting</li>
-                        <li><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> Creative Guidance</li>
-                        <li><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> WhatsApp Lead Setup</li>
-                        <li><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> 7-10 Days Optimization</li>
-                    </ul>
-                    <button onclick="addToCart('Ads BASIC', 300)" class="w-full py-4 border-2 border-slate-900 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-slate-900 hover:text-white transition-all">Select Package</button>
+
+            <!-- Standard Ads (Most Popular) -->
+            <div class="bg-white p-10 rounded-[3rem] border-2 border-blue-600 relative shadow-xl flex flex-col h-full">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 text-[8px] font-black uppercase rounded-full">Most Popular</div>
+                <h3 class="text-lg font-black text-slate-900 mb-4 uppercase">STANDARD Package</h3>
+                <div class="flex items-baseline gap-2 mb-6 text-blue-600">
+                    <span class="text-4xl font-black tracking-tighter">RM800</span>
+                    <span class="text-slate-400 text-[10px] font-bold uppercase">/Month</span>
                 </div>
-                <!-- Standard Ads -->
-                <div class="service-card p-10 rounded-[3rem] border-blue-600 relative bg-white shadow-xl">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 text-[8px] font-black uppercase rounded-full">Most Popular</div>
-                    <h3 class="text-lg font-black text-slate-900 mb-4 uppercase">STANDARD Package</h3>
-                    <div class="flex items-baseline gap-2 mb-6">
-                        <span class="text-4xl font-black text-blue-600 tracking-tighter">RM800</span>
-                        <span class="text-slate-400 text-[10px] font-bold uppercase">/Month</span>
-                    </div>
-                    <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-600 font-semibold">
-                        <li><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> Basic Starter Features</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> 30 Days Optimization</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> A/B Testing</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> Conversion Tracking Setup</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> Funnel Structure</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> Landing Message Opt.</li>
-                    </ul>
-                    <button onclick="addToCart('Ads STANDARD', 800)" class="w-full py-4 bg-blue-600 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-blue-700 transition-all shadow-lg">Select Package</button>
+                <ul class="space-y-3 text-sm text-slate-600 font-semibold">
+                    <li class="flex items-center"><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> Basic Starter Features</li>
+                    <li class="flex items-center"><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> 30 Days Optimization</li>
+                    <li class="flex items-center"><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> A/B Testing</li>
+                    <li class="flex items-center"><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> Conversion Tracking Setup</li>
+                    <li class="flex items-center"><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> Funnel Structure</li>
+                    <li class="flex items-center"><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> Landing Message Opt.</li>
+                </ul>
+                <div class="mt-auto pt-10">
+                    <button onclick="addToCart('Ads STANDARD', 800)" class="w-full py-4 bg-blue-600 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-blue-700 transition-all shadow-lg">
+                        Select Package
+                    </button>
                 </div>
-                <!-- Premium Ads -->
-                <div class="service-card p-10 rounded-[3rem] bg-slate-900 text-white border-none">
-                    <h3 class="text-lg font-black mb-4 uppercase">PREMIUM Package</h3>
-                    <div class="flex items-baseline gap-2 mb-6">
-                        <span class="text-4xl font-black tracking-tighter">RM1,600</span>
-                        <span class="text-slate-500 text-[10px] font-bold uppercase">/Month</span>
-                    </div>
-                    <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-400">
-                        <li><i class="fas fa-plus text-blue-400 mr-2 text-xs"></i> All Standard Features</li>
-                        <li><i class="fas fa-check text-blue-400 mr-2 text-xs"></i> Full Funnel Management</li>
-                        <li><i class="fas fa-chart-line text-blue-400 mr-2 text-xs"></i> 30 Days Scale Strategy</li>
-                        <li><i class="fas fa-file-alt text-blue-400 mr-2 text-xs"></i> Weekly Performance Report</li>
-                        <li><i class="fas fa-bullseye text-blue-400 mr-2 text-xs"></i> Retargeting Strategy</li>
-                    </ul>
-                    
-                    <button onclick="addToCart('Ads PREMIUM', 1600)" class="w-full py-4 bg-white text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-blue-50 transition-all">Select Package</button>
+            </div>
+
+            <!-- Premium Ads -->
+            <div class="bg-slate-900 p-10 rounded-[3rem] text-white flex flex-col h-full">
+                <h3 class="text-lg font-black mb-4 uppercase">PREMIUM Package</h3>
+                <div class="flex items-baseline gap-2 mb-6">
+                    <span class="text-4xl font-black tracking-tighter text-white">RM1,600</span>
+                    <span class="text-slate-500 text-[10px] font-bold uppercase">/Month</span>
+                </div>
+                <ul class="space-y-3 text-sm text-slate-400">
+                    <li class="flex items-center"><i class="fas fa-plus text-blue-400 mr-2 text-xs"></i> All Standard Features</li>
+                    <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-2 text-xs"></i> Full Funnel Management</li>
+                    <li class="flex items-center"><i class="fas fa-chart-line text-blue-400 mr-2 text-xs"></i> 30 Days Scale Strategy</li>
+                    <li class="flex items-center"><i class="fas fa-file-alt text-blue-400 mr-2 text-xs"></i> Weekly Performance Report</li>
+                    <li class="flex items-center"><i class="fas fa-bullseye text-blue-400 mr-2 text-xs"></i> Retargeting Strategy</li>
+                </ul>
+                <div class="mt-auto pt-10">
+                    <button onclick="addToCart('Ads PREMIUM', 1600)" class="w-full py-4 bg-white text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-blue-50 transition-all">
+                        Select Package
+                    </button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- TIKTOK SECTION -->
     <section id="tiktok" class="py-24 bg-slate-950 text-white">
