@@ -510,35 +510,175 @@
         </div>
     </section>
 
-<footer class="bg-slate-950 py-12 text-center text-sm border-t border-slate-900">
+    <footer class="bg-slate-950 py-12 text-center text-sm border-t border-slate-900">
+
         <div class="max-w-7xl mx-auto px-4">
+
             <h4 class="text-xl font-black text-white uppercase tracking-widest mb-4">AR Marketing Solutions</h4>
-            <p class="text-slate-500 font-medium mb-8">Take Your Business to the Next Level.</p>
 
-            <!-- Bahagian Contact & Email -->
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-10 text-slate-400">
-                <!-- Email -->
-                <div class="flex items-center gap-2 group">
-                    <span class="text-blue-500 italic font-bold">Email:</span>
-                    <a href="mailto:armarketingsolutions8@gmail.com" class="hover:text-white transition-colors">armarketingsolutions8@gmail.com</a>
-                </div>
+            <p class="text-slate-500 font-medium mb-6">Take Your Business to the Next Level.</p>
 
-                <!-- Divider (Hanya muncul di skrin besar) -->
-                <div class="hidden md:block w-px h-4 bg-slate-800"></div>
+            <p class="text-slate-600 text-[10px] uppercase tracking-widest">&copy; 2026 All Rights Reserved. AR Marketing Solutions.</p>
 
-                <!-- Contact Numbers -->
-                <div class="flex items-center gap-2">
-                    <span class="text-blue-500 italic font-bold">Contact:</span>
-                    <div class="flex gap-3">
-                        <a href="https://wa.me/60169012445" target="_blank" class="hover:text-white transition-colors">016-901 2445</a>
-                        <span>/</span>
-                        <a href="https://wa.me/601156251279" target="_blank" class="hover:text-white transition-colors">011-5625 1279</a>
+        </div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - AR Marketing Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+            padding-bottom: 1.5rem;
+        }
+
+        .accordion-item.active .icon-container {
+            background-color: #2563eb; /* blue-600 */
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .bg-custom-gradient {
+            background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+        }
+    </style>
+</head>
+<body class="bg-[#f8fafc] text-[#0f172a]">
+
+    <section class="py-20 px-6 max-w-5xl mx-auto">
+        <!-- Header Section -->
+        <div class="text-center mb-16">
+            <span class="text-blue-600 font-bold tracking-widest uppercase text-sm">Support Center</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold mt-3 mb-6 tracking-tight">
+                Aligning Your <span class="text-blue-600">Questions</span> With Answers
+            </h2>
+            <div class="w-20 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid gap-4">
+            <!-- FAQ Item 1 -->
+            <div class="accordion-item bg-white rounded-2xl border border-slate-200 transition-all hover:border-blue-300 cursor-pointer">
+                <button class="flex items-center justify-between w-full p-6 text-left focus:outline-none">
+                    <span class="font-bold text-xl text-slate-800">What is AR Marketing Solutions?</span>
+                    <div class="icon-container w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-all duration-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
                     </div>
+                </button>
+                <div class="accordion-content px-6">
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        We are a results-driven digital agency dedicated to helping brands grow through precision-targeted advertising, creative content, and high-performance technical ecosystems.
+                    </p>
                 </div>
             </div>
 
-            <p class="text-slate-600 text-[10px] uppercase tracking-widest">&copy; 2026 All Rights Reserved. AR Marketing Solutions.</p>
+            <!-- FAQ Item 2 -->
+            <div class="accordion-item bg-white rounded-2xl border border-slate-200 transition-all hover:border-blue-300 cursor-pointer">
+                <button class="flex items-center justify-between w-full p-6 text-left focus:outline-none">
+                    <span class="font-bold text-xl text-slate-800">Are ad budgets included in the package price?</span>
+                    <div class="icon-container w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-all duration-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                </button>
+                <div class="accordion-content px-6">
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        No. Our fees cover the **professional management and optimization** of your campaigns. The ad spend (the money paid to Meta, Google, or TikTok) is billed directly to your payment method by the platforms.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="accordion-item bg-white rounded-2xl border border-slate-200 transition-all hover:border-blue-300 cursor-pointer">
+                <button class="flex items-center justify-between w-full p-6 text-left focus:outline-none">
+                    <span class="font-bold text-xl text-slate-800">Is the Web Booking System a one-time cost?</span>
+                    <div class="icon-container w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-all duration-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                </button>
+                <div class="accordion-content px-6">
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        Yes! Unlike many software-as-a-service providers, our **Web Booking System** is a one-time investment. Once built, you own the system with no hidden monthly software fees.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="accordion-item bg-white rounded-2xl border border-slate-200 transition-all hover:border-blue-300 cursor-pointer">
+                <button class="flex items-center justify-between w-full p-6 text-left focus:outline-none">
+                    <span class="font-bold text-xl text-slate-800">Do you offer content creation for TikTok?</span>
+                    <div class="icon-container w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-all duration-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                </button>
+                <div class="accordion-content px-6">
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        Absolutely. We have specialized packages ranging from **8 to 30 videos per month**, including viral scripting, trending audio selection, and full account management to dominate your niche.
+                    </p>
+                </div>
+            </div>
         </div>
+
+        <!-- Call to Action -->
+        <div class="mt-20 bg-slate-900 rounded-[2rem] p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600 blur-[120px] opacity-20"></div>
+            <div class="relative z-10">
+                <h3 class="text-3xl md:text-4xl font-extrabold mb-6">Take Your Business To The Next Level.</h3>
+                <p class="text-slate-400 mb-10 text-lg max-w-2xl mx-auto">Still confused which package suits you best? Let's have a quick chat and we'll guide you through.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
+                    <a href="https://wa.me/60169012445" class="w-full sm:w-auto px-10 py-4 bg-blue-600 text-white rounded-xl font-bold text-lg hover:bg-blue-700 transition-all transform hover:-translate-y-1 shadow-lg shadow-blue-500/20">
+                        Chat on WhatsApp
+                    </a>
+                    <a href="#" class="w-full sm:w-auto px-10 py-4 bg-transparent border border-slate-700 text-white rounded-xl font-bold text-lg hover:bg-slate-800 transition-all">
+                        Free Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close others
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+
+                // Toggle current
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+        
     </footer>
 
 <!-- Side Cart -->
