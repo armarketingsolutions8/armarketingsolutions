@@ -1,897 +1,1795 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Marketing Solutions | Digital Marketing Agency</title>
+    <title>AR Marketing Solutions | Your Digital & Printing Partner</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for high quality vector icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
-        
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            scroll-behavior: smooth;
-            background-color: #ffffff;
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #2dd4bf);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .service-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid #f1f5f9;
-            background: #ffffff;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
-            border-color: #3b82f6;
-        }
-
-        .cart-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: #f43f5e;
-            color: white;
-            font-size: 10px;
-            padding: 2px 6px;
-            border-radius: 99px;
-            font-weight: 800;
-        }
-
-        .wa-card {
-            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
-            border: 1px solid #dcfce7;
-        }
-
-        .design-card {
-            background: #ffffff;
-            border: 1px solid #f1f5f9;
-        }
-
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-
-        /* Mockup Specific Styles */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        .phone-float { animation: float 6s ease-in-out infinite; }
-
-        .booking-step { display: none; }
-        .booking-step.active { display: block; animation: slideIn 0.3s ease-out; }
-        @keyframes slideIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
-    </style>
-</head>
-<body class="text-slate-800">
-
-    <!-- Navigation -->
-    <nav class="sticky top-0 bg-white/90 backdrop-blur-xl z-50 border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-11 h-11 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-200">AR</div>
-                <span class="font-extrabold text-xl tracking-tight uppercase text-slate-900">AR Marketing Solutions</span>
-            </div>
-            <div class="hidden lg:flex gap-6 text-[10px] font-extrabold uppercase tracking-[0.2em] text-slate-500">
-                <a href="#ads" class="hover:text-blue-600 transition-colors">Ads</a>
-                <a href="#tiktok" class="hover:text-blue-600 transition-colors">TikTok</a>
-                <a href="#web" class="hover:text-blue-600 transition-colors">Web</a>
-                <a href="#wa" class="hover:text-blue-600 transition-colors">WhatsApp</a>
-                <a href="#design" class="hover:text-blue-600 transition-colors">Design</a>
-            </div>
-            <div class="relative">
-                <button onclick="toggleCart()" class="bg-slate-100 text-slate-800 p-3 rounded-2xl hover:bg-blue-600 hover:text-white transition-all">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span id="cart-count" class="cart-badge">0</span>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="py-24 px-4 text-center bg-white">
-        <div class="max-w-4xl mx-auto">
-            <div class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Results Driven Digital Agency</div>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-8 leading-tight tracking-tighter text-slate-900">
-                Align Your Business <br><span class="gradient-text">With Success</span>
-            </h1>
-            <p class="text-slate-500 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
-                Comprehensive marketing, creative design, and technical automation all in one perfectly balanced ecosystem.
-            </p>
-            <div class="flex flex-wrap justify-center gap-5">
-                <a href="#ads" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-bold uppercase tracking-widest text-sm shadow-xl shadow-blue-200 hover:bg-blue-700 hover:-translate-y-1 transition-all">Explore Packages</a>
-                <a href="https://wa.me/60169012445" class="bg-white border border-slate-200 px-10 py-5 rounded-2xl font-bold uppercase tracking-widest text-sm text-slate-700 hover:bg-slate-50 transition-all">Free Consultation</a>
-            </div>
-        </div>
-    </section>
-
-<!-- ADS SECTION -->
-<section id="ads" class="py-24 border-t border-slate-50 bg-[#f8fafc]">
-    <div class="max-w-7xl mx-auto px-4">
-        <div class="text-center mb-16">
-            <span class="text-blue-600 font-black uppercase tracking-[0.4em] text-xs mb-4 block">Paid Marketing</span>
-            <h2 class="text-4xl font-black mb-6 tracking-tighter text-slate-900 uppercase">Advertising Packages (ADS)</h2>
-            <div class="max-w-2xl mx-auto p-4 bg-amber-50 border-l-4 border-amber-400 rounded-r-xl inline-block text-left">
-                <p class="text-amber-800 text-xs font-medium">
-                    <i class="fas fa-info-circle mr-2"></i> Note: Prices below are for Management Fees only.
-                </p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            <!-- Basic Ads -->
-            <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-100 flex flex-col h-full">
-                <h3 class="text-lg font-black text-slate-900 mb-2 uppercase">BASIC Package</h3>
-                <!-- Original Price -->
-                <div class="text-slate-400 text-sm line-through font-bold mb-1">RM600</div>
-                <div class="flex items-baseline gap-2 mb-6">
-                    <span class="text-4xl font-black text-slate-900 tracking-tighter">RM300</span>
-                    <span class="text-slate-400 text-[10px] font-bold uppercase">/Month</span>
-                </div>
-                <ul class="space-y-3 text-sm text-slate-500 font-medium">
-                    <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> Campaign Setup</li>
-                    <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> Audience Targeting Setup</li>
-                    <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> Ad Copywriting</li>
-                    <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> Creative Guidance</li>
-                    <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> WhatsApp Lead Setup</li>
-                    <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2 text-xs"></i> 7-10 Days Optimization</li>
-                </ul>
-                <div class="mt-auto pt-10">
-                    <button onclick="addToCart('Ads BASIC', 300)" class="w-full py-4 border-2 border-slate-900 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-slate-900 hover:text-white transition-all">
-                        Select Package
-                    </button>
-                </div>
-            </div>
-
-            <!-- Standard Ads (Most Popular) -->
-            <div class="bg-white p-10 rounded-[3rem] border-2 border-blue-600 relative shadow-xl flex flex-col h-full">
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 text-[8px] font-black uppercase rounded-full shadow-md">Most Popular</div>
-                <h3 class="text-lg font-black text-slate-900 mb-2 uppercase">STANDARD Package</h3>
-                <!-- Original Price -->
-                <div class="text-blue-300 text-sm line-through font-bold mb-1">RM1,000</div>
-                <div class="flex items-baseline gap-2 mb-6 text-blue-600">
-                    <span class="text-4xl font-black tracking-tighter">RM800</span>
-                    <span class="text-slate-400 text-[10px] font-bold uppercase">/Month</span>
-                </div>
-                <ul class="space-y-3 text-sm text-slate-600 font-semibold">
-                    <li class="flex items-center"><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> Basic Starter Features</li>
-                    <li class="flex items-center"><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> 30 Days Optimization</li>
-                    <li class="flex items-center"><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> A/B Testing</li>
-                    <li class="flex items-center"><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> Conversion Tracking Setup</li>
-                    <li class="flex items-center"><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> Funnel Structure</li>
-                    <li class="flex items-center"><i class="fas fa-check text-blue-600 mr-2 text-xs"></i> Landing Message Opt.</li>
-                </ul>
-                <div class="mt-auto pt-10">
-                    <button onclick="addToCart('Ads STANDARD', 800)" class="w-full py-4 bg-blue-600 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-blue-700 transition-all shadow-lg">
-                        Select Package
-                    </button>
-                </div>
-            </div>
-
-            <!-- Premium Ads -->
-            <div class="bg-slate-900 p-10 rounded-[3rem] text-white flex flex-col h-full">
-                <h3 class="text-lg font-black mb-4 uppercase">PREMIUM Package</h3>
-                <!-- Placeholder for spacing balance -->
-                <div class="text-transparent text-sm font-bold mb-1 opacity-0 pointer-events-none">Placeholder</div>
-                <div class="flex items-baseline gap-2 mb-6">
-                    <span class="text-4xl font-black tracking-tighter text-white">RM1,600</span>
-                    <span class="text-slate-500 text-[10px] font-bold uppercase">/Month</span>
-                </div>
-                <ul class="space-y-3 text-sm text-slate-400">
-                    <li class="flex items-center"><i class="fas fa-plus text-blue-400 mr-2 text-xs"></i> All Standard Features</li>
-                    <li class="flex items-center"><i class="fas fa-check text-blue-400 mr-2 text-xs"></i> Full Funnel Management</li>
-                    <li class="flex items-center"><i class="fas fa-chart-line text-blue-400 mr-2 text-xs"></i> 30 Days Scale Strategy</li>
-                    <li class="flex items-center"><i class="fas fa-file-alt text-blue-400 mr-2 text-xs"></i> Weekly Performance Report</li>
-                    <li class="flex items-center"><i class="fas fa-bullseye text-blue-400 mr-2 text-xs"></i> Retargeting Strategy</li>
-                </ul>
-                <div class="mt-auto pt-10">
-                    <button onclick="addToCart('Ads PREMIUM', 1600)" class="w-full py-4 bg-white text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-blue-50 transition-all">
-                        Select Package
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- TIKTOK SECTION - BRIGHT THEME -->
-<section id="tiktok" class="py-24 bg-gray-50 text-slate-900 font-sans">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-        <span class="text-blue-600 font-black uppercase tracking-[0.4em] text-xs mb-4 block">Viral Marketing</span>
-        <h2 class="text-4xl font-black mb-12 tracking-tighter uppercase text-slate-900">TikTok Content Creation</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-            <!-- TikTok Basic -->
-            <div class="p-10 rounded-[3rem] bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-shadow duration-300">
-                <h3 class="font-black mb-4 text-gray-400 uppercase tracking-widest text-xs">Basic Content</h3>
-                <div class="text-3xl font-black mb-8 text-slate-900">RM1,200 <span class="text-[10px] text-gray-400 font-normal">/Month</span></div>
-                <ul class="space-y-4 mb-10 text-sm text-gray-600">
-                    <li class="flex items-center">
-                        <span class="w-6 h-6 flex items-center justify-center bg-blue-50 rounded-full mr-3">
-                            <i class="fas fa-video text-[10px] text-blue-600"></i>
-                        </span> 
-                        8 Videos Monthly
-                    </li>
-                    <li class="flex items-center">
-                        <span class="w-6 h-6 flex items-center justify-center bg-blue-50 rounded-full mr-3">
-                            <i class="fas fa-check text-[10px] text-blue-600"></i>
-                        </span> 
-                        Trending Scripts & Songs
-                    </li>
-                </ul>
-                <button onclick="addToCart('TikTok BASIC', 1200)" class="w-full py-4 border-2 border-slate-900 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-slate-900 hover:text-white transition-all duration-300">Select Package</button>
-            </div>
-
-            <!-- TikTok Pro -->
-            <div class="p-10 rounded-[3rem] bg-blue-600 border-none relative shadow-2xl scale-105 transform z-10">
-                <div class="absolute -top-3 right-8 bg-yellow-400 text-slate-900 text-[8px] font-black uppercase px-4 py-1.5 rounded-full shadow-sm">Best Value</div>
-                <h3 class="font-black mb-4 text-blue-100 uppercase tracking-widest text-xs">Pro Growth</h3>
-                <div class="text-4xl font-black mb-8 text-white">RM2,200 <span class="text-[10px] text-blue-200 font-normal">/Month</span></div>
-                <ul class="space-y-4 mb-10 text-sm text-blue-50 font-medium">
-                    <li class="flex items-center">
-                        <span class="w-6 h-6 flex items-center justify-center bg-white/20 rounded-full mr-3">
-                            <i class="fas fa-video text-[10px] text-white"></i>
-                        </span> 
-                        15 Videos Monthly
-                    </li>
-                    <li class="flex items-center">
-                        <span class="w-6 h-6 flex items-center justify-center bg-white/20 rounded-full mr-3">
-                            <i class="fas fa-microphone text-[10px] text-white"></i>
-                        </span> 
-                        Voiceovers & Transitions
-                    </li>
-                </ul>
-                <button onclick="addToCart('TikTok PRO', 2200)" class="w-full py-4 bg-white text-blue-600 font-black uppercase tracking-widest text-[10px] rounded-2xl shadow-lg hover:bg-gray-100 transition-colors">Select Package</button>
-            </div>
-
-            <!-- TikTok Viral -->
-            <div class="p-10 rounded-[3rem] bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-shadow duration-300">
-                <h3 class="font-black mb-4 text-gray-400 uppercase tracking-widest text-xs">Viral Domination</h3>
-                <div class="text-3xl font-black mb-8 text-slate-900">RM4,000 <span class="text-[10px] text-gray-400 font-normal">/Month</span></div>
-                <ul class="space-y-4 mb-10 text-sm text-gray-600">
-                    <li class="flex items-center">
-                        <span class="w-6 h-6 flex items-center justify-center bg-blue-50 rounded-full mr-3">
-                            <i class="fas fa-video text-[10px] text-blue-600"></i>
-                        </span> 
-                        30 Videos (Daily Posting)
-                    </li>
-                    <li class="flex items-center">
-                        <span class="w-6 h-6 flex items-center justify-center bg-blue-50 rounded-full mr-3">
-                            <i class="fas fa-users-cog text-[10px] text-blue-600"></i>
-                        </span> 
-                        Full Account Management
-                    </li>
-                </ul>
-                <button onclick="addToCart('TikTok VIRAL', 4000)" class="w-full py-4 border-2 border-slate-900 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-slate-900 hover:text-white transition-all duration-300">Select Package</button>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- WEB & BOOKING WITH MOCKUP -->
-    <section id="web" class="py-24 bg-slate-50 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                
-                <!-- Left: Product Info -->
-                <div class="flex-1 w-full text-left">
-                    <span class="text-blue-600 font-black uppercase tracking-[0.4em] text-xs mb-4 block text-left">Web Solutions</span>
-                    <h2 class="text-4xl font-black mb-8 tracking-tighter uppercase text-slate-900 text-left">Web Booking System</h2>
-                    
-                    <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-100 mb-8">
-                        <div class="flex items-center justify-between mb-8">
-                            <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">One-Time Payment</p>
-                            <div class="text-4xl font-black text-slate-900">RM1,199</div>
-                        </div>
-                        <ul class="space-y-4 mb-10 text-sm text-slate-500 font-medium">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i> Schedule & Staff System (One-Screen)</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i> Automated WhatsApp Notifications</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i> Modern & Responsive Design</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i> Database Integration</li>
-                            <li class="flex items-center text-green-600 font-bold"><i class="fas fa-check-circle mr-3"></i> Customize Based On Your Needs</li>
-                        </ul>
-                        <button onclick="addToCart('Web Booking System', 1199)" class="w-full py-5 bg-blue-600 text-white font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-blue-700 shadow-xl shadow-blue-100 transition-all">Get It Now</button>
-                    </div>
-                    <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest"><i class="fas fa-info-circle mr-2"></i> Perfect for Barbershops, Clinics, & Service Appointments.</p>
-                </div>
-
-                <!-- Right: Interactive Phone Mockup -->
-                <div class="flex-1 relative flex justify-center items-center">
-                    <!-- Glow effect behind phone -->
-                    <div class="absolute w-64 h-64 bg-blue-400/20 blur-[100px] rounded-full"></div>
-                    
-                    <div class="phone-float relative z-10">
-                        <!-- Phone Frame -->
-                        <div class="w-[280px] h-[580px] bg-slate-900 rounded-[3rem] p-3 shadow-2xl border-[8px] border-slate-800 relative flex flex-col">
-                            
-                            <!-- Phone Notch -->
-                            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-slate-800 rounded-b-2xl z-20"></div>
-
-                            <!-- Screen Content -->
-                            <div class="bg-white flex-1 rounded-[2.2rem] overflow-hidden flex flex-col relative">
-                                <!-- App UI Header -->
-                                <div class="bg-white pt-12 pb-4 px-6 border-b border-slate-50 text-center">
-                                    <h4 class="font-black text-slate-900 text-[10px] uppercase tracking-tighter leading-none">The Classic Barber</h4>
-                                    <p id="mock-step-text" class="text-[7px] text-blue-500 font-bold uppercase mt-1 tracking-widest">Step 1: Select Service</p>
-                                </div>
-
-                                <!-- App UI Body -->
-                                <div class="flex-1 overflow-y-auto no-scrollbar p-5">
-                                    <!-- Step 1 View -->
-                                    <div id="mock-step-1" class="booking-step active space-y-3">
-                                        <div class="p-3 border-2 border-blue-600 bg-blue-50 rounded-xl">
-                                            <div class="flex justify-between font-black text-[9px]"><span>Signature Cut</span><span class="text-blue-600">RM35</span></div>
-                                            <p class="text-[7px] text-slate-400 mt-1">Haircut + Wash + Styling</p>
-                                        </div>
-                                        <div class="p-3 border border-slate-100 rounded-xl opacity-50">
-                                            <div class="flex justify-between font-black text-[9px]"><span>Beard Trim</span><span class="text-slate-400">RM15</span></div>
-                                        </div>
-                                        <div class="pt-2">
-                                            <p class="text-[7px] font-bold text-slate-400 uppercase mb-2">Pick a Date</p>
-                                            <div class="flex gap-2 overflow-x-hidden">
-                                                <div class="flex-1 p-2 bg-blue-600 text-white rounded-lg text-center"><p class="text-[8px] font-black leading-none">13</p><p class="text-[5px] uppercase">Tue</p></div>
-                                                <div class="flex-1 p-2 bg-slate-50 rounded-lg text-center"><p class="text-[8px] font-black leading-none text-slate-400">14</p><p class="text-[5px] uppercase text-slate-400">Wed</p></div>
-                                                <div class="flex-1 p-2 bg-slate-50 rounded-lg text-center"><p class="text-[8px] font-black leading-none text-slate-400">15</p><p class="text-[5px] uppercase text-slate-400">Thu</p></div>
-                                            </div>
-                                        </div>
-                                        <button onclick="nextMockStep(2)" class="w-full py-3.5 bg-slate-900 text-white font-black text-[8px] uppercase tracking-widest rounded-xl mt-4 active:scale-95 transition-transform">Confirm Slot</button>
-                                    </div>
-
-                                    <!-- Step 2 View (Success) -->
-                                    <div id="mock-step-2" class="booking-step text-center py-12">
-                                        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
-                                            <i class="fas fa-check-circle"></i>
-                                        </div>
-                                        <h5 class="font-black text-slate-900 text-[11px] uppercase mb-1">Booking Successful!</h5>
-                                        <p class="text-[8px] text-slate-500 leading-tight px-4">A WhatsApp notification has been sent to the customer.</p>
-                                        <button onclick="nextMockStep(1)" class="mt-8 text-blue-600 font-black text-[8px] uppercase border-b border-blue-600 pb-1">Back to Start</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Decorative Elements -->
-                    <div class="absolute -right-6 top-1/4 bg-white p-4 rounded-2xl shadow-xl border border-slate-50 z-20 hidden md:flex items-center gap-3">
-                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div>
-                            <p class="text-[9px] font-black text-slate-900 uppercase">Auto Notification</p>
-                            <p class="text-[7px] text-slate-400">Sent to Customer</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- WHATSAPP BLAST SYSTEM -->
-    <section id="wa" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="text-green-600 font-black uppercase tracking-[0.4em] text-xs mb-4 block">Communication Tools</span>
-                <h2 class="text-4xl font-black mb-6 tracking-tighter text-slate-900 uppercase">WhatsApp Blast System</h2>
-                <p class="text-slate-500 font-bold text-sm">Note: Monthly Subscription basis.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- WA Starter -->
-                <div class="wa-card p-10 rounded-[3rem] flex flex-col">
-                    <h3 class="text-lg font-black text-slate-900 mb-2">STARTER</h3>
-                    <div class="text-3xl font-black text-green-600 mb-6">RM49 <span class="text-[10px] text-slate-400">/Month</span></div>
-                    <ul class="space-y-4 mb-10 flex-grow text-sm text-slate-600">
-                        <li><i class="fas fa-paper-plane mr-2 text-green-500"></i> 2,000 Messages</li>
-                        <li><i class="fas fa-image mr-2 text-green-500"></i> Media Support (Image/Video)</li>
-                    </ul>
-                    <button onclick="addToCart('WA Blast Starter', 49)" class="w-full py-4 border-2 border-green-600 text-green-600 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-green-600 hover:text-white transition-all">Subscribe Starter</button>
-                </div>
-                <!-- WA Pro -->
-                <div class="wa-card p-10 rounded-[3rem] flex flex-col border-green-500 shadow-2xl relative bg-green-50/30">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-600 text-white px-4 py-1 text-[8px] font-black uppercase rounded-full">Recommended</div>
-                    <h3 class="text-lg font-black text-slate-900 mb-2">PRO</h3>
-                    <div class="text-4xl font-black text-green-600 mb-6">RM99 <span class="text-[10px] text-slate-400">/Month</span></div>
-                    <ul class="space-y-4 mb-10 flex-grow text-sm text-slate-700 font-semibold">
-                        <li><i class="fas fa-paper-plane mr-2 text-green-600"></i> 5,000 Messages</li>
-                        <li><i class="fas fa-shield-alt mr-2 text-green-600"></i> Anti-Ban System</li>
-                        <li><i class="fas fa-user-tag mr-2 text-green-600"></i> Personalized Messaging</li>
-                    </ul>
-                    <button onclick="addToCart('WA Blast PRO', 99)" class="w-full py-5 bg-green-600 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl shadow-xl shadow-green-100">Subscribe Pro</button>
-                </div>
-                <!-- WA Ultimate -->
-                <div class="wa-card p-10 rounded-[3rem] flex flex-col">
-                    <h3 class="text-lg font-black text-slate-900 mb-2">ULTIMATE</h3>
-                    <div class="text-3xl font-black text-green-600 mb-6">RM179 <span class="text-[10px] text-slate-400">/Month</span></div>
-                    <ul class="space-y-4 mb-10 flex-grow text-sm text-slate-600">
-                        <li><i class="fas fa-paper-plane mr-2 text-green-500"></i> 10,000 Messages</li>
-                        <li><i class="fas fa-database mr-2 text-green-500"></i> Database Support</li>
-                        <li><i class="fas fa-server mr-2 text-green-500"></i> Priority Server Access</li>
-                    </ul>
-                    <button onclick="addToCart('WA Blast Ultimate', 179)" class="w-full py-4 border-2 border-green-600 text-green-600 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-green-600 hover:text-white transition-all">Subscribe Ultimate</button>
-                </div>
-            </div>
-
-<!-- CHATBOT COMING SOON - WHATSAPP THEME -->
-            <div class="mt-20 max-w-4xl mx-auto p-12 bg-[##0b141a] rounded-[4rem] text-center relative overflow-hidden border border-slate-800">
-                <!-- Glow Effect Hijau -->
-                <div class="absolute top-0 right-0 w-32 h-32 bg-[#25D366]/10 blur-3xl"></div>
-                
-                <!-- Badge 'Coming Soon' dengan warna Hijau WhatsApp -->
-                <span class="inline-block px-4 py-1 bg-[#53A45A] text-[12px] font-black uppercase tracking-widest text-white rounded-full mb-6">Coming Soon</span>
-                
-                <h3 class="text-3xl font-black text-black mb-4 uppercase">WhatsApp AI Chatbot</h3>
-                
-                <!-- Status dengan tona Teal WhatsApp -->
-                <p class="text-slate-400 font-black text-sm leading-relaxed mb-6">Status: <span class="text-[#00a884] font-bold">Automation Excellence</span></p>
-                
-                <p class="text-slate-500 max-w-lg mx-auto text-sm italic">Intelligent AI response system to handle customer inquiries 24/7 with natural conversational flow.</p>
-            </div>
-
-    <!-- DESIGN SECTION -->
-    <section id="design" class="py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="text-rose-600 font-black uppercase tracking-[0.4em] text-xs mb-4 block">Visual Identity</span>
-                <h2 class="text-4xl font-black mb-6 tracking-tighter text-slate-900 uppercase">Artwork & Design Solutions</h2>
-                <p class="text-slate-500 font-bold text-sm uppercase tracking-widest">Promo Bundle Packs (Savings)</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-                <!-- Starter Promo -->
-                <div class="design-card p-10 rounded-[3rem] flex flex-col bg-white">
-                    <h3 class="font-black text-slate-900 mb-2 uppercase">Starter Promo</h3>
-                    <div class="text-3xl font-black text-rose-600 mb-6">RM199</div>
-                    <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-500">
-                        <li><i class="fas fa-image mr-2 text-rose-500"></i> 3 High-Quality Posts</li>
-                        <li><i class="fas fa-sync mr-2 text-rose-500"></i> 1 Revision Cycle</li>
-                    </ul>
-                    <button onclick="addToCart('Design Starter Promo', 199)" class="w-full py-4 border-2 border-slate-900 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-slate-900 hover:text-white transition-all">Select Bundle</button>
-                </div>
-                <!-- Growth Marketing -->
-                <div class="design-card p-10 rounded-[3rem] flex flex-col bg-white border-rose-200 shadow-xl shadow-rose-100 relative">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-rose-600 text-white px-4 py-1 text-[8px] font-black uppercase rounded-full tracking-tighter">Value Deal</div>
-                    <h3 class="font-black text-slate-900 mb-2 uppercase">Growth Marketing</h3>
-                    <div class="text-4xl font-black text-rose-600 mb-6">RM349</div>
-                    <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-700 font-semibold">
-                        <li><i class="fas fa-images mr-2 text-rose-600"></i> 5 Ads Creative Images</li>
-                        <li><i class="fas fa-check mr-2 text-rose-600"></i> High-Conversion Copywriting</li>
-                    </ul>
-                    <button onclick="addToCart('Design Growth Bundle', 349)" class="w-full py-5 bg-rose-600 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl shadow-lg">Select Bundle</button>
-                </div>
-                <!-- Ultimate Campaign -->
-                <div class="design-card p-10 rounded-[3rem] flex flex-col bg-white">
-                    <h3 class="font-black text-slate-900 mb-2 uppercase">Ultimate Campaign</h3>
-                    <div class="text-3xl font-black text-rose-600 mb-6">RM599</div>
-                    <ul class="space-y-3 mb-10 flex-grow text-sm text-slate-500">
-                        <li><i class="fas fa-th mr-2 text-rose-500"></i> 10 Social Media Posts</li>
-                        <li><i class="fas fa-user-circle mr-2 text-rose-500"></i> 1 Profile Photo/Banner</li>
-                        <li><i class="fas fa-infinity mr-2 text-rose-500"></i> Unlimited Revisions</li>
-                    </ul>
-                    <button onclick="addToCart('Design Ultimate Bundle', 599)" class="w-full py-4 border-2 border-slate-900 text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-slate-900 hover:text-white transition-all">Select Bundle</button>
-                </div>
-            </div>
-
-            <!-- ALA CARTE & ADD ONS -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                <!-- Ala Carte -->
-                <div class="bg-white p-12 rounded-[3.5rem] border border-slate-100 shadow-sm">
-                    <h3 class="text-xl font-black text-slate-900 mb-8 uppercase tracking-tighter border-b border-slate-50 pb-4">Ala Carte Services</h3>
-                    <div class="space-y-6">
-                        <div class="flex justify-between items-center group cursor-pointer" onclick="addToCart('Logo Design', 150)">
-                            <div>
-                                <p class="text-sm font-black text-slate-800">Professional Logo Design</p>
-                                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Branding</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="font-black text-slate-900">RM150</span>
-                                <i class="fas fa-plus-circle text-slate-200 group-hover:text-blue-600"></i>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center group cursor-pointer" onclick="addToCart('Banner/Bunting Design', 80)">
-                            <p class="text-sm font-black text-slate-800">Banner / Bunting Design</p>
-                            <div class="flex items-center gap-4">
-                                <span class="font-black text-slate-900">RM80</span>
-                                <i class="fas fa-plus-circle text-slate-200 group-hover:text-blue-600"></i>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center group cursor-pointer" onclick="addToCart('Business Card Design', 50)">
-                            <p class="text-sm font-black text-slate-800">Business Card Design</p>
-                            <div class="flex items-center gap-4">
-                                <span class="font-black text-slate-900">RM50</span>
-                                <i class="fas fa-plus-circle text-slate-200 group-hover:text-blue-600"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Add Ons -->
-                <div class="bg-white p-12 rounded-[3.5rem] border border-slate-100 shadow-sm">
-                    <h3 class="text-xl font-black text-slate-900 mb-8 uppercase tracking-tighter border-b border-slate-50 pb-4">Add-On Services</h3>
-                    <div class="space-y-6">
-                        <div class="flex justify-between items-center group cursor-pointer" onclick="addToCart('Express 24 Hours', 50)">
-                            <p class="text-sm font-black text-slate-800">Express 24 Hours Delivery</p>
-                            <div class="flex items-center gap-4">
-                                <span class="font-black text-slate-900">RM50</span>
-                                <i class="fas fa-plus-circle text-slate-200 group-hover:text-blue-600"></i>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center group cursor-pointer" onclick="addToCart('Extra Revision', 30)">
-                            <p class="text-sm font-black text-slate-800">Extra Revision Cycle</p>
-                            <div class="flex items-center gap-4">
-                                <span class="font-black text-slate-900">RM30</span>
-                                <i class="fas fa-plus-circle text-slate-200 group-hover:text-blue-600"></i>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center group cursor-pointer" onclick="addToCart('Source File', 100)">
-                            <p class="text-sm font-black text-slate-800">Source Files (.AI / .PSD)</p>
-                            <div class="flex items-center gap-4">
-                                <span class="font-black text-slate-900">RM100</span>
-                                <i class="fas fa-plus-circle text-slate-200 group-hover:text-blue-600"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ & Footer - AR Marketing Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Importing Inter for text and Syne specifically for the premium logo */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Syne:wght@800&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
-        }
-
-        .accordion-item.active .accordion-content {
-            max-height: 300px; /* Reduced max-height for a tighter feel */
-            padding-bottom: 1rem;
-        }
-
-        .accordion-item.active .icon-container {
-            background-color: #2563eb; 
-            color: white;
-            transform: rotate(180deg);
-        }
-
-        .footer-link {
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        .footer-link:hover {
-            color: #2563eb;
-            transform: translateY(-2px);
-        }
-
-        /* Logo Styling */
-        .brand-main {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            font-style: italic;
-            font-size: 3.5rem; 
-            line-height: 1;
-            letter-spacing: -0.04em;
-            text-transform: uppercase;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .brand-ar {
-            color: #ffffff;
-        }
-
-        .brand-ms {
-            color: #2563eb;
-            margin-left: 2px;
-        }
-    </style>
-</head>
-<body class="bg-[#f8fafc] text-[#0f172a]">
-
-    <!-- FAQ Section (Resized to be smaller) -->
-    <section class="py-16 px-6 max-w-3xl mx-auto">
-        <!-- Header Section -->
-        <div class="text-center mb-10">
-            <span class="text-blue-600 font-bold tracking-widest uppercase text-xs">Support Center</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold mt-2 mb-4 tracking-tight text-center">
-                Frequently Asked <span class="text-blue-600">Questions</span>
-            </h2>
-            <div class="w-12 h-1 bg-blue-600 mx-auto rounded-full"></div>
-        </div>
-
-        <div class="grid gap-3">
-            <!-- FAQ Item 1 -->
-            <div class="accordion-item bg-white rounded-xl border border-slate-200 transition-all hover:border-blue-300 cursor-pointer shadow-sm">
-                <button class="flex items-center justify-between w-full p-4 text-left focus:outline-none">
-                    <span class="font-bold text-lg text-slate-800">What is AR Marketing Solutions?</span>
-                    <div class="icon-container w-7 h-7 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-all duration-300">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </div>
-                </button>
-                <div class="accordion-content px-4 text-center">
-                    <p class="text-slate-600 leading-relaxed text-base max-w-xl mx-auto">
-                        We are a results-driven digital agency dedicated to helping brands grow through precision-targeted advertising, creative content, and high-performance technical ecosystems.
-                    </p>
-                </div>
-            </div>
-
-            <!-- FAQ Item 2 -->
-            <div class="accordion-item bg-white rounded-xl border border-slate-200 transition-all hover:border-blue-300 cursor-pointer shadow-sm">
-                <button class="flex items-center justify-between w-full p-4 text-left focus:outline-none">
-                    <span class="font-bold text-lg text-slate-800">Is the ad budget included?</span>
-                    <div class="icon-container w-7 h-7 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-all duration-300">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </div>
-                </button>
-                <div class="accordion-content px-4 text-center">
-                    <p class="text-slate-600 leading-relaxed text-base max-w-xl mx-auto">
-                        No. Our fees cover management and optimization. Ad spend is billed directly by platforms like Meta, Google, or TikTok to your payment method.
-                    </p>
-                </div>
-            </div>
-
-            <!-- FAQ Item 3 -->
-            <div class="accordion-item bg-white rounded-xl border border-slate-200 transition-all hover:border-blue-300 cursor-pointer shadow-sm">
-                <button class="flex items-center justify-between w-full p-4 text-left focus:outline-none">
-                    <span class="font-bold text-lg text-slate-800">Is the Web System a one-time cost?</span>
-                    <div class="icon-container w-7 h-7 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-all duration-300">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </div>
-                </button>
-                <div class="accordion-content px-4 text-center">
-                    <p class="text-slate-600 leading-relaxed text-base max-w-xl mx-auto">
-                        Yes! Our Web Booking System is a one-time investment. You own the system fully without any hidden monthly software subscription fees.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Call to Action Box (Scaled Down) -->
-        <div class="mt-16 bg-slate-900 rounded-[2rem] p-8 md:p-12 text-center text-white relative overflow-hidden shadow-2xl">
-            <div class="absolute top-0 right-0 w-48 h-48 bg-blue-600 blur-[100px] opacity-20"></div>
-            
-            <div class="relative z-10">
-                <h3 class="text-2xl md:text-3xl font-extrabold mb-4 italic text-center">Ready to Scale?</h3>
-                <p class="text-slate-400 mb-8 text-base max-w-lg mx-auto text-center">Start your digital transformation with AR Marketing Solutions today.</p>
-                
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a href="https://wa.me/60169012445" class="w-full sm:w-auto px-8 py-3 bg-blue-600 text-white rounded-lg font-bold text-base hover:bg-blue-700 transition-all transform hover:-translate-y-1 shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2">
-                        <span>WhatsApp Us</span>
-                    </a>
-                    <a href="#" class="w-full sm:w-auto px-8 py-3 bg-transparent border border-slate-700 text-white rounded-lg font-bold text-base hover:bg-slate-800 transition-all">
-                        Packages
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer class="bg-slate-950 text-white pt-16 pb-8 px-6 border-t border-slate-900">
-        <div class="max-w-6xl mx-auto text-center">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 items-start">
-                
-                <div class="flex flex-col items-center justify-center text-center">
-                    <div class="brand-main mb-4">
-                        <span class="brand-ar">AR</span><span class="brand-ms">MS</span>
-                    </div>
-                    <p class="text-slate-400 leading-relaxed text-sm max-w-xs">
-                        Empowering businesses with modern marketing solutions. We align your vision with digital excellence.
-                    </p>
-                </div>
-
-                <div class="flex flex-col items-center justify-center text-center">
-                    <h4 class="text-lg font-bold mb-6 relative inline-block">
-                        Services
-                        <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-blue-600 rounded-full"></span>
-                    </h4>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li><a href="#" class="footer-link italic">Advertising Ads</a></li>
-                        <li><a href="#" class="footer-link">TikTok Content</a></li>
-                        <li><a href="#" class="footer-link">WhatsApp Blast</a></li>
-                        <li><a href="#" class="footer-link italic">Web Systems</a></li>
-                    </ul>
-                </div>
-
-                <div class="flex flex-col items-center justify-center text-center">
-                    <h4 class="text-lg font-bold mb-6 relative inline-block">
-                        Company
-                        <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-blue-600 rounded-full"></span>
-                    </h4>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li><a href="#" class="footer-link italic">About Us</a></li>
-                        <li><a href="#" class="footer-link">Terms of Service</a></li>
-                        <li><a href="#" class="footer-link italic">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="pt-8 border-t border-slate-900 text-slate-500 text-xs">
-                <p>&copy; 2026 AR Marketing Solutions. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
+    
     <script>
-        document.querySelectorAll('.accordion-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
-                if (!isActive) item.classList.add('active');
-            });
-        });
-    </script>
-</body>
-</html>
-        
-    </footer>
-
-<!-- Side Cart -->
-<div id="cart-panel" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-[-20px_0_60px_rgba(0,0,0,0.1)] z-[60] transform translate-x-full transition-transform duration-500">
-    <div class="p-8 h-full flex flex-col">
-        <div class="flex items-center justify-between mb-10">
-            <h2 class="text-2xl font-black uppercase tracking-tighter">Booking Cart</h2>
-            <button onclick="toggleCart()" class="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-900 transition-all">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        
-        <!-- Cart Items List -->
-        <div id="cart-items" class="flex-grow overflow-y-auto space-y-4 mb-8 pr-2"></div>
-        
-        <div class="border-t border-slate-100 pt-8 space-y-5">
-            <div class="flex justify-between font-bold text-slate-400 text-sm">
-                <span>Total:</span>
-                <span id="cart-total" class="text-slate-900 font-black">RM 0</span>
-            </div>
-            <div class="flex justify-between text-blue-600 font-black text-xl tracking-tighter">
-                <span>Deposit (50%):</span>
-                <span id="cart-deposit">RM 0</span>
-            </div>
-            
-            <div class="space-y-3 pt-4">
-                <input type="text" id="order-name" placeholder="Your Name / Business Name" class="w-full bg-slate-50 border-2 border-transparent focus:border-blue-500 focus:bg-white outline-none rounded-2xl p-5 text-sm font-bold transition-all">
-                <button onclick="checkout()" class="w-full bg-blue-600 text-white py-6 rounded-[2rem] font-black uppercase tracking-widest text-xs shadow-xl hover:bg-blue-700 transition-all active:scale-95">
-                    WhatsApp Order Now
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="overlay" onclick="toggleCart()" class="fixed inset-0 bg-slate-900/10 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity"></div>
-
-<script>
-    let cart = [];
-
-    function addToCart(name, price) {
-        cart.push({ name, price });
-        updateCart();
-        if (document.getElementById('cart-panel').classList.contains('translate-x-full')) { 
-            toggleCart(); 
-        }
-    }
-
-    function removeFromCart(index) { 
-        cart.splice(index, 1); 
-        updateCart(); 
-    }
-
-    function updateCart() {
-        const list = document.getElementById('cart-items');
-        const totalDisplay = document.getElementById('cart-total');
-        const depositDisplay = document.getElementById('cart-deposit');
-        const countDisplay = document.getElementById('cart-count'); // Ensure this ID exists in your main HTML
-        
-        list.innerHTML = '';
-        let total = 0;
-
-        if (cart.length === 0) {
-            list.innerHTML = `
-                <div class="text-center py-20 text-slate-300">
-                    <i class="fas fa-shopping-bag text-5xl mb-4 opacity-20"></i>
-                    <p class="font-bold">Your cart is empty</p>
-                </div>`;
-        }
-
-        cart.forEach((item, index) => {
-            total += item.price;
-            const div = document.createElement('div');
-            div.className = "flex justify-between items-center bg-slate-50 p-6 rounded-3xl border border-slate-100";
-            div.innerHTML = `
-                <div>
-                    <p class="font-black text-slate-800 text-[10px] uppercase tracking-tight">${item.name}</p>
-                    <p class="text-blue-600 font-black text-sm">RM ${item.price}</p>
-                </div>
-                <button onclick="removeFromCart(${index})" class="text-slate-300 hover:text-rose-500">
-                    <i class="fas fa-times"></i>
-                </button>`;
-            list.appendChild(div);
-        });
-
-        totalDisplay.innerText = `RM ${total.toLocaleString()}`;
-        depositDisplay.innerText = `RM ${(total * 0.5).toLocaleString()}`;
-        if (countDisplay) countDisplay.innerText = cart.length;
-    }
-
-    function toggleCart() {
-        const panel = document.getElementById('cart-panel');
-        const overlay = document.getElementById('overlay');
-        if (panel.classList.contains('translate-x-full')) {
-            panel.classList.remove('translate-x-full');
-            overlay.classList.remove('hidden');
-            setTimeout(() => overlay.classList.add('opacity-100'), 10);
-        } else {
-            panel.classList.add('translate-x-full');
-            overlay.classList.remove('opacity-100');
-            setTimeout(() => overlay.classList.add('hidden'), 500);
-        }
-    }
-
-    function checkout() {
-        const name = document.getElementById('order-name').value;
-        if (!name || cart.length === 0) {
-            const input = document.getElementById('order-name');
-            input.classList.add('border-rose-500');
-            setTimeout(() => input.classList.remove('border-rose-500'), 2000);
-            return;
-        }
-
-        let message = `Hi AR Marketing! I am *${name}* and I am interested in booking the following services:%0A%0A`;
-        cart.forEach((item, index) => { 
-            message += `${index+1}. *${item.name}* (RM${item.price})%0A`; 
-        });
-
-        let total = cart.reduce((acc, obj) => acc + obj.price, 0);
-        message += `%0A*Total Amount:* RM${total}%0A*Deposit (50%):* RM${total*0.5}%0A%0APlease assist me with the next steps.`;
-        
-        window.open(`https://wa.me/60169012445?text=${message}`, '_blank');
-    }
-
-    // Mockup Interaction Logic
-    function nextMockStep(step) {
-        document.querySelectorAll('.booking-step').forEach(s => s.classList.remove('active'));
-        const targetStep = document.getElementById(`mock-step-${step}`);
-        if(targetStep) targetStep.classList.add('active');
-        
-        const stepText = document.getElementById('mock-step-text');
-        if(stepText) {
-            if(step === 1) {
-                stepText.innerText = "Step 1: Select Service";
-            } else {
-                stepText.innerText = "Complete";
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f4f6fa',
+                            100: '#e8ecf4',
+                            200: '#ccd6e5',
+                            300: '#a0b3ce',
+                            400: '#6e8bb2',
+                            500: '#486895',
+                            600: '#364f77',
+                            700: '#2b3f5f',
+                            800: '#1b263b', // Primary Deep Navy
+                            900: '#0d1321', // Darkest Navy
+                        },
+                        brand: {
+                            blue: '#0056b3', // Corporate Blue
+                            lightBlue: '#00a8e8',
+                            teal: '#00b4d8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Poppins', 'sans-serif'],
+                    }
+                }
             }
         }
-    }
-</script>
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0d1321 0%, #1b263b 50%, #0056b3 100%);
+        }
+        .hero-pattern {
+            background-color: #0d1321;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 0), radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 0);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+        .custom-shadow {
+            box-shadow: 0 20px 40px -15px rgba(13, 19, 33, 0.08);
+        }
+        .custom-shadow-hover:hover {
+            box-shadow: 0 30px 60px -15px rgba(0, 86, 179, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-navy-50 text-navy-900 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full bg-navy-900/95 backdrop-blur-md text-white z-50 border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <div class="flex items-center gap-3">
+                    <a href="#" class="flex items-center gap-2">
+                        <div class="w-10 h-10 rounded-xl bg-brand-blue flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-brand-blue/30 tracking-tight">
+                            AR
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-extrabold tracking-wider text-lg leading-tight text-white">AR MARKETING</span>
+                            <span class="text-xs text-brand-teal tracking-widest uppercase font-medium">Solutions</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="#about" class="text-gray-300 hover:text-white font-medium text-sm transition-colors">Our Pillars</a>
+                    <a href="#packages" class="text-gray-300 hover:text-white font-medium text-sm transition-colors">Marketing Packages</a>
+                    <a href="#alacarte" class="text-gray-300 hover:text-white font-medium text-sm transition-colors">Ala Carte & Add-ons</a>
+                    <a href="#printing" class="text-gray-300 hover:text-white font-medium text-sm transition-colors">Printing Services</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white font-medium text-sm transition-colors">Contact</a>
+                </nav>
+
+                <!-- Header CTAs -->
+                <div class="hidden sm:flex items-center gap-4">
+                    <a href="https://wa.me/60123456789?text=Hi%20AR%20Marketing%20Solutions,%20I%20am%20interested%20in%20your%20services!" target="_blank" class="px-5 py-2.5 bg-green-600 hover:bg-green-500 text-white rounded-xl text-sm font-semibold flex items-center gap-2 shadow-lg shadow-green-600/20 transition-all duration-300 transform hover:-translate-y-0.5">
+                        <i class="fab fa-whatsapp text-lg"></i> WhatsApp Quick Inquiry
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex lg:hidden">
+                    <button id="mobile-menu-btn" type="button" class="text-gray-300 hover:text-white focus:outline-none p-2 rounded-lg hover:bg-white/10" aria-label="Toggle menu">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer menu -->
+        <div id="mobile-drawer" class="hidden lg:hidden bg-navy-900 border-t border-white/10 px-4 pt-4 pb-6 space-y-3">
+            <a href="#about" class="block text-gray-300 hover:text-white font-semibold py-2 transition-colors">Our Pillars</a>
+            <a href="#packages" class="block text-gray-300 hover:text-white font-semibold py-2 transition-colors">Marketing Packages</a>
+            <a href="#alacarte" class="block text-gray-300 hover:text-white font-semibold py-2 transition-colors">Ala Carte & Add-ons</a>
+            <a href="#printing" class="block text-gray-300 hover:text-white font-semibold py-2 transition-colors">Printing Services</a>
+            <a href="#contact" class="block text-gray-300 hover:text-white font-semibold py-2 transition-colors">Contact</a>
+            <div class="pt-4 border-t border-white/10 flex flex-col gap-3">
+                <a href="https://wa.me/60123456789?text=Hi%20AR%20Marketing%20Solutions,%20I%20am%20interested%20in%20your%20services!" target="_blank" class="w-full py-3 bg-green-600 hover:bg-green-500 text-white rounded-xl text-center font-bold flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative hero-pattern pt-32 pb-20 md:pt-44 md:pb-32 text-white overflow-hidden">
+        <!-- Floating shapes for high trust modern tech look -->
+        <div class="absolute top-10 right-10 w-96 h-96 bg-brand-blue/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 left-10 w-80 h-80 bg-brand-teal/10 rounded-full blur-2xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/30 border border-brand-teal/30 text-brand-teal font-semibold text-xs uppercase tracking-widest mx-auto lg:mx-0">
+                        <span class="w-2 h-2 rounded-full bg-brand-teal animate-pulse"></span> Complete Digital & Physical Marketing Integration
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none">
+                        Scale Your Business with <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-teal via-brand-lightBlue to-white">AR Marketing Solutions</span>
+                    </h1>
+                    <p class="text-lg text-gray-300 font-light max-w-2xl mx-auto lg:mx-0">
+                        High-converting digital advertising campaigns, viral content creation, WhatsApp automation, and custom high-quality corporate printing. All built to increase your sales.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                        <a href="#packages" class="px-8 py-4 bg-gradient-to-r from-brand-blue to-brand-teal hover:from-brand-blue/90 hover:to-brand-teal/90 text-white rounded-xl font-bold shadow-xl shadow-brand-blue/30 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                            Explore Service Packages <i class="fas fa-arrow-down"></i>
+                        </a>
+                        <a href="#printing" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-bold transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                            Physical Printing Catalog
+                        </a>
+                    </div>
+                    
+                    <!-- Real Statistics Proof -->
+                    <div class="grid grid-cols-3 gap-6 pt-10 border-t border-white/10 text-center lg:text-left max-w-md mx-auto lg:mx-0">
+                        <div>
+                            <p class="text-3xl font-extrabold text-brand-teal">99%</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-widest font-medium mt-1">ROI Focused</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-extrabold text-brand-teal">500+</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-widest font-medium mt-1">Brands Managed</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-extrabold text-brand-teal">RM2M+</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-widest font-medium mt-1">Client Revenue</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right Interactive Widget -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative bg-navy-800/80 backdrop-blur-md border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden">
+                        <!-- Gradient Overlay Decorator -->
+                        <div class="absolute -top-12 -right-12 w-24 h-24 bg-brand-blue rounded-full filter blur-xl opacity-30"></div>
+                        
+                        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i class="fas fa-bolt text-brand-teal"></i> Select Package Quick Inquiry
+                        </h3>
+                        <p class="text-sm text-gray-300 mb-6">
+                            Choose our specialized agency packages or custom print orders. We provide complete execution.
+                        </p>
+
+                        <div class="space-y-4">
+                            <!-- Custom Checklist Items -->
+                            <div class="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-brand-blue/30 flex items-center justify-center text-brand-teal">
+                                    <i class="fas fa-ad"></i>
+                                </span>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white">Targeted Leads & Digital Advertising</h4>
+                                    <p class="text-xs text-gray-400">Setup and Optimization for high conversions</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-brand-blue/30 flex items-center justify-center text-brand-teal">
+                                    <i class="fab fa-tiktok"></i>
+                                </span>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white">Full-Funnel TikTok Production</h4>
+                                    <p class="text-xs text-gray-400">8 to 30 custom scripts, voiceover, edits</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-brand-blue/30 flex items-center justify-center text-brand-teal">
+                                    <i class="fas fa-print"></i>
+                                </span>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-white">Fast-Delivery High Quality Printing</h4>
+                                    <p class="text-xs text-gray-400">Custom business cards, lanyards, flags, bunting</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <a href="#packages" class="block w-full text-center py-3 bg-white text-navy-900 font-bold rounded-xl shadow-lg hover:bg-gray-100 transition-all duration-300">
+                                View Interactive Pricing Menu
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Service Pillars Section (Logo Pillars) -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-blue bg-blue-50 px-4 py-1.5 rounded-full inline-block">Our Core Identity</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
+                    The Four Pillars of AR Marketing Solutions
+                </h2>
+                <p class="text-gray-600 font-medium">
+                    Integrated solutions designed directly from our core logo values to handle every element of your business technology, visibility, and automation.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Pillar 1: Digital -->
+                <div class="bg-navy-50/50 rounded-3xl p-8 border border-navy-100 transition-all duration-300 transform hover:-translate-y-2 custom-shadow hover:bg-navy-900 hover:text-white group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 mb-6">
+                        <i class="fas fa-desktop text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Digital</h3>
+                    <p class="text-sm text-gray-600 group-hover:text-gray-300 transition-colors leading-relaxed">
+                        Establishing your authoritative digital blueprint. We cover modern web architecture, search visibility, high-conversion landing pages, and cross-channel visual branding tailored to Malaysian market behaviors.
+                    </p>
+                </div>
+
+                <!-- Pillar 2: Advertising -->
+                <div class="bg-navy-50/50 rounded-3xl p-8 border border-navy-100 transition-all duration-300 transform hover:-translate-y-2 custom-shadow hover:bg-navy-900 hover:text-white group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 mb-6">
+                        <i class="fas fa-bullhorn text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Advertising</h3>
+                    <p class="text-sm text-gray-600 group-hover:text-gray-300 transition-colors leading-relaxed">
+                        Hyper-targeted client acquisition strategies. Multi-platform Meta (Facebook & Instagram) ads, dynamic Google search/display execution, and highly structured local TikTok content creation campaigns.
+                    </p>
+                </div>
+
+                <!-- Pillar 3: Automation -->
+                <div class="bg-navy-50/50 rounded-3xl p-8 border border-navy-100 transition-all duration-300 transform hover:-translate-y-2 custom-shadow hover:bg-navy-900 hover:text-white group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 mb-6">
+                        <i class="fas fa-robot text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Automation</h3>
+                    <p class="text-sm text-gray-600 group-hover:text-gray-300 transition-colors leading-relaxed">
+                        Smart workflows to multiply business capacity. Specialized multi-tier bulk WhatsApp blast delivery systems with active anti-ban protection to capture, nurture, and close potential leads.
+                    </p>
+                </div>
+
+                <!-- Pillar 4: IT Solutions -->
+                <div class="bg-navy-50/50 rounded-3xl p-8 border border-navy-100 transition-all duration-300 transform hover:-translate-y-2 custom-shadow hover:bg-navy-900 hover:text-white group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 mb-6">
+                        <i class="fas fa-laptop-code text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">IT Solutions</h3>
+                    <p class="text-sm text-gray-600 group-hover:text-gray-300 transition-colors leading-relaxed">
+                        High-performance technological security. Secure hosting configuration, system design, API implementations, internal tracking, data management, and software support to keep your operations flawless.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Service Packages & Interactive Quote Selector Section -->
+    <section id="packages" class="py-24 bg-navy-50 border-t border-navy-100 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-blue bg-blue-100/60 px-4 py-1.5 rounded-full inline-block">Interactive Selection Menu</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
+                    Premium Digital Marketing Packages
+                </h2>
+                <p class="text-gray-600">
+                    Choose from our high-performance marketing plans below. Use the <strong class="text-brand-blue">Interactive Select Package</strong> buttons to build your custom combo quote and instantly send it straight to our specialists!
+                </p>
+            </div>
+
+            <!-- Category 1: Advertising Packages (Ads) -->
+            <div id="cat-advertising" class="category-block space-y-8 mb-20 transition-all duration-300">
+                <div class="flex items-center gap-3 border-b border-navy-200 pb-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-blue flex items-center justify-center text-white text-lg">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-navy-900">Advertising Packages (Meta & Google Ads)</h3>
+                        <p class="text-sm text-gray-500">Premium setups engineered to get immediate sales inquiries.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Ads Basic -->
+                    <div class="bg-white rounded-3xl p-8 border border-navy-100 transition-all duration-300 custom-shadow hover:scale-[1.02] flex flex-col justify-between relative group">
+                        <div>
+                            <span class="text-xs uppercase font-extrabold tracking-widest text-brand-blue bg-blue-50 px-3 py-1 rounded-full">Entry Tier</span>
+                            <h4 class="text-2xl font-bold text-navy-900 mt-4">Basic Ads</h4>
+                            <p class="text-xs text-gray-400 mt-1">Best for testing new local markets</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-extrabold text-navy-900">RM 300</span>
+                                <span class="text-xs text-gray-500">/ One-time setup</span>
+                            </div>
+                            <ul class="space-y-3.5 text-sm text-gray-600 border-t border-navy-100 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Meta/Google Campaign Setup</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Precise Audience Targeting</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> High-Conversion Copywriting</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> 1 Direct Ad Creative Image</li>
+                                <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times text-red-300 text-sm"></i> No Long Term Optimization</li>
+                                <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times text-red-300 text-sm"></i> No Detailed Monthly Report</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="togglePackage('Basic Ads', 300, this)" class="w-full py-3 px-4 rounded-xl text-center font-bold text-sm border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 select-package-btn">
+                                Select Package <i class="fas fa-plus ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Ads Standard (Popular) -->
+                    <div class="bg-white rounded-3xl p-8 border-2 border-brand-teal/80 transition-all duration-300 custom-shadow hover:scale-[1.02] flex flex-col justify-between relative shadow-xl shadow-brand-teal/5">
+                        <div class="absolute -top-4 right-6 bg-brand-teal text-navy-900 text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-wider">
+                            Highly Recommended
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase font-extrabold tracking-widest text-brand-teal bg-teal-50 px-3 py-1 rounded-full">Pro Growth</span>
+                            <h4 class="text-2xl font-bold text-navy-900 mt-4">Standard Ads</h4>
+                            <p class="text-xs text-gray-400 mt-1">Best for small & growing agencies</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-extrabold text-navy-900">RM 800</span>
+                                <span class="text-xs text-gray-500">/ 30 Days</span>
+                            </div>
+                            <ul class="space-y-3.5 text-sm text-gray-600 border-t border-navy-100 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Includes basic setup features</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> 30 Days Continuous Optimization</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Detailed A/B Testing</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> 3 Custom High-Impact Ad Images</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Weekly Progress Review</li>
+                                <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times text-red-300 text-sm"></i> No Custom Video Scripting</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="togglePackage('Standard Ads', 800, this)" class="w-full py-3.5 px-4 rounded-xl text-center font-bold text-sm bg-brand-teal text-navy-900 hover:bg-brand-teal/90 shadow-lg shadow-brand-teal/10 transition-all duration-300 select-package-btn">
+                                Select Package <i class="fas fa-plus ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Ads Premium -->
+                    <div class="bg-white rounded-3xl p-8 border border-navy-100 transition-all duration-300 custom-shadow hover:scale-[1.02] flex flex-col justify-between relative group">
+                        <div>
+                            <span class="text-xs uppercase font-extrabold tracking-widest text-brand-blue bg-blue-50 px-3 py-1 rounded-full">Elite Class</span>
+                            <h4 class="text-2xl font-bold text-navy-900 mt-4">Premium Ads</h4>
+                            <p class="text-xs text-gray-400 mt-1">Scale up aggressively with dedicated specialists</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-extrabold text-navy-900">RM 1600</span>
+                                <span class="text-xs text-gray-500">/ 30 Days</span>
+                            </div>
+                            <ul class="space-y-3.5 text-sm text-gray-600 border-t border-navy-100 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Full Funnel Conversion Campaign</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Complete Campaign Audits</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Unlimited Custom Ad Copywriting</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Dynamic Creative Testing & Ad Images</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Multi-channel execution (Meta + Google)</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Priority Chat support</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="togglePackage('Premium Ads', 1600, this)" class="w-full py-3 px-4 rounded-xl text-center font-bold text-sm border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 select-package-btn">
+                                Select Package <i class="fas fa-plus ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: TikTok Content Creation -->
+            <div id="cat-tiktok" class="category-block space-y-8 mb-20 transition-all duration-300">
+                <div class="flex items-center gap-3 border-b border-navy-200 pb-4">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-500 to-indigo-600 flex items-center justify-center text-white text-lg">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-navy-900">TikTok Content Creation Packages</h3>
+                        <p class="text-sm text-gray-500">Professional recording scripts and active channel algorithm dominance.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- TikTok Basic -->
+                    <div class="bg-white rounded-3xl p-8 border border-navy-100 transition-all duration-300 custom-shadow hover:scale-[1.02] flex flex-col justify-between relative group">
+                        <div>
+                            <span class="text-xs uppercase font-extrabold tracking-widest text-rose-500 bg-rose-50 px-3 py-1 rounded-full">Standard</span>
+                            <h4 class="text-2xl font-bold text-navy-900 mt-4">Basic Content</h4>
+                            <p class="text-xs text-gray-400 mt-1">Get custom script foundations</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-extrabold text-navy-900">RM 1,200</span>
+                                <span class="text-xs text-gray-500">/ project</span>
+                            </div>
+                            <ul class="space-y-3.5 text-sm text-gray-600 border-t border-navy-100 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> 8 High-Conversion Custom Videos</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Detailed Hooks & Visual Scripting</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Basic Video Editing</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Dedicated Competitor Research</li>
+                                <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times text-red-300 text-sm"></i> No Professional Voiceover</li>
+                                <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times text-red-300 text-sm"></i> No Direct Account Upload Support</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="togglePackage('TikTok Basic Content', 1200, this)" class="w-full py-3 px-4 rounded-xl text-center font-bold text-sm border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 select-package-btn">
+                                Select Package <i class="fas fa-plus ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- TikTok Pro Growth -->
+                    <div class="bg-white rounded-3xl p-8 border-2 border-rose-500/80 transition-all duration-300 custom-shadow hover:scale-[1.02] flex flex-col justify-between relative shadow-xl shadow-rose-500/5">
+                        <div class="absolute -top-4 right-6 bg-rose-500 text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-wider">
+                            Popular Choice
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase font-extrabold tracking-widest text-rose-600 bg-rose-50 px-3 py-1 rounded-full">Accelerated</span>
+                            <h4 class="text-2xl font-bold text-navy-900 mt-4">Pro Growth</h4>
+                            <p class="text-xs text-gray-400 mt-1">Excellent balance of frequency and conversion</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-extrabold text-navy-900">RM 2,200</span>
+                                <span class="text-xs text-gray-500">/ project</span>
+                            </div>
+                            <ul class="space-y-3.5 text-sm text-gray-600 border-t border-navy-100 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> 15 High-Conversion Custom Videos</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Hooks, Angles & Advanced Scripting</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Professional Quality Voiceovers</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Multi-Format Editing (TikTok & Reels)</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Trending Sound Integrations</li>
+                                <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times text-red-300 text-sm"></i> No Account Management</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="togglePackage('TikTok Pro Growth', 2200, this)" class="w-full py-3.5 px-4 rounded-xl text-center font-bold text-sm bg-rose-500 text-white hover:bg-rose-600 shadow-lg shadow-rose-500/10 transition-all duration-300 select-package-btn">
+                                Select Package <i class="fas fa-plus ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- TikTok Viral Domination -->
+                    <div class="bg-white rounded-3xl p-8 border border-navy-100 transition-all duration-300 custom-shadow hover:scale-[1.02] flex flex-col justify-between relative group">
+                        <div>
+                            <span class="text-xs uppercase font-extrabold tracking-widest text-rose-500 bg-rose-50 px-3 py-1 rounded-full">Total Authority</span>
+                            <h4 class="text-2xl font-bold text-navy-900 mt-4">Viral Domination</h4>
+                            <p class="text-xs text-gray-400 mt-1">For brands looking to aggressively capture the market</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-extrabold text-navy-900">RM 4,000</span>
+                                class="text-xs text-gray-500">/ project</span>
+                            </div>
+                            <ul class="space-y-3.5 text-sm text-gray-600 border-t border-navy-100 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> 30 Premium Videos (Daily post strategy)</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Premium AI/Human Voiceover Customizations</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Full TikTok Account Management</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Caption, Hashtag & Metadata Optimization</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Monthly Analytics Performance Audits</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> VIP Communication Channel</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="togglePackage('TikTok Viral Domination', 4000, this)" class="w-full py-3 px-4 rounded-xl text-center font-bold text-sm border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 select-package-btn">
+                                Select Package <i class="fas fa-plus ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 3: WhatsApp Blast System -->
+            <div id="cat-whatsapp" class="category-block space-y-8 mb-20 transition-all duration-300">
+                <div class="flex items-center gap-3 border-b border-navy-200 pb-4">
+                    <div class="w-10 h-10 rounded-xl bg-green-600 flex items-center justify-center text-white text-lg">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-navy-900">WhatsApp Blast Automation Systems</h3>
+                        <p class="text-sm text-gray-500">High efficiency mass reach utilities equipped with safe anti-ban delivery delay technology.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- WhatsApp Starter -->
+                    <div class="bg-white rounded-3xl p-8 border border-navy-100 transition-all duration-300 custom-shadow hover:scale-[1.02] flex flex-col justify-between relative group">
+                        <div>
+                            <span class="text-xs uppercase font-extrabold tracking-widest text-green-600 bg-green-50 px-3 py-1 rounded-full">New Marketers</span>
+                            <h4 class="text-2xl font-bold text-navy-900 mt-4">Starter Blast</h4>
+                            <p class="text-xs text-gray-400 mt-1">Excellent for small list testing</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-extrabold text-navy-900">RM 49</span>
+                                <span class="text-xs text-gray-500">/ campaign</span>
+                            </div>
+                            <ul class="space-y-3.5 text-sm text-gray-600 border-t border-navy-100 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Up to 2,000 Bulk Messages</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Basic Anti-Ban Setting</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Text + Link Messaging support</li>
+                                <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times text-red-300 text-sm"></i> No Database Filtering</li>
+                                <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times text-red-300 text-sm"></i> No Image/File Attachments</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="togglePackage('WhatsApp Starter Blast', 49, this)" class="w-full py-3 px-4 rounded-xl text-center font-bold text-sm border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 select-package-btn">
+                                Select Package <i class="fas fa-plus ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp Pro -->
+                    <div class="bg-white rounded-3xl p-8 border-2 border-green-600 transition-all duration-300 custom-shadow hover:scale-[1.02] flex flex-col justify-between relative shadow-xl shadow-green-600/5">
+                        <div class="absolute -top-4 right-6 bg-green-600 text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-wider">
+                            Best Value
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase font-extrabold tracking-widest text-green-600 bg-green-50 px-3 py-1 rounded-full">Pro Marketer</span>
+                            <h4 class="text-2xl font-bold text-navy-900 mt-4">Pro Blast</h4>
+                            <p class="text-xs text-gray-400 mt-1">Standard choice for active conversion funnels</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-extrabold text-navy-900">RM 99</span>
+                                <span class="text-xs text-gray-500">/ campaign</span>
+                            </div>
+                            <ul class="space-y-3.5 text-sm text-gray-600 border-t border-navy-100 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Up to 5,000 Bulk Messages</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Premium Anti-Ban System Integration</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Multi-Image, PDF & Video attachments</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Custom Dynamic Contact Variables</li>
+                                <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times text-red-300 text-sm"></i> No Database Cleaning Support</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="togglePackage('WhatsApp Pro Blast', 99, this)" class="w-full py-3.5 px-4 rounded-xl text-center font-bold text-sm bg-green-600 text-white hover:bg-green-500 shadow-lg shadow-green-600/10 transition-all duration-300 select-package-btn">
+                                Select Package <i class="fas fa-plus ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp Ultimate -->
+                    <div class="bg-white rounded-3xl p-8 border border-navy-100 transition-all duration-300 custom-shadow hover:scale-[1.02] flex flex-col justify-between relative group">
+                        <div>
+                            <span class="text-xs uppercase font-extrabold tracking-widest text-green-600 bg-green-50 px-3 py-1 rounded-full">Grand Volume</span>
+                            <h4 class="text-2xl font-bold text-navy-900 mt-4">Ultimate Blast</h4>
+                            <p class="text-xs text-gray-400 mt-1">Extremely large-scale promotional distribution</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-extrabold text-navy-900">RM 179</span>
+                                <span class="text-xs text-gray-500">/ campaign</span>
+                            </div>
+                            <ul class="space-y-3.5 text-sm text-gray-600 border-t border-navy-100 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Up to 10,000 Bulk Messages</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Premium Anti-Ban & High-Speed Engines</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Multi-Variable Database Cleaning</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Target Audience Interest Segmenting</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Full Interactive Analytics PDF Report</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Fast Repeat Campaign setup options</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="togglePackage('WhatsApp Ultimate Blast', 179, this)" class="w-full py-3 px-4 rounded-xl text-center font-bold text-sm border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 select-package-btn">
+                                Select Package <i class="fas fa-plus ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 4: Artwork & Design Solutions -->
+            <div id="cat-artwork" class="category-block space-y-8 mb-12 transition-all duration-300">
+                <div class="flex items-center gap-3 border-b border-navy-200 pb-4">
+                    <div class="w-10 h-10 rounded-xl bg-purple-600 flex items-center justify-center text-white text-lg">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-navy-900">Artwork & Design Solutions</h3>
+                        <p class="text-sm text-gray-500">Custom social and corporate graphics produced by professional marketing visualizers.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Artwork Starter Promo -->
+                    <div class="bg-white rounded-3xl p-8 border border-navy-100 transition-all duration-300 custom-shadow hover:scale-[1.02] flex flex-col justify-between relative group">
+                        <div>
+                            <span class="text-xs uppercase font-extrabold tracking-widest text-purple-600 bg-purple-50 px-3 py-1 rounded-full">Basic Visuals</span>
+                            <h4 class="text-2xl font-bold text-navy-900 mt-4">Starter Promo</h4>
+                            <p class="text-xs text-gray-400 mt-1">Excellent for quick announcements</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-extrabold text-navy-900">RM 199</span>
+                                <span class="text-xs text-gray-500">/ project</span>
+                            </div>
+                            <ul class="space-y-3.5 text-sm text-gray-600 border-t border-navy-100 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> 3 Premium Social Media Posts</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Corporate Aesthetic Formatting</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> JPG/PNG Delivery format</li>
+                                <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times text-red-300 text-sm"></i> No Professional Ad Copywriting</li>
+                                <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times text-red-300 text-sm"></i> Max 2 Revisions only</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="togglePackage('Artwork Starter Promo', 199, this)" class="w-full py-3 px-4 rounded-xl text-center font-bold text-sm border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 select-package-btn">
+                                Select Package <i class="fas fa-plus ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Artwork Growth Marketing -->
+                    <div class="bg-white rounded-3xl p-8 border-2 border-purple-600 transition-all duration-300 custom-shadow hover:scale-[1.02] flex flex-col justify-between relative shadow-xl shadow-purple-600/5">
+                        <div class="absolute -top-4 right-6 bg-purple-600 text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-wider">
+                            Perfect For Business
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase font-extrabold tracking-widest text-purple-600 bg-purple-50 px-3 py-1 rounded-full">Conversion Pack</span>
+                            <h4 class="text-2xl font-bold text-navy-900 mt-4">Growth Marketing</h4>
+                            <p class="text-xs text-gray-400 mt-1">High conversion focused graphics and copywriting combination</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-extrabold text-navy-900">RM 349</span>
+                                <span class="text-xs text-gray-500">/ project</span>
+                            </div>
+                            <ul class="space-y-3.5 text-sm text-gray-600 border-t border-navy-100 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> 5 Premium High-Click Ads Images</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Professional Sales Hook Copywriting</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Format sizes for IG feed & Stories</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Max 4 revisions per artwork</li>
+                                <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times text-red-300 text-sm"></i> No Source File delivery</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="togglePackage('Artwork Growth Marketing', 349, this)" class="w-full py-3.5 px-4 rounded-xl text-center font-bold text-sm bg-purple-600 text-white hover:bg-purple-500 shadow-lg shadow-purple-600/10 transition-all duration-300 select-package-btn">
+                                Select Package <i class="fas fa-plus ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Artwork Ultimate Campaign -->
+                    <div class="bg-white rounded-3xl p-8 border border-navy-100 transition-all duration-300 custom-shadow hover:scale-[1.02] flex flex-col justify-between relative group">
+                        <div>
+                            <span class="text-xs uppercase font-extrabold tracking-widest text-purple-600 bg-purple-50 px-3 py-1 rounded-full">Total Brand Refresh</span>
+                            <h4 class="text-2xl font-bold text-navy-900 mt-4">Ultimate Campaign</h4>
+                            <p class="text-xs text-gray-400 mt-1">Full month's worth of highly structured visuals</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-extrabold text-navy-900">RM 599</span>
+                                <span class="text-xs text-gray-500">/ project</span>
+                            </div>
+                            <ul class="space-y-3.5 text-sm text-gray-600 border-t border-navy-100 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> 10 Premium Social Media posts</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Profile Photos & Cover banner layout</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Full raw source files delivery</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Unlimited Revision warranty support</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Priority dedicated visual designer</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="togglePackage('Artwork Ultimate Campaign', 599, this)" class="w-full py-3 px-4 rounded-xl text-center font-bold text-sm border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 select-package-btn">
+                                Select Package <i class="fas fa-plus ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 5: Web Booking & IT Systems -->
+            <div id="cat-websystems" class="category-block space-y-8 mb-12 transition-all duration-300">
+                <div class="flex items-center gap-3 border-b border-navy-200 pb-4">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-600 flex items-center justify-center text-white text-lg">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-navy-900">Web Booking & Automation Systems</h3>
+                        <p class="text-sm text-gray-500">Custom web applications to automate your customer appointments, sales, and schedules 24/7.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Web System Starter -->
+                    <div class="bg-white rounded-3xl p-8 border border-navy-100 transition-all duration-300 custom-shadow hover:scale-[1.02] flex flex-col justify-between relative group">
+                        <div>
+                            <span class="text-xs uppercase font-extrabold tracking-widest text-cyan-600 bg-cyan-50 px-3 py-1 rounded-full">Essential System</span>
+                            <h4 class="text-2xl font-bold text-navy-900 mt-4">Basic Web Booking</h4>
+                            <p class="text-xs text-gray-400 mt-1">Perfect for single branches (salons, clinics)</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-extrabold text-navy-900">RM 1,500</span>
+                                <span class="text-xs text-gray-500">/ setup</span>
+                            </div>
+                            <ul class="space-y-3.5 text-sm text-gray-600 border-t border-navy-100 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> High-Speed One Page Landing Site</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Integrated Booking Calendar System</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Email Notifications for Appt.</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Mobile Responsive Design</li>
+                                <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times text-red-300 text-sm"></i> No Online Payment Gateway</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="togglePackage('Basic Web Booking System', 1500, this)" class="w-full py-3 px-4 rounded-xl text-center font-bold text-sm border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 select-package-btn">
+                                Select Package <i class="fas fa-plus ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Web System Pro -->
+                    <div class="bg-white rounded-3xl p-8 border-2 border-cyan-600 transition-all duration-300 custom-shadow hover:scale-[1.02] flex flex-col justify-between relative shadow-xl shadow-cyan-600/5">
+                        <div class="absolute -top-4 right-6 bg-cyan-600 text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-wider">
+                            Most Requested
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase font-extrabold tracking-widest text-cyan-600 bg-cyan-50 px-3 py-1 rounded-full">Pro Automation</span>
+                            <h4 class="text-2xl font-bold text-navy-900 mt-4">Advanced Booking Portal</h4>
+                            <p class="text-xs text-gray-400 mt-1">Full customer flow with payment collection</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-extrabold text-navy-900">RM 2,800</span>
+                                <span class="text-xs text-gray-500">/ setup</span>
+                            </div>
+                            <ul class="space-y-3.5 text-sm text-gray-600 border-t border-navy-100 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Complete Multi-Page Corporate Website</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Advanced Multi-Staff Booking System</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> FPX/Card Payment Gateway Setup</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Automated WhatsApp Reminders</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> 1 Year Free Domain & Pro Hosting</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="togglePackage('Advanced Booking Portal', 2800, this)" class="w-full py-3.5 px-4 rounded-xl text-center font-bold text-sm bg-cyan-600 text-white hover:bg-cyan-500 shadow-lg shadow-cyan-600/10 transition-all duration-300 select-package-btn">
+                                Select Package <i class="fas fa-plus ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Web System Enterprise -->
+                    <div class="bg-white rounded-3xl p-8 border border-navy-100 transition-all duration-300 custom-shadow hover:scale-[1.02] flex flex-col justify-between relative group">
+                        <div>
+                            <span class="text-xs uppercase font-extrabold tracking-widest text-cyan-600 bg-cyan-50 px-3 py-1 rounded-full">Scale System</span>
+                            <h4 class="text-2xl font-bold text-navy-900 mt-4">Custom Web App</h4>
+                            <p class="text-xs text-gray-400 mt-1">Bespoke logic for enterprise franchises</p>
+                            <div class="my-6">
+                                <span class="text-4xl font-extrabold text-navy-900">RM 5,000+</span>
+                                <span class="text-xs text-gray-500">/ project</span>
+                            </div>
+                            <ul class="space-y-3.5 text-sm text-gray-600 border-t border-navy-100 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Custom Database Architecture</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Franchise Multi-Location Tracking</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Dedicated Admin Dashboard & CRM</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> 3rd Party API Integrations</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> High Security SSL & Cloud Storage</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="togglePackage('Custom Web Application', 5000, this)" class="w-full py-3 px-4 rounded-xl text-center font-bold text-sm border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 select-package-btn">
+                                Select Package <i class="fas fa-plus ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Web System Mockup Demo Section -->
+    <section id="booking-demo" class="py-20 bg-navy-900 text-white relative border-b-4 border-brand-teal overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvc3ZnPg==')] opacity-50"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Demo Text Context -->
+                <div class="space-y-6 text-center lg:text-left">
+                    <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-900/40 border border-cyan-400/20 px-4 py-1.5 rounded-full inline-block">Interactive Proof of Concept</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                        Experience Our Smart <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-brand-lightBlue">Booking Widget</span>
+                    </h2>
+                    <p class="text-gray-300 font-light leading-relaxed">
+                        Why rely on manual WhatsApp replies? We build custom, high-speed booking applications integrated directly into your website. Try the interactive dummy mockup on the right to see how seamless your customer's journey can be.
+                    </p>
+                    <ul class="space-y-4 text-sm text-gray-300 font-medium pt-4 max-w-md mx-auto lg:mx-0 text-left">
+                        <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-cyan-400"><i class="fas fa-clock"></i></span> 24/7 Automated Lead Capturing</li>
+                        <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-cyan-400"><i class="fas fa-credit-card"></i></span> Deposit & Payment FPX Ready</li>
+                        <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-cyan-400"><i class="fab fa-whatsapp"></i></span> Auto-Reminder Integration</li>
+                    </ul>
+                </div>
+
+                <!-- Interactive Mockup UI -->
+                <div class="relative max-w-sm mx-auto w-full">
+                    <!-- Faux Mobile Phone Frame -->
+                    <div class="bg-white text-navy-900 rounded-[2.5rem] overflow-hidden shadow-2xl border-[8px] border-navy-800 relative h-[550px] flex flex-col">
+                        <!-- Top Bar -->
+                        <div class="bg-navy-50 py-4 px-6 border-b border-navy-100 flex justify-between items-center z-10 shadow-sm">
+                            <span class="font-bold text-sm flex items-center gap-2"><i class="fas fa-cut text-brand-blue"></i> Luxe Salon Demo</span>
+                            <i class="fas fa-bars text-gray-400"></i>
+                        </div>
+                        
+                        <!-- Content Area -->
+                        <div class="flex-1 overflow-y-auto bg-gray-50 p-5 relative">
+                            
+                            <!-- Step 1: Select Service -->
+                            <div id="demo-step-1" class="demo-step transition-all duration-300">
+                                <h3 class="text-lg font-bold text-navy-900 mb-1">Select Service</h3>
+                                <p class="text-xs text-gray-500 mb-4">Choose what you'd like to book today.</p>
+                                
+                                <div class="space-y-3">
+                                    <button onclick="selectDemoService(this, 'Premium Haircut (RM65)')" class="demo-service-btn w-full text-left bg-white p-4 rounded-xl border-2 border-transparent shadow-sm hover:border-brand-teal/30 transition-all">
+                                        <div class="font-bold text-sm">Premium Haircut</div>
+                                        <div class="text-xs text-gray-500">45 mins • RM 65.00</div>
+                                    </button>
+                                    <button onclick="selectDemoService(this, 'Scalp Treatment (RM120)')" class="demo-service-btn w-full text-left bg-white p-4 rounded-xl border-2 border-transparent shadow-sm hover:border-brand-teal/30 transition-all">
+                                        <div class="font-bold text-sm">Scalp Treatment Spa</div>
+                                        <div class="text-xs text-gray-500">60 mins • RM 120.00</div>
+                                    </button>
+                                    <button onclick="selectDemoService(this, 'Consultation (Free)')" class="demo-service-btn w-full text-left bg-white p-4 rounded-xl border-2 border-transparent shadow-sm hover:border-brand-teal/30 transition-all">
+                                        <div class="font-bold text-sm">Specialist Consultation</div>
+                                        <div class="text-xs text-gray-500">15 mins • Free</div>
+                                    </button>
+                                </div>
+
+                                <div class="mt-8">
+                                    <button id="demo-step-1-next" onclick="changeDemoStep(2)" disabled class="w-full py-3.5 bg-navy-900 text-white rounded-xl font-bold text-sm opacity-50 cursor-not-allowed transition-all shadow-lg">
+                                        Continue <i class="fas fa-arrow-right ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Date & Time -->
+                            <div id="demo-step-2" class="demo-step hidden transition-all duration-300">
+                                <button onclick="changeDemoStep(1)" class="text-xs text-gray-500 mb-3 hover:text-brand-blue flex items-center gap-1"><i class="fas fa-arrow-left"></i> Back</button>
+                                <h3 class="text-lg font-bold text-navy-900 mb-1">Date & Time</h3>
+                                <p class="text-xs text-gray-500 mb-4" id="demo-selected-service-display">Premium Haircut</p>
+                                
+                                <!-- Faux Calendar -->
+                                <div class="bg-white rounded-xl p-3 shadow-sm border border-navy-100 mb-4">
+                                    <div class="flex justify-between items-center mb-3 px-1">
+                                        <i class="fas fa-chevron-left text-xs text-gray-400"></i>
+                                        <span class="text-xs font-bold">August 2026</span>
+                                        <i class="fas fa-chevron-right text-xs text-gray-400"></i>
+                                    </div>
+                                    <div class="grid grid-cols-7 gap-1 text-center text-[10px] text-gray-400 mb-2 font-bold">
+                                        <div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div><div>S</div>
+                                    </div>
+                                    <div class="grid grid-cols-7 gap-1 text-center text-xs">
+                                        <div class="py-1.5 text-gray-300">27</div><div class="py-1.5 text-gray-300">28</div><div class="py-1.5 text-gray-300">29</div><div class="py-1.5 text-gray-300">30</div><div class="py-1.5 text-gray-300">31</div>
+                                        <div class="py-1.5">1</div><div class="py-1.5 font-bold bg-brand-blue text-white rounded-lg shadow-sm">2</div>
+                                        <div class="py-1.5">3</div><div class="py-1.5">4</div><div class="py-1.5">5</div><div class="py-1.5">6</div><div class="py-1.5">7</div><div class="py-1.5">8</div><div class="py-1.5">9</div>
+                                    </div>
+                                </div>
+
+                                <h4 class="text-xs font-bold mb-2">Available Slots</h4>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <button class="py-2 border border-navy-200 rounded-lg text-xs hover:border-brand-blue hover:text-brand-blue transition-colors">10:00 AM</button>
+                                    <button class="py-2 border border-brand-blue bg-brand-blue/10 text-brand-blue font-bold rounded-lg text-xs transition-colors">11:30 AM</button>
+                                    <button class="py-2 border border-navy-200 rounded-lg text-xs hover:border-brand-blue hover:text-brand-blue transition-colors">2:00 PM</button>
+                                </div>
+
+                                <div class="mt-6">
+                                    <button onclick="changeDemoStep(3)" class="w-full py-3.5 bg-navy-900 text-white rounded-xl font-bold text-sm transition-all shadow-lg">
+                                        Confirm Time <i class="fas fa-check ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Success -->
+                            <div id="demo-step-3" class="demo-step hidden transition-all duration-300 flex flex-col items-center justify-center h-full text-center pb-10">
+                                <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center text-3xl mb-4 animate-bounce">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-navy-900 mb-2">Booking Confirmed!</h3>
+                                <p class="text-xs text-gray-500 mb-6">Your customer just secured a slot effortlessly. An automated WhatsApp confirmation has been simulated.</p>
+                                
+                                <div class="bg-white w-full p-4 rounded-xl border border-navy-100 shadow-sm text-left mb-6">
+                                    <div class="text-xs text-gray-500">Service</div>
+                                    <div class="font-bold text-sm mb-2" id="demo-final-service">Premium Haircut</div>
+                                    <div class="text-xs text-gray-500">Date & Time</div>
+                                    <div class="font-bold text-sm">August 2nd, 11:30 AM</div>
+                                </div>
+
+                                <button onclick="resetDemo()" class="text-xs font-bold text-brand-blue hover:underline">
+                                    <i class="fas fa-redo-alt mr-1"></i> Restart Demo
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <!-- Decorators -->
+                    <div class="absolute -top-6 -right-6 w-20 h-20 bg-brand-teal/20 rounded-full blur-xl pointer-events-none"></div>
+                    <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-brand-blue/20 rounded-full blur-2xl pointer-events-none"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ala Carte & Add-on Services Section -->
+    <section id="alacarte" class="py-24 bg-navy-900 text-white relative overflow-hidden border-b border-white/10">
+        <!-- Floating light background element matching printing style -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-blue/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-teal bg-white/10 px-4 py-1.5 rounded-full inline-block">Custom Premium Assets</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                    Ala Carte Design Solutions
+                </h2>
+                <p class="text-gray-300 font-light">
+                    Select from our custom standalone graphic designs to elevate your brand layout perfectly.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1: Logo Design -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-palette"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Logo Design</h4>
+                            <p class="text-xs text-gray-400">Corporate Branding Identity</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Establish a high-fidelity vector trademark concept designed to represent your target industry values and scale seamlessly across all channels.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Ala Carte Inquiry: Logo Design')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Design Solution <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2: Banner & Bunting Design -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-vector-square"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Banner & Bunting</h4>
+                            <p class="text-xs text-gray-400">Promotional Layout & Sizing</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Sleek, high-impact marketing layout custom structured for physical event stands, trade show bunting, or outdoor billboards.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Ala Carte Inquiry: Banner/Bunting Design')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Design Solution <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3: Business Card Design -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-id-card-alt"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Business Card Design</h4>
+                            <p class="text-xs text-gray-400">Professional Layout & Finishing</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Double-sided elegant mockups matching premium matte, synthetic spot UV, or textured layout specifications.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Ala Carte Inquiry: Business Card Design')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Design Solution <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 4: Resume & CV Design (New) -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-file-invoice"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Resume & CV Design</h4>
+                            <p class="text-xs text-gray-400">ATS-Friendly & Creative Layouts</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Professional, eye-catching layouts tailored to highlight your career highlights, skills, and accomplishments perfectly.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Ala Carte Inquiry: Resume & CV Design')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Design Solution <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 5: Wedding Card Design (New) -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-heart"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Wedding Card Design</h4>
+                            <p class="text-xs text-gray-400">Elegant & Modern Custom Themes</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Beautifully customized invitation cards featuring minimalist, watercolor floral, luxury gold foil, or custom traditional calligraphy.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Ala Carte Inquiry: Wedding Card Design')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Design Solution <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 6: Corporate Letterhead (New) -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-heading"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Letterhead Design</h4>
+                            <p class="text-xs text-gray-400">Official Brand Stationery Layout</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Sleek, neat official letterhead headers and footers optimized for standard A4 digital PDFs and high-volume offset printing.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Ala Carte Inquiry: Letterhead Design')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Design Solution <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 7: Company Profile Booklet (New) -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-book-open"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Company Profile Design</h4>
+                            <p class="text-xs text-gray-400">Professional Business Brochure Layout</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Complete multi-page corporate portfolio book design focusing on structured data layout, financial charts, and mission guidelines.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Ala Carte Inquiry: Company Profile Design')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Design Solution <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 8: Product Packaging & Label (New) -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-box-open"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Packaging & Label Design</h4>
+                            <p class="text-xs text-gray-400">Sticker Decals, Bottle Labels & Box Templates</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Eye-catching visual wraps, box die-cuts, and product sticker label templates structured precisely for industrial printers.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Ala Carte Inquiry: Packaging & Label Design')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Design Solution <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 9: Social Media Layouts (New) -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-share-nodes"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Social Media Graphics</h4>
+                            <p class="text-xs text-gray-400">Premium Post & Carousel Templates</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Sleek layout templates optimized for Instagram Feeds, Stories, and Facebook posts to keep your digital branding consistent.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Ala Carte Inquiry: Social Media Graphics')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Design Solution <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Physical Printing Services Section -->
+    <section id="printing" class="py-24 bg-navy-900 text-white relative overflow-hidden">
+        <!-- Floating light background element -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-blue/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-teal bg-white/10 px-4 py-1.5 rounded-full inline-block">High Fidelity Corporate Outputs</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                    Physical Corporate Printing Solutions
+                </h2>
+                <p class="text-gray-300 font-light">
+                    Transforming your brand concepts into physical mastery. Check our corporate printing products and specify your quantity for high-grade finishing options.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Business Cards -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-id-card"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Business Cards</h4>
+                            <p class="text-xs text-gray-400">Premium Matte / Glossy Finishing</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Impress partners with custom heavyweight cards, spot UV finishing, or high-end textured luxury paper materials.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Printing Inquiry: Business Cards')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Custom Quantity & Material <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2: Bunting -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-arrows-alt-v"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Bunting</h4>
+                            <p class="text-xs text-gray-400">Outdoor & Indoor Stands</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Sturdy X-stands and T-stands with weather-resistant high fidelity printing for trade shows, retail stalls, and seminars.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Printing Inquiry: Bunting')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Custom Quantity & Material <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3: Banners -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-scroll"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Banners</h4>
+                            <p class="text-xs text-gray-400">Large-Scale Tarpaulin Print</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Durable eyelets and canvas string configurations for maximum distance visibility in rain or scorching sunlight.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Printing Inquiry: Banners')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Custom Quantity & Material <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 4: Stickers -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-tags"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Stickers</h4>
+                            <p class="text-xs text-gray-400">Custom Die-Cut & Roll Sheets</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Waterproof PVC, clear transparency sticker shapes, and high adhesion labels optimized for product packaging.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Printing Inquiry: Stickers')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Custom Quantity & Material <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 5: Flyers -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-pager"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Flyers</h4>
+                            <p class="text-xs text-gray-400">A5 / A4 Artpaper Single & Double Side</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Crisp bulk distribution flyers on high-gloss 128gsm paper designed for physical marketing mailbox distributions.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Printing Inquiry: Flyers')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Custom Quantity & Material <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 6: ID Cards -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-id-badge"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">ID Cards</h4>
+                            <p class="text-xs text-gray-400">Durable PVC Staff Cards</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Rigid plastic company identity badges, integrated access card compatibility options, and custom member loyalty cards.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Printing Inquiry: ID Cards')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Custom Quantity & Material <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 7: Menus -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-utensils"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Menus</h4>
+                            <p class="text-xs text-gray-400">Folded / Hardcover Restaurant Catalogs</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Spill-resistant laminated synthetic menus, leather bound covers, and booklet staples custom-crafted for F&B durability.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Printing Inquiry: Menus')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Custom Quantity & Material <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 8: Lanyards -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-id-card-alt"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Lanyards</h4>
+                            <p class="text-xs text-gray-400">Nylon Sublimation Printing</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        High-comfort customized staff lanyards with premium metal hooks, safety breakaway clips, and sharp corporate logos.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Printing Inquiry: Lanyards')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Custom Quantity & Material <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Card 9: Rubber Stamps -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="w-12 h-12 rounded-2xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl group-hover:bg-brand-teal group-hover:text-navy-900 transition-all duration-300">
+                            <i class="fas fa-stamp"></i>
+                        </span>
+                        <div>
+                            <h4 class="text-lg font-bold">Rubber Stamps</h4>
+                            <p class="text-xs text-gray-400">Self-Inking & Traditional Mounts</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 font-light mb-4">
+                        Official company round stamps, address stamps, and signature indicators with robust internal ink mechanisms.
+                    </p>
+                    <a href="#contact" onclick="setContactSubject('Printing Inquiry: Rubber Stamps')" class="text-xs text-brand-teal font-bold hover:text-white flex items-center gap-1.5 transition-colors">
+                        Inquire Custom Quantity & Material <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Quote Builder Cart Widget (Floating Bottom Drawer) -->
+    <div id="quote-drawer" class="fixed bottom-0 left-0 w-full bg-navy-900 border-t-2 border-brand-teal text-white shadow-2xl z-40 transform translate-y-full transition-transform duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                
+                <!-- Drawer info -->
+                <div class="flex items-center gap-4 text-center md:text-left">
+                    <span class="w-12 h-12 rounded-xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl animate-pulse">
+                        <i class="fas fa-calculator"></i>
+                    </span>
+                    <div>
+                        <h4 class="text-base font-bold text-white flex items-center gap-2 justify-center md:justify-start">
+                            Your Quote Builder <span class="bg-brand-teal text-navy-900 text-[10px] px-2 py-0.5 rounded-full font-extrabold" id="drawer-count">0 Selected</span>
+                        </h4>
+                        <p class="text-xs text-gray-400 max-w-xl" id="selected-list-text">No packages selected yet. Click "Select Package" above to bundle services!</p>
+                    </div>
+                </div>
+
+                <!-- Drawer pricing & actions -->
+                <div class="flex flex-wrap items-center gap-4">
+                    <div class="text-center md:text-right">
+                        <span class="text-xs text-gray-400 block font-semibold uppercase tracking-widest">Est. Total Package Cost</span>
+                        <span class="text-2xl font-extrabold text-brand-teal" id="drawer-total">RM 0.00</span>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button onclick="clearQuote()" class="px-3.5 py-3 border border-white/20 hover:bg-white/10 rounded-xl text-xs font-bold transition-colors" title="Clear All selections">
+                            Clear
+                        </button>
+                        <button onclick="sendWhatsAppQuote()" class="px-5 py-3 bg-green-600 hover:bg-green-500 text-white rounded-xl text-sm font-bold flex items-center gap-2 shadow-lg shadow-green-600/30 transition-all duration-300">
+                            <i class="fab fa-whatsapp text-base"></i> Send Quote to WhatsApp
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form & Consultation Section -->
+    <section id="contact" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                
+                <!-- Contact left column: Direct Details -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-blue bg-blue-50 px-4 py-1.5 rounded-full inline-block">Connect With Us</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight mt-3">
+                            Let's Build Your Audience Integration
+                        </h2>
+                        <p class="text-gray-600 mt-4 leading-relaxed font-light">
+                            Ready to accelerate your marketing, automated processes, or printing designs? Send our professional specialists an inquiry message or get customized consultation setups.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Detail block 1 -->
+                        <div class="flex items-start gap-4">
+                            <span class="w-10 h-10 rounded-xl bg-navy-50 border border-navy-100 flex items-center justify-center text-brand-blue flex-shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Operating Office Location</h4>
+                                <p class="text-xs text-gray-500 mt-0.5">armarketingsolutions.online | Selangor, Malaysia</p>
+                            </div>
+                        </div>
+
+                        <!-- Detail block 2 -->
+                        <div class="flex items-start gap-4">
+                            <span class="w-10 h-10 rounded-xl bg-navy-50 border border-navy-100 flex items-center justify-center text-brand-blue flex-shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Official Corporate Support Email</h4>
+                                <p class="text-xs text-gray-500 mt-0.5">support@armarketingsolutions.online</p>
+                            </div>
+                        </div>
+
+                        <!-- Detail block 3 -->
+                        <div class="flex items-start gap-4">
+                            <span class="w-10 h-10 rounded-xl bg-navy-50 border border-navy-100 flex items-center justify-center text-brand-blue flex-shrink-0">
+                                <i class="fab fa-whatsapp"></i>
+                            </span>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Corporate WhatsApp Direct line</h4>
+                                <p class="text-xs text-gray-500 mt-0.5">+60 12-345 6789</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Highlight Promo Notice -->
+                    <div class="p-6 bg-brand-blue/5 border border-brand-blue/10 rounded-2xl">
+                        <h4 class="font-bold text-brand-blue text-sm flex items-center gap-2">
+                            <i class="fas fa-lightbulb"></i> Looking for custom prints?
+                        </h4>
+                        <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">
+                            Specify your desired dimensions, card weight, synthetic laminates, and exact counts directly in our query form or request a custom digital catalog via email/WhatsApp.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact right column: Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-navy-50/50 rounded-3xl p-8 border border-navy-100 custom-shadow">
+                        <h3 class="text-xl font-bold text-navy-900 mb-6 flex items-center gap-2">
+                            <i class="fas fa-paper-plane text-brand-blue"></i> Send Direct Inquiry
+                        </h3>
+
+                        <!-- Form -->
+                        <form id="lead-form" onsubmit="handleInquirySubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs uppercase font-extrabold tracking-widest text-navy-600 mb-2" for="lead-name">Your Full Name *</label>
+                                    <input required type="text" id="lead-name" placeholder="John Doe" class="w-full px-4 py-3 bg-white border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm text-navy-900 transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase font-extrabold tracking-widest text-navy-600 mb-2" for="lead-phone">WhatsApp Number *</label>
+                                    <input required type="tel" id="lead-phone" placeholder="e.g. 60123456789" class="w-full px-4 py-3 bg-white border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm text-navy-900 transition-all">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs uppercase font-extrabold tracking-widest text-navy-600 mb-2" for="lead-email">Email Address *</label>
+                                    <input required type="email" id="lead-email" placeholder="john@example.com" class="w-full px-4 py-3 bg-white border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm text-navy-900 transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase font-extrabold tracking-widest text-navy-600 mb-2" for="lead-subject">Interested Pillar *</label>
+                                    <select id="lead-subject" class="w-full px-4 py-3 bg-white border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm text-navy-900 transition-all">
+                                        <option value="General Consultation">General Consultation</option>
+                                        <option value="Digital Advertising Campaign">Digital & Advertising Pillar</option>
+                                        <option value="TikTok Content Production">TikTok Content Creation</option>
+                                        <option value="WhatsApp Blast Automation">WhatsApp Automation Pillar</option>
+                                        <option value="Physical Corporate Printing">Physical Printing Services</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs uppercase font-extrabold tracking-widest text-navy-600 mb-2" for="lead-message">Your Detailed Business Goals / Request Details *</label>
+                                <textarea required id="lead-message" rows="5" placeholder="Tell us about your campaign goals, brand assets, required printing dimensions, target counts, etc..." class="w-full px-4 py-3 bg-white border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm text-navy-900 transition-all"></textarea>
+                            </div>
+
+                            <!-- Success Banner -->
+                            <div id="form-success-banner" class="hidden p-4 bg-green-50 border border-green-200 rounded-xl text-green-800 text-xs flex items-center gap-2">
+                                <i class="fas fa-check-circle text-lg flex-shrink-0 text-green-500"></i>
+                                <span>Thank you for your submission! Our team will reach out directly on WhatsApp within 24 hours.</span>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row gap-4 items-center">
+                                <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-navy-900 hover:bg-navy-800 text-white font-bold rounded-xl text-sm shadow-xl transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2">
+                                    Submit Consultation Request <i class="fas fa-paper-plane text-xs"></i>
+                                </button>
+                                <span class="text-xs text-gray-400">or contact us directly below</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Toast Alert feedback notification system -->
+    <div id="custom-toast" class="fixed top-24 right-4 bg-navy-900 border border-white/10 text-white px-5 py-4 rounded-2xl shadow-2xl z-50 flex items-center gap-3 transform translate-x-[150%] transition-transform duration-300">
+        <span class="w-8 h-8 rounded-lg bg-brand-blue/30 flex items-center justify-center text-brand-teal text-sm">
+            <i class="fas fa-info" id="toast-icon"></i>
+        </span>
+        <div>
+            <p class="text-xs font-bold text-white uppercase tracking-wider">System Notification</p>
+            <p class="text-xs text-gray-300 mt-0.5 font-medium" id="toast-message">Item selected</p>
+        </div>
+    </div>
+
+    <!-- Corporate Footer Section -->
+    <footer class="bg-navy-900 text-white pt-20 pb-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+                
+                <!-- Footer col 1: Brand details -->
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="flex items-center gap-2">
+                        <div class="w-10 h-10 rounded-xl bg-brand-blue flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-brand-blue/30 tracking-tight">
+                            AR
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-extrabold tracking-wider text-lg leading-tight text-white">AR MARKETING</span>
+                            <span class="text-xs text-brand-teal tracking-widest uppercase font-medium">Solutions</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed font-light">
+                        High-efficiency single source partner for digital advertising, modern media content, reliable bulk messaging automation workflows, and elegant corporate printing.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-blue hover:text-white flex items-center justify-center text-gray-400 transition-all" aria-label="Facebook Page">
+                            <i class="fab fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-rose-500 hover:text-white flex items-center justify-center text-gray-400 transition-all" aria-label="Instagram Account">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                        <a href="https://tiktok.com" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-indigo-600 hover:text-white flex items-center justify-center text-gray-400 transition-all" aria-label="TikTok Account">
+                            <i class="fab fa-tiktok text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer col 2: Our Pillars Links -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h4 class="text-xs uppercase font-extrabold tracking-widest text-brand-teal">Our Logo Pillars</h4>
+                    <ul class="space-y-3.5 text-sm text-gray-400">
+                        <li class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> Digital</li>
+                        <li class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> Advertising</li>
+                        <li class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> Automation</li>
+                        <li class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> IT Solutions</li>
+                    </ul>
+                </div>
+
+                <!-- Footer col 3: Marketing Quick links -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h4 class="text-xs uppercase font-extrabold tracking-widest text-brand-teal">Services Portfolio</h4>
+                    <ul class="space-y-3.5 text-sm text-gray-400">
+                        <li><a href="#packages" onclick="switchTab('advertising')" class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> Digital Advertising Tiers</a></li>
+                        <li><a href="#packages" onclick="switchTab('tiktok')" class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> TikTok Creation Packages</a></li>
+                        <li><a href="#packages" onclick="switchTab('whatsapp')" class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> WhatsApp Automation</a></li>
+                        <li><a href="#packages" onclick="switchTab('artwork')" class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> Custom Visual Design</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer col 4: Printing links -->
+                <div class="lg:col-span-2 space-y-4">
+                    <h4 class="text-xs uppercase font-extrabold tracking-widest text-brand-teal">Corporate Prints</h4>
+                    <ul class="space-y-3.5 text-sm text-gray-400">
+                        <li><a href="#printing" class="hover:text-white transition-colors">Business Cards</a></li>
+                        <li><a href="#printing" class="hover:text-white transition-colors">Bunting / Stands</a></li>
+                        <li><a href="#printing" class="hover:text-white transition-colors">Banners / Decals</a></li>
+                        <li><a href="#printing" class="hover:text-white transition-colors">PVC Badges</a></li>
+                        <li><a href="#printing" class="hover:text-white transition-colors">Corporate Lanyards</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom panel -->
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+                <p>
+                    &copy; 2026 AR Marketing Solutions (armarketingsolutions.online). All Rights Reserved. Built for ultimate conversion rate performance.
+                </p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGICS (FRONTEND ONLY) -->
+    <script>
+        // Global Selected Packages State Array
+        let selectedPackages = [];
+
+        // 1. Navigation responsive menu toggle logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        // Close mobile drawer on nav click
+        const drawerLinks = mobileDrawer.querySelectorAll('a');
+        drawerLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.add('hidden');
+            });
+        });
+
+        // 2. Smooth navigation scroll fallback for category links
+        function switchTab(category) {
+            if (category === 'all') {
+                document.getElementById('packages').scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+            const targetElement = document.getElementById(`cat-${category}`);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        // 3. Interactive Quote Builder Core Logic
+        function togglePackage(packageName, price, element) {
+            // Check if package is already in the list
+            const index = selectedPackages.findIndex(item => item.name === packageName);
+            
+            if (index > -1) {
+                // Remove package if already selected
+                selectedPackages.splice(index, 1);
+                showToast(`<i class="fas fa-trash"></i>`, `Removed ${packageName} from your Quote!`);
+                updateSelectButtonUI(packageName, false, element);
+            } else {
+                // Add new package to selection list
+                selectedPackages.push({ name: packageName, price: price });
+                showToast(`<i class="fas fa-check-double text-brand-teal"></i>`, `Added ${packageName} (RM${price}) to your Quote!`);
+                updateSelectButtonUI(packageName, true, element);
+            }
+
+            updateDrawerUI();
+        }
+
+        function updateSelectButtonUI(packageName, isSelected, buttonElement) {
+            // Find all instances of selector buttons for this package name to ensure synchronicity
+            const buttons = document.querySelectorAll('.select-package-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('onclick').includes(`'${packageName}'`)) {
+                    if (isSelected) {
+                        btn.innerHTML = `Remove Package <i class="fas fa-minus ml-1"></i>`;
+                        btn.className = `w-full py-3 px-4 rounded-xl text-center font-bold text-sm bg-red-500 text-white hover:bg-red-600 transition-all duration-300 select-package-btn shadow-lg shadow-red-500/20`;
+                    } else {
+                        // Check if it belongs to Standard (brand-teal) or default (border-brand-blue)
+                        const parent = btn.closest('.border-2');
+                        if (parent && (parent.classList.contains('border-brand-teal/80') || parent.classList.contains('border-rose-500/80') || parent.classList.contains('border-green-600') || parent.classList.contains('border-purple-600'))) {
+                            // Standard highlighted cards style
+                            let colorClass = "bg-brand-teal text-navy-900 hover:bg-brand-teal/90 shadow-lg shadow-brand-teal/10";
+                            if (parent.classList.contains('border-rose-500/80')) colorClass = "bg-rose-500 text-white hover:bg-rose-600 shadow-lg shadow-rose-500/10";
+                            if (parent.classList.contains('border-green-600')) colorClass = "bg-green-600 text-white hover:bg-green-500 shadow-lg shadow-green-600/10";
+                            if (parent.classList.contains('border-purple-600')) colorClass = "bg-purple-600 text-white hover:bg-purple-500 shadow-lg shadow-purple-600/10";
+                            
+                            btn.className = `w-full py-3.5 px-4 rounded-xl text-center font-bold text-sm transition-all duration-300 select-package-btn ${colorClass}`;
+                            btn.innerHTML = `Select Package <i class="fas fa-plus ml-1"></i>`;
+                        } else {
+                            // Bordered entry style
+                            btn.className = `w-full py-3 px-4 rounded-xl text-center font-bold text-sm border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 select-package-btn`;
+                            btn.innerHTML = `Select Package <i class="fas fa-plus ml-1"></i>`;
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateDrawerUI() {
+            const drawer = document.getElementById('quote-drawer');
+            const drawerCount = document.getElementById('drawer-count');
+            const drawerTotal = document.getElementById('drawer-total');
+            const selectedListText = document.getElementById('selected-list-text');
+
+            if (selectedPackages.length > 0) {
+                // Reveal the floating bottom builder block
+                drawer.classList.remove('translate-y-full');
+                
+                // Set text outputs
+                drawerCount.textContent = `${selectedPackages.length} Selected`;
+                
+                // Calculate estimated total package prices
+                const total = selectedPackages.reduce((sum, item) => sum + item.price, 0);
+                drawerTotal.textContent = `RM ${total.toLocaleString()}`;
+
+                // Formulate list descriptions
+                const names = selectedPackages.map(item => item.name).join(' + ');
+                selectedListText.textContent = `Custom Bundle: ${names}`;
+            } else {
+                // Hide floating drawer block if no packages are selected
+                drawer.classList.add('translate-y-full');
+            }
+        }
+
+        function clearQuote() {
+            // Loop through all currently selected packages to restore button UI states
+            const packagesToClear = [...selectedPackages];
+            packagesToClear.forEach(item => {
+                updateSelectButtonUI(item.name, false, null);
+            });
+
+            selectedPackages = [];
+            updateDrawerUI();
+            showToast(`<i class="fas fa-trash-alt"></i>`, `Your package quote builder has been cleared!`);
+        }
+
+        // 4. Custom feedback Toast notifications logic
+        let toastTimeout;
+        function showToast(iconHtml, message) {
+            const toast = document.getElementById('custom-toast');
+            document.getElementById('toast-icon').innerHTML = iconHtml;
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.remove('translate-x-[150%]');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => { toast.classList.add('translate-x-[150%]'); }, 3500);
+        }
+
+        function setContactSubject(subjectText) {
+            const subjectField = document.getElementById('lead-subject');
+            const messageField = document.getElementById('lead-message');
+
+            if (subjectText.includes('Ala Carte') || subjectText.includes('Add-on') || subjectText.includes('Inquiry')) {
+                subjectField.value = "Digital Advertising Campaign";
+                messageField.value = `Hi AR Marketing Solutions,\n\nI would like to inquire about your custom design support details for "${subjectText}". Please advise on draft lead times, vector file exports, and visual revisions...`;
+                showToast(`<i class="fas fa-palette"></i>`, `Form updated for Design Inquiry.`);
+            } else {
+                subjectField.value = "Physical Corporate Printing";
+                messageField.value = `Hi AR Marketing Team, I would like to inquire about "${subjectText}". Please provide material choices, thickness weights, and quantity price estimation scales...`;
+                showToast(`<i class="fas fa-print"></i>`, `Form updated for Printing Inquiry.`);
+            }
+        }
+
+        // 5. Direct WhatsApp builder & redirect string formatter
+        function sendWhatsAppQuote() {
+            if (selectedPackages.length === 0) return;
+
+            const totalCost = selectedPackages.reduce((sum, item) => sum + item.price, 0);
+            const packageNames = selectedPackages.map((item, idx) => `${idx + 1}. ${item.name} (RM${item.price})`).join('%0A');
+
+            const message = `Hi AR Marketing Solutions Team,%0A%0AI am interested in building a customized campaign. Here are my selected packages from your online quote builder:%0A%0A${packageNames}%0A%0AEstimated Total: *RM ${totalCost.toLocaleString()}*%0A%0APlease contact me directly with details regarding launch timelines and creative requirements!`;
+            
+            const whatsappUrl = `https://wa.me/60123456789?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // 6. Dynamic Inquiry form submissions
+        function handleInquirySubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('lead-name').value;
+            const phone = document.getElementById('lead-phone').value;
+            const email = document.getElementById('lead-email').value;
+            const subject = document.getElementById('lead-subject').value;
+            const message = document.getElementById('lead-message').value;
+
+            // Build elegant WhatsApp fallback query message string
+            const waQueryMessage = `Hi AR Marketing Solutions,%0A%0AI have submitted an inquiry form on your site:%0A%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}%0APillar Interest: *${subject}*%0ARequest: ${message}`;
+            
+            // Show successful UI banner and clear inputs
+            const successBanner = document.getElementById('form-success-banner');
+            successBanner.classList.remove('hidden');
+
+            showToast(`<i class="fas fa-envelope-open-text text-brand-teal"></i>`, `Form submitted successfully! Contacting on WhatsApp...`);
+
+            // Clear inputs elegantly
+            document.getElementById('lead-form').reset();
+
+            // Open direct WhatsApp inquiry option backup support
+            setTimeout(() => {
+                const whatsappUrl = `https://wa.me/60123456789?text=${waQueryMessage}`;
+                window.open(whatsappUrl, '_blank');
+            }, 1000);
+        }
+
+        // 7. Mockup Demo Logic
+        let demoSelectedServiceName = "";
+
+        function selectDemoService(element, serviceName) {
+            // Reset styles for all buttons
+            document.querySelectorAll('.demo-service-btn').forEach(btn => {
+                btn.classList.remove('border-brand-teal', 'bg-brand-teal/10');
+                btn.classList.add('border-transparent');
+            });
+            // Highlight selected
+            element.classList.remove('border-transparent');
+            element.classList.add('border-brand-teal', 'bg-brand-teal/10');
+            
+            // Enable next button
+            demoSelectedServiceName = serviceName;
+            const nextBtn = document.getElementById('demo-step-1-next');
+            nextBtn.disabled = false;
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            nextBtn.classList.add('hover:bg-navy-800');
+        }
+
+        function changeDemoStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.demo-step').forEach(el => el.classList.add('hidden'));
+            
+            // Show target step
+            const target = document.getElementById('demo-step-' + step);
+            target.classList.remove('hidden');
+            
+            // Trigger simple fade effect
+            target.style.opacity = '0';
+            setTimeout(() => target.style.opacity = '1', 50);
+
+            // Update text based on selections
+            if (step === 2) {
+                document.getElementById('demo-selected-service-display').innerText = demoSelectedServiceName;
+            } else if (step === 3) {
+                document.getElementById('demo-final-service').innerText = demoSelectedServiceName;
+                showToast(`<i class="fas fa-magic text-cyan-400"></i>`, `Magic! Your customer's appointment is secured.`);
+            }
+        }
+
+        function resetDemo() {
+            // Reset state
+            demoSelectedServiceName = "";
+            document.querySelectorAll('.demo-service-btn').forEach(btn => {
+                btn.classList.remove('border-brand-teal', 'bg-brand-teal/10');
+                btn.classList.add('border-transparent');
+            });
+            
+            const nextBtn = document.getElementById('demo-step-1-next');
+            nextBtn.disabled = true;
+            nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            nextBtn.classList.remove('hover:bg-navy-800');
+
+            changeDemoStep(1);
+        }
+    </script>
 </body>
 </html>
