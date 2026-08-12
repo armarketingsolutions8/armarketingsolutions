@@ -1288,121 +1288,230 @@
         </div>
     </section>
     
-   <!-- NEW SECTION: Past Artworks (Portfolio) -->
-    <section id="portfolio" class="py-24 bg-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-xs font-bold uppercase tracking-widest text-brand-blue bg-blue-50 px-4 py-1.5 rounded-full inline-block">Creative Portfolio</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
-                    Our Past Artworks
-                </h2>
-                <p class="text-gray-600">
-                    Explore some of our highest-converting digital designs, customized corporate branding materials, and stunning printing projects.
-                </p>
-                <!-- CARA NAK MASUKKAN GAMBAR DARI LAPTOP ANDA:
-                     1. Buat satu folder bernama "images" di sebelah fail index.html anda.
-                     2. Masukkan gambar-gambar kerja anda ke dalam folder "images" tersebut (contoh: hasil_print1.jpg, design2.png).
-                     3. Tukar nilai src="..." di bawah kepada laluan folder anda. Contoh: src="images/hasil_print1.jpg"
-                -->
-            </div>
-
-            <!-- Portfolio Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+ <!-- Portfolio Grid -->
+            <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500">
                 
-                <!-- Artwork Item 1 -->
-                <div class="group relative rounded-3xl overflow-hidden custom-shadow cursor-pointer aspect-[4/5] bg-gray-100 border border-navy-100">
-                    <!-- TUKAR KEPADA GAMBAR DALAM LAPTOP ANDA -->
-                    <!-- Gunakan 'object-cover' dan 'w-full h-full' supaya gambar nampak sama saiz -->
-                    <img src="images/arms11.png" alt="Artwork 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://placehold.co/600x800/1b263b/00b4d8?text=Artwork+1'">
+                <!-- Artwork Item 1 (Digital Ads) -->
+                <div class="portfolio-card digital group relative bg-white rounded-3xl overflow-hidden border border-navy-100 shadow-xl shadow-navy-900/5 hover:shadow-2xl hover:shadow-brand-blue/15 transition-all duration-500 flex flex-col"
+                     data-title="Social Media Sales Campaign"
+                     data-category="Digital Advertising"
+                     data-desc="High ROI Meta advertising banner set engineered to drive direct lead generation and high click-through rates."
+                     data-client="E-Commerce Retail Brand">
                     
-                    <!-- Hover Overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            <span class="text-brand-teal font-medium text-xs mb-2 block tracking-wider uppercase">Digital Advertising</span>
-                            <h3 class="text-white text-xl font-bold flex items-center justify-between">
-                                Social Media Campaign 
-                                <i class="fas fa-arrow-right text-brand-teal opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 -rotate-45"></i>
+                    <div class="relative aspect-[4/5] overflow-hidden bg-navy-900 shine-effect">
+                        <img src="images/arms11.png" alt="Social Media Campaign" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/600x750/1b263b/00b4d8?text=Digital+Ads+Creative'">
+                        
+                        <!-- Top Floating Badges -->
+                        <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
+                            <span class="px-3 py-1.5 rounded-full bg-navy-900/80 backdrop-blur-md text-brand-teal font-extrabold text-[11px] tracking-wider uppercase border border-white/10 shadow-lg">
+                                <i class="fas fa-ad mr-1"></i> Meta & IG Ads
+                            </span>
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/90 text-white font-bold text-xs shadow-md">
+                                +3.5x ROAS
+                            </span>
+                        </div>
+
+                        <!-- Hover Action Layer -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 z-20">
+                            <button onclick="openArtworkModal(this)" class="w-full py-3 bg-white/90 hover:bg-white text-navy-900 font-bold text-xs uppercase tracking-wider rounded-xl backdrop-blur-sm shadow-xl flex items-center justify-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                <i class="fas fa-expand-alt text-brand-blue"></i> View Full Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card Body Info -->
+                    <div class="p-6 bg-white border-t border-navy-100/60 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold text-brand-blue tracking-wider uppercase">Digital Advertising</span>
+                            <h3 class="text-lg font-bold text-navy-900 mt-1 group-hover:text-brand-blue transition-colors">
+                                Social Media Sales Campaign
                             </h3>
+                            <p class="text-xs text-gray-500 mt-2 line-clamp-2">High ROI Meta advertising banner set engineered to drive direct lead generation.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Artwork Item 2 -->
-                <div class="group relative rounded-3xl overflow-hidden custom-shadow cursor-pointer aspect-[4/5] bg-gray-100 border border-navy-100">
-                    <!-- TUKAR KEPADA GAMBAR DALAM LAPTOP ANDA -->
-                    <img src="images/BB1.png" alt="Artwork 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://placehold.co/600x800/0d1321/00a8e8?text=Artwork+2'">
+                <!-- Artwork Item 2 (Corporate Print) -->
+                <div class="portfolio-card print group relative bg-white rounded-3xl overflow-hidden border border-navy-100 shadow-xl shadow-navy-900/5 hover:shadow-2xl hover:shadow-brand-blue/15 transition-all duration-500 flex flex-col"
+                     data-title="Spot UV Premium Cards & Lanyards"
+                     data-category="Physical Printing"
+                     data-desc="Luxury matte velvet business cards with elevated 3D Spot UV finishes and custom woven corporate lanyards."
+                     data-client="Corporate Firm">
                     
-                    <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            <span class="text-brand-teal font-medium text-xs mb-2 block tracking-wider uppercase">Corporate Branding</span>
-                            <h3 class="text-white text-xl font-bold flex items-center justify-between">
-                                Brand Identity Setup
-                                <i class="fas fa-arrow-right text-brand-teal opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 -rotate-45"></i>
+                    <div class="relative aspect-[4/5] overflow-hidden bg-navy-900 shine-effect">
+                        <img src="images/BB1.png" alt="Spot UV Business Cards" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/600x750/0d1321/00a8e8?text=Premium+Printing'">
+                        
+                        <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
+                            <span class="px-3 py-1.5 rounded-full bg-navy-900/80 backdrop-blur-md text-amber-300 font-extrabold text-[11px] tracking-wider uppercase border border-white/10 shadow-lg">
+                                <i class="fas fa-print mr-1"></i> Spot UV Print
+                            </span>
+                            <span class="px-2.5 py-1 rounded-full bg-navy-800 text-white font-bold text-xs border border-white/10">
+                                High Premium
+                            </span>
+                        </div>
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 z-20">
+                            <button onclick="openArtworkModal(this)" class="w-full py-3 bg-white/90 hover:bg-white text-navy-900 font-bold text-xs uppercase tracking-wider rounded-xl backdrop-blur-sm shadow-xl flex items-center justify-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                <i class="fas fa-expand-alt text-brand-blue"></i> View Full Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-white border-t border-navy-100/60 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold text-amber-600 tracking-wider uppercase">Physical Printing</span>
+                            <h3 class="text-lg font-bold text-navy-900 mt-1 group-hover:text-amber-600 transition-colors">
+                                Spot UV Premium Cards & Lanyards
                             </h3>
+                            <p class="text-xs text-gray-500 mt-2 line-clamp-2">Luxury matte velvet business cards with elevated 3D Spot UV finishes.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Artwork Item 3 -->
-                <div class="group relative rounded-3xl overflow-hidden custom-shadow cursor-pointer aspect-[4/5] bg-gray-100 border border-navy-100">
-                    <!-- TUKAR KEPADA GAMBAR DALAM LAPTOP ANDA -->
-                    <img src="images/arms11.png" alt="Artwork 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://placehold.co/600x800/2b3f5f/ffffff?text=Artwork+3'">
+                <!-- Artwork Item 3 (TikTok / Video) -->
+                <div class="portfolio-card video group relative bg-white rounded-3xl overflow-hidden border border-navy-100 shadow-xl shadow-navy-900/5 hover:shadow-2xl hover:shadow-brand-blue/15 transition-all duration-500 flex flex-col"
+                     data-title="Viral TikTok UGC Reel Campaign"
+                     data-category="TikTok & Video Production"
+                     data-desc="Engaging TikTok short video series complete with hook scripting, professional voiceover, and motion overlays."
+                     data-client="F&B Chain Restaurant">
                     
-                    <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            <span class="text-brand-teal font-medium text-xs mb-2 block tracking-wider uppercase">Web Design</span>
-                            <h3 class="text-white text-xl font-bold flex items-center justify-between">
-                                Converting Landing Page
-                                <i class="fas fa-arrow-right text-brand-teal opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 -rotate-45"></i>
+                    <div class="relative aspect-[4/5] overflow-hidden bg-navy-900 shine-effect">
+                        <img src="images/arms11.png" alt="TikTok Campaign" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/600x750/2b3f5f/ffffff?text=TikTok+Video+Reels'">
+                        
+                        <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
+                            <span class="px-3 py-1.5 rounded-full bg-navy-900/80 backdrop-blur-md text-rose-400 font-extrabold text-[11px] tracking-wider uppercase border border-white/10 shadow-lg">
+                                <i class="fab fa-tiktok mr-1"></i> TikTok Viral
+                            </span>
+                            <span class="px-2.5 py-1 rounded-full bg-rose-500 text-white font-bold text-xs shadow-md">
+                                250k+ Views
+                            </span>
+                        </div>
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 z-20">
+                            <button onclick="openArtworkModal(this)" class="w-full py-3 bg-white/90 hover:bg-white text-navy-900 font-bold text-xs uppercase tracking-wider rounded-xl backdrop-blur-sm shadow-xl flex items-center justify-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                <i class="fas fa-expand-alt text-brand-blue"></i> View Full Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-white border-t border-navy-100/60 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold text-rose-500 tracking-wider uppercase">TikTok & Video Production</span>
+                            <h3 class="text-lg font-bold text-navy-900 mt-1 group-hover:text-rose-500 transition-colors">
+                                Viral TikTok UGC Reel Campaign
                             </h3>
+                            <p class="text-xs text-gray-500 mt-2 line-clamp-2">Engaging TikTok short video series complete with hook scripting and voiceovers.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Artwork Item 4 -->
-                <div class="group relative rounded-3xl overflow-hidden custom-shadow cursor-pointer aspect-[4/5] bg-gray-100 border border-navy-100">
-                    <!-- TUKAR KEPADA GAMBAR DALAM LAPTOP ANDA -->
-                    <img src="images/BB1.png" alt="Artwork 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://placehold.co/600x800/0056b3/ffffff?text=Artwork+4'">
+                <!-- Artwork Item 4 (Web Design) -->
+                <div class="portfolio-card web group relative bg-white rounded-3xl overflow-hidden border border-navy-100 shadow-xl shadow-navy-900/5 hover:shadow-2xl hover:shadow-brand-blue/15 transition-all duration-500 flex flex-col"
+                     data-title="High-Converting Sales Landing Page"
+                     data-category="Web & IT Solutions"
+                     data-desc="Ultra-fast custom landing page built for high conversion, integrated with WhatsApp CTA and lead analytics."
+                     data-client="SaaS Tech Firm">
                     
-                    <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            <span class="text-brand-teal font-medium text-xs mb-2 block tracking-wider uppercase">Physical Printing</span>
-                            <h3 class="text-white text-xl font-bold flex items-center justify-between">
-                                Premium Spot UV Cards
-                                <i class="fas fa-arrow-right text-brand-teal opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 -rotate-45"></i>
+                    <div class="relative aspect-[4/5] overflow-hidden bg-navy-900 shine-effect">
+                        <img src="images/BB1.png" alt="Web Design Page" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/600x750/0056b3/ffffff?text=Landing+Page+Design'">
+                        
+                        <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
+                            <span class="px-3 py-1.5 rounded-full bg-navy-900/80 backdrop-blur-md text-cyan-300 font-extrabold text-[11px] tracking-wider uppercase border border-white/10 shadow-lg">
+                                <i class="fas fa-laptop-code mr-1"></i> Web UI/UX
+                            </span>
+                            <span class="px-2.5 py-1 rounded-full bg-cyan-500 text-navy-900 font-bold text-xs shadow-md">
+                                99% Speed
+                            </span>
+                        </div>
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 z-20">
+                            <button onclick="openArtworkModal(this)" class="w-full py-3 bg-white/90 hover:bg-white text-navy-900 font-bold text-xs uppercase tracking-wider rounded-xl backdrop-blur-sm shadow-xl flex items-center justify-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                <i class="fas fa-expand-alt text-brand-blue"></i> View Full Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-white border-t border-navy-100/60 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold text-cyan-600 tracking-wider uppercase">Web & IT Solutions</span>
+                            <h3 class="text-lg font-bold text-navy-900 mt-1 group-hover:text-cyan-600 transition-colors">
+                                High-Converting Sales Landing Page
                             </h3>
+                            <p class="text-xs text-gray-500 mt-2 line-clamp-2">Ultra-fast custom landing page built for high conversion and instant WhatsApp inquiries.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Artwork Item 5 -->
-                <div class="group relative rounded-3xl overflow-hidden custom-shadow cursor-pointer aspect-[4/5] bg-gray-100 border border-navy-100">
-                    <!-- TUKAR KEPADA GAMBAR DALAM LAPTOP ANDA -->
-                    <img src="images/arms11.png" alt="Artwork 5" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://placehold.co/600x800/1b263b/00b4d8?text=Artwork+5'">
+                <!-- Artwork Item 5 (Corporate Print) -->
+                <div class="portfolio-card print group relative bg-white rounded-3xl overflow-hidden border border-navy-100 shadow-xl shadow-navy-900/5 hover:shadow-2xl hover:shadow-brand-blue/15 transition-all duration-500 flex flex-col"
+                     data-title="Event Bunting, Flags & Giant Banners"
+                     data-category="Physical Printing"
+                     data-desc="Weatherproof outdoor bunting, feather flags, and vibrant backdrop banners printed for major corporate expos."
+                     data-client="Event Organizer">
                     
-                    <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            <span class="text-brand-teal font-medium text-xs mb-2 block tracking-wider uppercase">Video Production</span>
-                            <h3 class="text-white text-xl font-bold flex items-center justify-between">
-                                Viral TikTok Campaign
-                                <i class="fas fa-arrow-right text-brand-teal opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 -rotate-45"></i>
+                    <div class="relative aspect-[4/5] overflow-hidden bg-navy-900 shine-effect">
+                        <img src="images/arms11.png" alt="Event Bunting Print" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/600x750/1b263b/00b4d8?text=Event+Bunting+Flags'">
+                        
+                        <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
+                            <span class="px-3 py-1.5 rounded-full bg-navy-900/80 backdrop-blur-md text-amber-300 font-extrabold text-[11px] tracking-wider uppercase border border-white/10 shadow-lg">
+                                <i class="fas fa-flag mr-1"></i> Bunting & Flags
+                            </span>
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500 text-white font-bold text-xs shadow-md">
+                                Waterproof
+                            </span>
+                        </div>
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 z-20">
+                            <button onclick="openArtworkModal(this)" class="w-full py-3 bg-white/90 hover:bg-white text-navy-900 font-bold text-xs uppercase tracking-wider rounded-xl backdrop-blur-sm shadow-xl flex items-center justify-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                <i class="fas fa-expand-alt text-brand-blue"></i> View Full Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-white border-t border-navy-100/60 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold text-amber-600 tracking-wider uppercase">Physical Printing</span>
+                            <h3 class="text-lg font-bold text-navy-900 mt-1 group-hover:text-amber-600 transition-colors">
+                                Event Bunting, Flags & Giant Banners
                             </h3>
+                            <p class="text-xs text-gray-500 mt-2 line-clamp-2">Weatherproof outdoor bunting and feather flags printed for major corporate events.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Artwork Item 6 -->
-                <div class="group relative rounded-3xl overflow-hidden custom-shadow cursor-pointer aspect-[4/5] bg-gray-100 border border-navy-100">
-                    <!-- TUKAR KEPADA GAMBAR DALAM LAPTOP ANDA -->
-                    <img src="images/BB1.png" alt="Artwork 6" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://placehold.co/600x800/0d1321/00a8e8?text=Artwork+6'">
+                <!-- Artwork Item 6 (Digital Ads) -->
+                <div class="portfolio-card digital group relative bg-white rounded-3xl overflow-hidden border border-navy-100 shadow-xl shadow-navy-900/5 hover:shadow-2xl hover:shadow-brand-blue/15 transition-all duration-500 flex flex-col"
+                     data-title="E-Commerce Promo Campaign Artworks"
+                     data-category="Digital Advertising"
+                     data-desc="Eye-catching sales banner design set for year-end promotions, social posts, and targeted ads."
+                     data-client="Fashion Apparel Brand">
                     
-                    <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            <span class="text-brand-teal font-medium text-xs mb-2 block tracking-wider uppercase">Physical Printing</span>
-                            <h3 class="text-white text-xl font-bold flex items-center justify-between">
-                                Event Buntings & Flags
-                                <i class="fas fa-arrow-right text-brand-teal opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 -rotate-45"></i>
+                    <div class="relative aspect-[4/5] overflow-hidden bg-navy-900 shine-effect">
+                        <img src="images/BB1.png" alt="Promo Creative Design" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/600x750/0d1321/00a8e8?text=Promo+Visual+Designs'">
+                        
+                        <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
+                            <span class="px-3 py-1.5 rounded-full bg-navy-900/80 backdrop-blur-md text-brand-teal font-extrabold text-[11px] tracking-wider uppercase border border-white/10 shadow-lg">
+                                <i class="fas fa-bullhorn mr-1"></i> E-Commerce Ads
+                            </span>
+                            <span class="px-2.5 py-1 rounded-full bg-indigo-500 text-white font-bold text-xs shadow-md">
+                                High CTR
+                            </span>
+                        </div>
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 z-20">
+                            <button onclick="openArtworkModal(this)" class="w-full py-3 bg-white/90 hover:bg-white text-navy-900 font-bold text-xs uppercase tracking-wider rounded-xl backdrop-blur-sm shadow-xl flex items-center justify-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                                <i class="fas fa-expand-alt text-brand-blue"></i> View Full Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-white border-t border-navy-100/60 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold text-brand-blue tracking-wider uppercase">Digital Advertising</span>
+                            <h3 class="text-lg font-bold text-navy-900 mt-1 group-hover:text-brand-blue transition-colors">
+                                E-Commerce Promo Campaign Artworks
                             </h3>
+                            <p class="text-xs text-gray-500 mt-2 line-clamp-2">Eye-catching promo graphic banners designed for seasonal sales and social ads.</p>
                         </div>
                     </div>
                 </div>
