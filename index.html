@@ -1283,7 +1283,6 @@
         </div>
     </section>
     
-<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -1535,79 +1534,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // Portfolio Filtering Logic
-        function filterPortfolio(category, btnElement) {
-            // Update Tab Button Styles
-            document.querySelectorAll('.portfolio-tab-btn').forEach(btn => {
-                btn.classList.remove('active-tab', 'bg-navy-900', 'text-white');
-                btn.classList.add('bg-white', 'text-gray-600');
-            });
-            btnElement.classList.remove('bg-white', 'text-gray-600');
-            btnElement.classList.add('active-tab', 'bg-navy-900', 'text-white');
-
-            // Filter Portfolio Items
-            const items = document.querySelectorAll('.portfolio-card');
-            items.forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'flex';
-                    // Trigger a small animation for smooth appearance
-                    item.style.opacity = '0';
-                    setTimeout(() => item.style.opacity = '1', 50);
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        // Portfolio Modal Logic
-        const modal = document.getElementById('artwork-modal');
-        const modalImg = document.getElementById('modal-img');
-        const modalTitle = document.getElementById('modal-title');
-        const modalCategory = document.getElementById('modal-category');
-        const modalDesc = document.getElementById('modal-desc');
-        const modalClient = document.getElementById('modal-client');
-
-        function openArtworkModal(btnElement) {
-            const card = btnElement.closest('.portfolio-card');
-            
-            // Populate data from the card's data- attributes
-            modalImg.src = card.getAttribute('data-img');
-            modalTitle.innerText = card.getAttribute('data-title');
-            modalCategory.innerText = card.getAttribute('data-category');
-            modalDesc.innerText = card.getAttribute('data-desc');
-            modalClient.innerText = card.getAttribute('data-client');
-
-            // Show modal
-            modal.classList.remove('hidden');
-            // Small delay to allow CSS display:block to register before changing opacity
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modal.firstElementChild.classList.remove('scale-95');
-                modal.firstElementChild.classList.add('scale-100');
-            }, 10);
-            
-            // Prevent body scroll behind modal
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeArtworkModal() {
-            modal.classList.add('opacity-0');
-            modal.firstElementChild.classList.remove('scale-100');
-            modal.firstElementChild.classList.add('scale-95');
-            
-            // Hide modal after transition completes
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }, 300);
-        }
-
-        // Close modal when user clicks outside the content area
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeArtworkModal();
 
             </div>
             
@@ -2115,6 +2041,79 @@
 
             changeDemoStep(1);
         }
+     // Portfolio Filtering Logic
+        function filterPortfolio(category, btnElement) {
+            // Update Tab Button Styles
+            document.querySelectorAll('.portfolio-tab-btn').forEach(btn => {
+                btn.classList.remove('active-tab', 'bg-navy-900', 'text-white');
+                btn.classList.add('bg-white', 'text-gray-600');
+            });
+            btnElement.classList.remove('bg-white', 'text-gray-600');
+            btnElement.classList.add('active-tab', 'bg-navy-900', 'text-white');
+
+            // Filter Portfolio Items
+            const items = document.querySelectorAll('.portfolio-card');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'flex';
+                    // Trigger a small animation for smooth appearance
+                    item.style.opacity = '0';
+                    setTimeout(() => item.style.opacity = '1', 50);
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Portfolio Modal Logic
+        const modal = document.getElementById('artwork-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        const modalCategory = document.getElementById('modal-category');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalClient = document.getElementById('modal-client');
+
+        function openArtworkModal(btnElement) {
+            const card = btnElement.closest('.portfolio-card');
+            
+            // Populate data from the card's data- attributes
+            modalImg.src = card.getAttribute('data-img');
+            modalTitle.innerText = card.getAttribute('data-title');
+            modalCategory.innerText = card.getAttribute('data-category');
+            modalDesc.innerText = card.getAttribute('data-desc');
+            modalClient.innerText = card.getAttribute('data-client');
+
+            // Show modal
+            modal.classList.remove('hidden');
+            // Small delay to allow CSS display:block to register before changing opacity
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.firstElementChild.classList.remove('scale-95');
+                modal.firstElementChild.classList.add('scale-100');
+            }, 10);
+            
+            // Prevent body scroll behind modal
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArtworkModal() {
+            modal.classList.add('opacity-0');
+            modal.firstElementChild.classList.remove('scale-100');
+            modal.firstElementChild.classList.add('scale-95');
+            
+            // Hide modal after transition completes
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Close modal when user clicks outside the content area
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeArtworkModal();
+            }
+        });
     </script>
 </body>
 </html>
