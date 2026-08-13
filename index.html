@@ -1569,212 +1569,502 @@
         </div>
     </div>
 
-    <!-- Floating Quote Indicator (Hidden by default) -->
-    <div id="quote-indicator" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-navy-900 text-white px-6 py-3 rounded-full shadow-2xl z-50 flex items-center gap-4 transition-all duration-300 transform translate-y-24 opacity-0">
-        <span class="text-sm font-medium"><span id="quote-count" class="font-bold text-brand-teal">0</span> packages selected</span>
-        <a href="#contact" class="text-xs font-bold bg-brand-blue px-4 py-2 rounded-full hover:bg-brand-lightBlue transition-colors">Request Quote</a>
+   <!-- Interactive Quote Builder Cart Widget (Floating Bottom Drawer) -->
+    <div id="quote-drawer" class="fixed bottom-0 left-0 w-full bg-navy-900 border-t-2 border-brand-teal text-white shadow-2xl z-40 transform translate-y-full transition-transform duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                
+                <!-- Drawer info -->
+                <div class="flex items-center gap-4 text-center md:text-left">
+                    <span class="w-12 h-12 rounded-xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl animate-pulse">
+                        <i class="fas fa-calculator"></i>
+                    </span>
+                    <div>
+                        <h4 class="text-base font-bold text-white flex items-center gap-2 justify-center md:justify-start">
+                            Your Quote Builder <span class="bg-brand-teal text-navy-900 text-[10px] px-2 py-0.5 rounded-full font-extrabold" id="drawer-count">0 Selected</span>
+                        </h4>
+                        <p class="text-xs text-gray-400 max-w-xl" id="selected-list-text">No packages selected yet. Click "Select Package" above to bundle services!</p>
+                    </div>
+                </div>
+
+                <!-- Drawer pricing & actions -->
+                <div class="flex flex-wrap items-center gap-4">
+                    <div class="text-center md:text-right">
+                        <span class="text-xs text-gray-400 block font-semibold uppercase tracking-widest">Est. Total Package Cost</span>
+                        <span class="text-2xl font-extrabold text-brand-teal" id="drawer-total">RM 0.00</span>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button onclick="clearQuote()" class="px-3.5 py-3 border border-white/20 hover:bg-white/10 rounded-xl text-xs font-bold transition-colors" title="Clear All selections">
+                            Clear
+                        </button>
+                        <button onclick="sendWhatsAppQuote()" class="px-5 py-3 bg-green-600 hover:bg-green-500 text-white rounded-xl text-sm font-bold flex items-center gap-2 shadow-lg shadow-green-600/30 transition-all duration-300">
+                            <i class="fab fa-whatsapp text-base"></i> Send Quote to WhatsApp
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
+    <!-- Contact Form & Consultation Section -->
+    <section id="contact" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                
+                <!-- Contact left column: Direct Details -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-blue bg-blue-50 px-4 py-1.5 rounded-full inline-block">Connect With Us</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight mt-3">
+                            Let's Build Your Audience Integration
+                        </h2>
+                        <p class="text-gray-600 mt-4 leading-relaxed font-light">
+                            Ready to accelerate your marketing, automated processes, or printing designs? Send our professional specialists an inquiry message or get customized consultation setups.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Detail block 1 -->
+                        <div class="flex items-start gap-4">
+                            <span class="w-10 h-10 rounded-xl bg-navy-50 border border-navy-100 flex items-center justify-center text-brand-blue flex-shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Operating Office Location</h4>
+                                <p class="text-xs text-gray-500 mt-0.5">armarketingsolutions.online | Selangor, Malaysia</p>
+                            </div>
+                        </div>
+
+                        <!-- Detail block 2 -->
+                        <div class="flex items-start gap-4">
+                            <span class="w-10 h-10 rounded-xl bg-navy-50 border border-navy-100 flex items-center justify-center text-brand-blue flex-shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Official Corporate Support Email</h4>
+                                <p class="text-xs text-gray-500 mt-0.5">support@armarketingsolutions.online</p>
+                            </div>
+                        </div>
+
+                        <!-- Detail block 3 -->
+                        <div class="flex items-start gap-4">
+                            <span class="w-10 h-10 rounded-xl bg-navy-50 border border-navy-100 flex items-center justify-center text-brand-blue flex-shrink-0">
+                                <i class="fab fa-whatsapp"></i>
+                            </span>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Corporate WhatsApp Direct line</h4>
+                                <p class="text-xs text-gray-500 mt-0.5">+60 12-345 6789</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Highlight Promo Notice -->
+                    <div class="p-6 bg-brand-blue/5 border border-brand-blue/10 rounded-2xl">
+                        <h4 class="font-bold text-brand-blue text-sm flex items-center gap-2">
+                            <i class="fas fa-lightbulb"></i> Looking for custom prints?
+                        </h4>
+                        <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">
+                            Specify your desired dimensions, card weight, synthetic laminates, and exact counts directly in our query form or request a custom digital catalog via email/WhatsApp.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact right column: Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-navy-50/50 rounded-3xl p-8 border border-navy-100 custom-shadow">
+                        <h3 class="text-xl font-bold text-navy-900 mb-6 flex items-center gap-2">
+                            <i class="fas fa-paper-plane text-brand-blue"></i> Send Direct Inquiry
+                        </h3>
+
+                        <!-- Form -->
+                        <form id="lead-form" onsubmit="handleInquirySubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs uppercase font-extrabold tracking-widest text-navy-600 mb-2" for="lead-name">Your Full Name *</label>
+                                    <input required type="text" id="lead-name" placeholder="John Doe" class="w-full px-4 py-3 bg-white border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm text-navy-900 transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase font-extrabold tracking-widest text-navy-600 mb-2" for="lead-phone">WhatsApp Number *</label>
+                                    <input required type="tel" id="lead-phone" placeholder="e.g. 60123456789" class="w-full px-4 py-3 bg-white border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm text-navy-900 transition-all">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs uppercase font-extrabold tracking-widest text-navy-600 mb-2" for="lead-email">Email Address *</label>
+                                    <input required type="email" id="lead-email" placeholder="john@example.com" class="w-full px-4 py-3 bg-white border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm text-navy-900 transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase font-extrabold tracking-widest text-navy-600 mb-2" for="lead-subject">Interested Pillar *</label>
+                                    <select id="lead-subject" class="w-full px-4 py-3 bg-white border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm text-navy-900 transition-all">
+                                        <option value="General Consultation">General Consultation</option>
+                                        <option value="Digital Advertising Campaign">Digital & Advertising Pillar</option>
+                                        <option value="TikTok Content Production">TikTok Content Creation</option>
+                                        <option value="WhatsApp Blast Automation">WhatsApp Automation Pillar</option>
+                                        <option value="Physical Corporate Printing">Physical Printing Services</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs uppercase font-extrabold tracking-widest text-navy-600 mb-2" for="lead-message">Your Detailed Business Goals / Request Details *</label>
+                                <textarea required id="lead-message" rows="5" placeholder="Tell us about your campaign goals, brand assets, required printing dimensions, target counts, etc..." class="w-full px-4 py-3 bg-white border border-navy-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm text-navy-900 transition-all"></textarea>
+                            </div>
+
+                            <!-- Success Banner -->
+                            <div id="form-success-banner" class="hidden p-4 bg-green-50 border border-green-200 rounded-xl text-green-800 text-xs flex items-center gap-2">
+                                <i class="fas fa-check-circle text-lg flex-shrink-0 text-green-500"></i>
+                                <span>Thank you for your submission! Our team will reach out directly on WhatsApp within 24 hours.</span>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row gap-4 items-center">
+                                <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-navy-900 hover:bg-navy-800 text-white font-bold rounded-xl text-sm shadow-xl transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2">
+                                    Submit Consultation Request <i class="fas fa-paper-plane text-xs"></i>
+                                </button>
+                                <span class="text-xs text-gray-400">or contact us directly below</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Toast Alert feedback notification system -->
+    <div id="custom-toast" class="fixed top-24 right-4 bg-navy-900 border border-white/10 text-white px-5 py-4 rounded-2xl shadow-2xl z-50 flex items-center gap-3 transform translate-x-[150%] transition-transform duration-300">
+        <span class="w-8 h-8 rounded-lg bg-brand-blue/30 flex items-center justify-center text-brand-teal text-sm">
+            <i class="fas fa-info" id="toast-icon"></i>
+        </span>
+        <div>
+            <p class="text-xs font-bold text-white uppercase tracking-wider">System Notification</p>
+            <p class="text-xs text-gray-300 mt-0.5 font-medium" id="toast-message">Item selected</p>
+        </div>
+    </div>
+
+ <!-- Corporate Footer Section -->
+    <footer class="bg-navy-900 text-white pt-20 pb-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+                
+                <!-- Footer col 1: Brand details -->
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="flex items-center gap-2">
+                        <img src="images/footerlogo.png" alt="Logo" class="w-30 h-20 object-contain">
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed font-light">
+                        High-efficiency single source partner for digital advertising, modern media content, reliable bulk messaging automation workflows, and elegant corporate printing.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-blue hover:text-white flex items-center justify-center text-gray-400 transition-all" aria-label="Facebook Page">
+                            <i class="fab fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-rose-500 hover:text-white flex items-center justify-center text-gray-400 transition-all" aria-label="Instagram Account">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                        <a href="https://tiktok.com" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-indigo-600 hover:text-white flex items-center justify-center text-gray-400 transition-all" aria-label="TikTok Account">
+                            <i class="fab fa-tiktok text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer col 2: Our Pillars Links -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h4 class="text-xs uppercase font-extrabold tracking-widest text-brand-teal">Our Logo Pillars</h4>
+                    <ul class="space-y-3.5 text-sm text-gray-400">
+                        <li class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> Digital</li>
+                        <li class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> Advertising</li>
+                        <li class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> Automation</li>
+                        <li class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> IT Solutions</li>
+                    </ul>
+                </div>
+
+                <!-- Footer col 3: Marketing Quick links -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h4 class="text-xs uppercase font-extrabold tracking-widest text-brand-teal">Services Portfolio</h4>
+                    <ul class="space-y-3.5 text-sm text-gray-400">
+                        <li><a href="#packages" onclick="switchTab('advertising')" class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> Digital Advertising Tiers</a></li>
+                        <li><a href="#packages" onclick="switchTab('tiktok')" class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> TikTok Creation Packages</a></li>
+                        <li><a href="#packages" onclick="switchTab('whatsapp')" class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> WhatsApp Automation</a></li>
+                        <li><a href="#packages" onclick="switchTab('artwork')" class="hover:text-white transition-colors"><i class="fas fa-chevron-right text-[10px] text-brand-teal mr-2"></i> Custom Visual Design</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer col 4: Printing links -->
+                <div class="lg:col-span-2 space-y-4">
+                    <h4 class="text-xs uppercase font-extrabold tracking-widest text-brand-teal">Corporate Prints</h4>
+                    <ul class="space-y-3.5 text-sm text-gray-400">
+                        <li><a href="#printing" class="hover:text-white transition-colors">Business Cards</a></li>
+                        <li><a href="#printing" class="hover:text-white transition-colors">Bunting / Stands</a></li>
+                        <li><a href="#printing" class="hover:text-white transition-colors">Banners / Decals</a></li>
+                        <li><a href="#printing" class="hover:text-white transition-colors">PVC Badges</a></li>
+                        <li><a href="#printing" class="hover:text-white transition-colors">Corporate Lanyards</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom panel -->
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+                <p>
+                    &copy; 2026 AR Marketing Solutions. All Rights Reserved.
+                </p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGICS (FRONTEND ONLY) -->
     <script>
+        // Global Selected Packages State Array
         let selectedPackages = [];
 
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                navbar.classList.add('shadow-md');
-            } else {
-                navbar.classList.remove('shadow-md');
-            }
-        });
-
-        // Mobile Menu Toggle
-        const mobileBtn = document.getElementById('mobile-menu-btn');
+        // 1. Navigation responsive menu toggle logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileDrawer = document.getElementById('mobile-drawer');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        mobileBtn.addEventListener('click', () => {
+        mobileMenuBtn.addEventListener('click', () => {
             mobileDrawer.classList.toggle('hidden');
         });
 
-        mobileLinks.forEach(link => {
+        // Close mobile drawer on nav click
+        const drawerLinks = mobileDrawer.querySelectorAll('a');
+        drawerLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileDrawer.classList.add('hidden');
             });
         });
 
-        // Package Selection Logic
-        function togglePackage(name, price, btnElement) {
-            const index = selectedPackages.findIndex(p => p.name === name);
-            const indicator = document.getElementById('quote-indicator');
-            const countSpan = document.getElementById('quote-count');
-            const subjectInput = document.getElementById('contact-subject');
-
-            if (index > -1) {
-                // Deselect
-                selectedPackages.splice(index, 1);
-                // Reset button style
-                if(btnElement.classList.contains('bg-rose-500')) {
-                    btnElement.innerHTML = 'Select Package';
-                } else if(btnElement.classList.contains('bg-brand-teal')) {
-                     btnElement.innerHTML = 'Select Package';
-                } else {
-                    btnElement.classList.remove('bg-brand-blue', 'text-white');
-                    btnElement.classList.add('text-brand-blue', 'border-brand-blue');
-                    btnElement.innerHTML = 'Select Package';
-                }
-            } else {
-                // Select
-                selectedPackages.push({ name, price });
-                // Active button style
-                 if(btnElement.classList.contains('bg-rose-500') || btnElement.classList.contains('bg-brand-teal')) {
-                    btnElement.innerHTML = '<i class="fas fa-check mr-1"></i> Selected';
-                } else {
-                    btnElement.classList.add('bg-brand-blue', 'text-white');
-                    btnElement.classList.remove('text-brand-blue', 'border-brand-blue');
-                    btnElement.innerHTML = '<i class="fas fa-check mr-1"></i> Selected';
-                }
+        // 2. Smooth navigation scroll fallback for category links
+        function switchTab(category) {
+            if (category === 'all') {
+                document.getElementById('packages').scrollIntoView({ behavior: 'smooth' });
+                return;
             }
-
-            // Update Indicator
-            if (selectedPackages.length > 0) {
-                indicator.classList.remove('translate-y-24', 'opacity-0');
-                countSpan.innerText = selectedPackages.length;
-                
-                // Auto-fill contact subject
-                const packageNames = selectedPackages.map(p => p.name).join(', ');
-                subjectInput.value = `Quote Request: ${packageNames}`;
-            } else {
-                indicator.classList.add('translate-y-24', 'opacity-0');
-                subjectInput.value = '';
+            const targetElement = document.getElementById(`cat-${category}`);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
 
-        // Booking Demo Logic
-        let demoSelectedService = '';
-        function selectDemoService(btn, serviceName) {
-            // Reset all buttons
-            document.querySelectorAll('.demo-service-btn').forEach(b => {
-                b.classList.remove('border-brand-blue', 'bg-brand-blue/5');
-                b.classList.add('border-transparent');
+        // 3. Interactive Quote Builder Core Logic
+        function togglePackage(packageName, price, element) {
+            // Check if package is already in the list
+            const index = selectedPackages.findIndex(item => item.name === packageName);
+            
+            if (index > -1) {
+                // Remove package if already selected
+                selectedPackages.splice(index, 1);
+                showToast(`<i class="fas fa-trash"></i>`, `Removed ${packageName} from your Quote!`);
+                updateSelectButtonUI(packageName, false, element);
+            } else {
+                // Add new package to selection list
+                selectedPackages.push({ name: packageName, price: price });
+                showToast(`<i class="fas fa-check-double text-brand-teal"></i>`, `Added ${packageName} (RM${price}) to your Quote!`);
+                updateSelectButtonUI(packageName, true, element);
+            }
+
+            updateDrawerUI();
+        }
+
+        function updateSelectButtonUI(packageName, isSelected, buttonElement) {
+            // Find all instances of selector buttons for this package name to ensure synchronicity
+            const buttons = document.querySelectorAll('.select-package-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('onclick').includes(`'${packageName}'`)) {
+                    if (isSelected) {
+                        btn.innerHTML = `Remove Package <i class="fas fa-minus ml-1"></i>`;
+                        btn.className = `w-full py-3 px-4 rounded-xl text-center font-bold text-sm bg-red-500 text-white hover:bg-red-600 transition-all duration-300 select-package-btn shadow-lg shadow-red-500/20`;
+                    } else {
+                        // Check if it belongs to Standard (brand-teal) or default (border-brand-blue)
+                        const parent = btn.closest('.border-2');
+                        if (parent && (parent.classList.contains('border-brand-teal/80') || parent.classList.contains('border-rose-500/80') || parent.classList.contains('border-green-600') || parent.classList.contains('border-purple-600'))) {
+                            // Standard highlighted cards style
+                            let colorClass = "bg-brand-teal text-navy-900 hover:bg-brand-teal/90 shadow-lg shadow-brand-teal/10";
+                            if (parent.classList.contains('border-rose-500/80')) colorClass = "bg-rose-500 text-white hover:bg-rose-600 shadow-lg shadow-rose-500/10";
+                            if (parent.classList.contains('border-green-600')) colorClass = "bg-green-600 text-white hover:bg-green-500 shadow-lg shadow-green-600/10";
+                            if (parent.classList.contains('border-purple-600')) colorClass = "bg-purple-600 text-white hover:bg-purple-500 shadow-lg shadow-purple-600/10";
+                            
+                            btn.className = `w-full py-3.5 px-4 rounded-xl text-center font-bold text-sm transition-all duration-300 select-package-btn ${colorClass}`;
+                            btn.innerHTML = `Select Package <i class="fas fa-plus ml-1"></i>`;
+                        } else {
+                            // Bordered entry style
+                            btn.className = `w-full py-3 px-4 rounded-xl text-center font-bold text-sm border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 select-package-btn`;
+                            btn.innerHTML = `Select Package <i class="fas fa-plus ml-1"></i>`;
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateDrawerUI() {
+            const drawer = document.getElementById('quote-drawer');
+            const drawerCount = document.getElementById('drawer-count');
+            const drawerTotal = document.getElementById('drawer-total');
+            const selectedListText = document.getElementById('selected-list-text');
+
+            if (selectedPackages.length > 0) {
+                // Reveal the floating bottom builder block
+                drawer.classList.remove('translate-y-full');
+                
+                // Set text outputs
+                drawerCount.textContent = `${selectedPackages.length} Selected`;
+                
+                // Calculate estimated total package prices
+                const total = selectedPackages.reduce((sum, item) => sum + item.price, 0);
+                drawerTotal.textContent = `RM ${total.toLocaleString()}`;
+
+                // Formulate list descriptions
+                const names = selectedPackages.map(item => item.name).join(' + ');
+                selectedListText.textContent = `Custom Bundle: ${names}`;
+            } else {
+                // Hide floating drawer block if no packages are selected
+                drawer.classList.add('translate-y-full');
+            }
+        }
+
+        function clearQuote() {
+            // Loop through all currently selected packages to restore button UI states
+            const packagesToClear = [...selectedPackages];
+            packagesToClear.forEach(item => {
+                updateSelectButtonUI(item.name, false, null);
+            });
+
+            selectedPackages = [];
+            updateDrawerUI();
+            showToast(`<i class="fas fa-trash-alt"></i>`, `Your package quote builder has been cleared!`);
+        }
+
+        // 4. Custom feedback Toast notifications logic
+        let toastTimeout;
+        function showToast(iconHtml, message) {
+            const toast = document.getElementById('custom-toast');
+            document.getElementById('toast-icon').innerHTML = iconHtml;
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.remove('translate-x-[150%]');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => { toast.classList.add('translate-x-[150%]'); }, 3500);
+        }
+
+        function setContactSubject(subjectText) {
+            const subjectField = document.getElementById('lead-subject');
+            const messageField = document.getElementById('lead-message');
+
+            if (subjectText.includes('Ala Carte') || subjectText.includes('Add-on') || subjectText.includes('Inquiry')) {
+                subjectField.value = "Digital Advertising Campaign";
+                messageField.value = `Hi AR Marketing Solutions,\n\nI would like to inquire about your custom design support details for "${subjectText}". Please advise on draft lead times, vector file exports, and visual revisions...`;
+                showToast(`<i class="fas fa-palette"></i>`, `Form updated for Design Inquiry.`);
+            } else {
+                subjectField.value = "Physical Corporate Printing";
+                messageField.value = `Hi AR Marketing Team, I would like to inquire about "${subjectText}". Please provide material choices, thickness weights, and quantity price estimation scales...`;
+                showToast(`<i class="fas fa-print"></i>`, `Form updated for Printing Inquiry.`);
+            }
+        }
+
+        // 5. Direct WhatsApp builder & redirect string formatter
+        function sendWhatsAppQuote() {
+            if (selectedPackages.length === 0) return;
+
+            const totalCost = selectedPackages.reduce((sum, item) => sum + item.price, 0);
+            const packageNames = selectedPackages.map((item, idx) => `${idx + 1}. ${item.name} (RM${item.price})`).join('%0A');
+
+            const message = `Hi AR Marketing Solutions Team,%0A%0AI am interested in building a customized campaign. Here are my selected packages from your online quote builder:%0A%0A${packageNames}%0A%0AEstimated Total: *RM ${totalCost.toLocaleString()}*%0A%0APlease contact me directly with details regarding launch timelines and creative requirements!`;
+            
+            const whatsappUrl = `https://wa.me/60123456789?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // 6. Dynamic Inquiry form submissions
+        function handleInquirySubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('lead-name').value;
+            const phone = document.getElementById('lead-phone').value;
+            const email = document.getElementById('lead-email').value;
+            const subject = document.getElementById('lead-subject').value;
+            const message = document.getElementById('lead-message').value;
+
+            // Build elegant WhatsApp fallback query message string
+            const waQueryMessage = `Hi AR Marketing Solutions,%0A%0AI have submitted an inquiry form on your site:%0A%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}%0APillar Interest: *${subject}*%0ARequest: ${message}`;
+            
+            // Show successful UI banner and clear inputs
+            const successBanner = document.getElementById('form-success-banner');
+            successBanner.classList.remove('hidden');
+
+            showToast(`<i class="fas fa-envelope-open-text text-brand-teal"></i>`, `Form submitted successfully! Contacting on WhatsApp...`);
+
+            // Clear inputs elegantly
+            document.getElementById('lead-form').reset();
+
+            // Open direct WhatsApp inquiry option backup support
+            setTimeout(() => {
+                const whatsappUrl = `https://wa.me/60123456789?text=${waQueryMessage}`;
+                window.open(whatsappUrl, '_blank');
+            }, 1000);
+        }
+
+        // 7. Mockup Demo Logic
+        let demoSelectedServiceName = "";
+
+        function selectDemoService(element, serviceName) {
+            // Reset styles for all buttons
+            document.querySelectorAll('.demo-service-btn').forEach(btn => {
+                btn.classList.remove('border-brand-teal', 'bg-brand-teal/10');
+                btn.classList.add('border-transparent');
             });
             // Highlight selected
-            btn.classList.remove('border-transparent');
-            btn.classList.add('border-brand-blue', 'bg-brand-blue/5');
+            element.classList.remove('border-transparent');
+            element.classList.add('border-brand-teal', 'bg-brand-teal/10');
             
-            demoSelectedService = serviceName;
-            document.getElementById('demo-step-1-next').disabled = false;
-            document.getElementById('demo-step-1-next').classList.remove('opacity-50', 'cursor-not-allowed');
+            // Enable next button
+            demoSelectedServiceName = serviceName;
+            const nextBtn = document.getElementById('demo-step-1-next');
+            nextBtn.disabled = false;
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            nextBtn.classList.add('hover:bg-navy-800');
         }
 
         function changeDemoStep(step) {
-            document.querySelectorAll('.demo-step').forEach(el => {
-                el.classList.add('hidden');
-                el.classList.remove('block');
-            });
-            document.getElementById(`demo-step-${step}`).classList.remove('hidden');
-            document.getElementById(`demo-step-${step}`).classList.add('block');
+            // Hide all steps
+            document.querySelectorAll('.demo-step').forEach(el => el.classList.add('hidden'));
+            
+            // Show target step
+            const target = document.getElementById('demo-step-' + step);
+            target.classList.remove('hidden');
+            
+            // Trigger simple fade effect
+            target.style.opacity = '0';
+            setTimeout(() => target.style.opacity = '1', 50);
 
+            // Update text based on selections
             if (step === 2) {
-                document.getElementById('demo-selected-service-display').innerText = demoSelectedService;
+                document.getElementById('demo-selected-service-display').innerText = demoSelectedServiceName;
             } else if (step === 3) {
-                document.getElementById('demo-final-service').innerText = demoSelectedService;
+                document.getElementById('demo-final-service').innerText = demoSelectedServiceName;
+                showToast(`<i class="fas fa-magic text-cyan-400"></i>`, `Magic! Your customer's appointment is secured.`);
             }
         }
 
         function resetDemo() {
-            demoSelectedService = '';
-            document.querySelectorAll('.demo-service-btn').forEach(b => {
-                b.classList.remove('border-brand-blue', 'bg-brand-blue/5');
-                b.classList.add('border-transparent');
+            // Reset state
+            demoSelectedServiceName = "";
+            document.querySelectorAll('.demo-service-btn').forEach(btn => {
+                btn.classList.remove('border-brand-teal', 'bg-brand-teal/10');
+                btn.classList.add('border-transparent');
             });
-            let nextBtn = document.getElementById('demo-step-1-next');
+            
+            const nextBtn = document.getElementById('demo-step-1-next');
             nextBtn.disabled = true;
             nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            nextBtn.classList.remove('hover:bg-navy-800');
+
             changeDemoStep(1);
         }
-
-        // Contact Subject Helper
-        function setContactSubject(subject) {
-            const input = document.getElementById('contact-subject');
-            input.value = subject;
-            // Optionally highlight it
-            input.classList.add('ring-2', 'ring-brand-teal');
-            setTimeout(() => input.classList.remove('ring-2', 'ring-brand-teal'), 1500);
-        }
-
-        // Portfolio Filtering
-        function filterPortfolio(category, btnElement) {
-            // Update buttons
-            document.querySelectorAll('.portfolio-tab-btn').forEach(btn => {
-                btn.classList.remove('active-tab', 'bg-navy-900', 'text-white');
-                btn.classList.add('bg-white', 'text-gray-600');
-            });
-            btnElement.classList.remove('bg-white', 'text-gray-600');
-            btnElement.classList.add('active-tab', 'bg-navy-900', 'text-white');
-
-            // Filter items
-            const items = document.querySelectorAll('.portfolio-card');
-            items.forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'flex';
-                    // Small animation
-                    item.style.opacity = '0';
-                    setTimeout(() => item.style.opacity = '1', 50);
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        // Portfolio Modal Logic
-        const modal = document.getElementById('artwork-modal');
-        const modalImg = document.getElementById('modal-img');
-        const modalTitle = document.getElementById('modal-title');
-        const modalCategory = document.getElementById('modal-category');
-        const modalDesc = document.getElementById('modal-desc');
-        const modalClient = document.getElementById('modal-client');
-
-        function openArtworkModal(btnElement) {
-            const card = btnElement.closest('.portfolio-card');
-            
-            // Populate data
-            modalImg.src = card.getAttribute('data-img');
-            modalTitle.innerText = card.getAttribute('data-title');
-            modalCategory.innerText = card.getAttribute('data-category');
-            modalDesc.innerText = card.getAttribute('data-desc');
-            modalClient.innerText = card.getAttribute('data-client');
-
-            // Show modal
-            modal.classList.remove('hidden');
-            // Small delay to allow display:block to apply before transition
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modal.firstElementChild.classList.remove('scale-95');
-                modal.firstElementChild.classList.add('scale-100');
-            }, 10);
-            
-            // Prevent body scroll
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeArtworkModal() {
-            modal.classList.add('opacity-0');
-            modal.firstElementChild.classList.remove('scale-100');
-            modal.firstElementChild.classList.add('scale-95');
-            
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }, 300);
-        }
-
-        // Close modal on outside click
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeArtworkModal();
-            }
-        });
     </script>
 </body>
 </html>
