@@ -1544,40 +1544,44 @@
         </div>
     </section>
 
-      <!-- Interactive Quote Builder Cart Widget (Floating Bottom Drawer) -->
+ <!-- Interactive Quote Builder Cart Widget (Floating Bottom Drawer) -->
     <div id="quote-drawer" class="fixed bottom-0 left-0 w-full bg-navy-900 border-t-2 border-brand-teal text-white shadow-2xl z-40 transform translate-y-full transition-transform duration-500">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
                 
                 <!-- Drawer info -->
-                <div class="flex items-center gap-3 sm:gap-4 text-center md:text-left w-full md:w-auto">
-                    <span class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-lg sm:text-xl animate-pulse flex-shrink-0">
+                <div class="flex items-center gap-4 text-center md:text-left">
+                    <span class="w-12 h-12 rounded-xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl animate-pulse">
                         <i class="fas fa-calculator"></i>
                     </span>
-                    <div class="overflow-hidden text-left">
-                        <h4 class="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
+                    <div>
+                        <h4 class="text-base font-bold text-white flex items-center gap-2 justify-center md:justify-start">
                             Your Quote Builder <span class="bg-brand-teal text-navy-900 text-[10px] px-2 py-0.5 rounded-full font-extrabold" id="drawer-count">0 Selected</span>
                         </h4>
-                        <p class="text-[11px] sm:text-xs text-gray-400 truncate max-w-sm sm:max-w-md" id="selected-list-text">No packages selected yet. Click "Add to Quote Builder" above to bundle services!</p>
+                        <p class="text-xs text-gray-400 max-w-xl" id="selected-list-text">No packages selected yet. Click "Select Package" above to bundle services!</p>
                     </div>
                 </div>
 
                 <!-- Drawer pricing & actions -->
-                <div class="flex flex-wrap items-center justify-between md:justify-end gap-3 sm:gap-4 w-full md:w-auto">
-                    <div class="text-left md:text-right">
-                        <span class="text-[10px] sm:text-xs text-gray-400 block font-semibold uppercase tracking-widest">Est. Total Cost</span>
-                        <span class="text-xl sm:text-2xl font-extrabold text-brand-teal" id="drawer-total">RM 0.00</span>
+                <div class="flex flex-wrap items-center gap-4">
+                    <div class="text-center md:text-right">
+                        <span class="text-xs text-gray-400 block font-semibold uppercase tracking-widest">Est. Total Package Cost</span>
+                        <span class="text-2xl font-extrabold text-brand-teal" id="drawer-total">RM 0.00</span>
                     </div>
 
                     <div class="flex gap-2">
-                        <button onclick="clearQuote()" class="px-3 py-2.5 sm:px-3.5 sm:py-3 border border-white/20 hover:bg-white/10 rounded-xl text-xs font-bold transition-colors" title="Clear All selections">
+                        <button onclick="clearQuote()" class="px-3.5 py-3 border border-white/20 hover:bg-white/10 rounded-xl text-xs font-bold transition-colors" title="Clear All selections">
                             Clear
                         </button>
-                        <button onclick="sendWhatsAppQuote()" class="px-4 py-2.5 sm:px-5 sm:py-3 bg-green-600 hover:bg-green-500 text-white rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 shadow-lg shadow-green-600/30 transition-all duration-300">
-                            <i class="fab fa-whatsapp text-base"></i> Send Quote
+                        <button onclick="sendWhatsAppQuote()" class="px-5 py-3 bg-green-600 hover:bg-green-500 text-white rounded-xl text-sm font-bold flex items-center gap-2 shadow-lg shadow-green-600/30 transition-all duration-300">
+                            <i class="fab fa-whatsapp text-base"></i> Send Quote to WhatsApp
                         </button>
                     </div>
                 </div>
+
+            </div>
+        </div>
+    </div>
 
             
     <!-- Contact Form & Consultation Section -->
